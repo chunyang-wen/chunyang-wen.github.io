@@ -1,6 +1,6 @@
 ---
-title: Code Rush观后感
 layout: post
+title: Code Rush观后感
 categories:
 - movies
 tags:
