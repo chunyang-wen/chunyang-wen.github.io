@@ -1,7 +1,7 @@
 ---
 title: Implementation of A star algorithm
 layout: post
-category: 
+categories: 
 - algorithms
 tags:
 - a-star
