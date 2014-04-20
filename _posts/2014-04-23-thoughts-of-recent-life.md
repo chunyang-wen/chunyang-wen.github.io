@@ -1,4 +1,12 @@
-##近半个月感慨
+---
+layout: post
+title: 近半个月感慨
+categories:
+- Programming
+tags:
+- Ruby
+---
+
 @(Technology)[life|thoughts]
 
 近段时间其实也没有做什么具体的事，只是抽了很多时间看了很多书。虽然自己也很紧张，但是在这种忙里偷闲的时间里也不忘学学脚本。
