@@ -3,7 +3,7 @@
 
 近段时间其实也没有做什么具体的事，只是抽了很多时间看了很多书。虽然自己也很紧张，但是在这种忙里偷闲的时间里也不忘学学脚本。
 
-这段时间在[Code Academy](http://www.codeacademy.com)上学习了Ruby和Python。最开始的第一印象是：为什么Python没有对类中的成员变量或者成员函数进行一些作用域的设定？
+这段时间在<a href="http://www.codeacademy.com" target="_blank">Code Academy</a>上学习了Ruby和Python。最开始的第一印象是：为什么Python没有对类中的成员变量或者成员函数进行一些作用域的设定？
 
 Ruby给出非常直接的解决方法，public，private，protect关键字来支持，同时也支持一些例如@name，@@name，$name这种方式来区分不同的变量归属。上句中三个分别指代类实例变量，类变量和全局作用域变量。
 
@@ -17,7 +17,7 @@ Ruby允许对一个已经定义好的类动态的添加方法，动态的删除�
 
 Ruby提供的功能非常的强大，只是觉得用户的自由非常充分，唯一剩下的就是自己如何发挥这种自由度，创造出功能比较强大的模块或者类。在Ruby中对某个问题总有解决方法，而且绝对不只一种方法。
 
-代码的本领是练出来的，后来[codekata](http://www.codekata.com)上看到了一个练习：删除Java中的注释。这个看似简单的任务其实存在很多的坑在里面。Ruby的String类对正则表达式的支持比较强大，我选择使用正则来处理。大概的思路是一行一行的处理，针对每一行删除行注释，块注释，并且需要注意多行的注释以及隐藏在代码中间的注释。
+代码的本领是练出来的，后来<a href="http://www.codekata.com" target="_blank">codekata</a>上看到了一个练习：删除Java中的注释。这个看似简单的任务其实存在很多的坑在里面。Ruby的String类对正则表达式的支持比较强大，我选择使用正则来处理。大概的思路是一行一行的处理，针对每一行删除行注释，块注释，并且需要注意多行的注释以及隐藏在代码中间的注释。
 
 1. 第一版本的思路  
 利用两个正则表达式来删除：  
@@ -29,7 +29,7 @@ Ruby提供的功能非常的强大，只是觉得用户的自由非常充分，�
 3. 第三版本的思路  
 第三版本的思路主要是在前两个问题的基础上解决的。第一、针对贪婪的方式，经过调研以后发现在匹配后面增加?，原来的模式就变为非贪婪模式；第二、针对这种双引号中的内容问题，采取迂回战术，首先，将双引号之间的内容匹配，然后将双引号中的/\*, \*/和//都替换成一个已知的常量。然后再进行正常的删除，在删除完以后再将所有的替换后的东西换成之前的内容。  
 
-程序代码在<a href=https://github.com/chunyang-wen/code-practice/blob/master/Ruby/remove-comments-in-java.rb>Revome comments in Java/C++</a>
+程序代码在<a href=https://github.com/chunyang-wen/code-practice/blob/master/Ruby/remove-comments-in-java.rb target="_blank">Revome comments in Java/C++</a>
 
 一个注释删除程序检测的能力超过我的想象，不仅仅是Ruby基本的代码能力，还包括：正则表达式，Ruby中的块传递返回值问题，注释中的各种extreme case识别，程序的逻辑，调试能力。  
 
