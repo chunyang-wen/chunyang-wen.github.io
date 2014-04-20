@@ -35,6 +35,6 @@ a\* 算法在人工智能领域应用比较广泛。这几天在USTC ACM上刷pr
 	pop_heap(sequence.begin(), sequence.end(), Compare());
 	sequence.pop_back();
 
-具体代码在：[a\* C++ implementation](https://github.com/chunyang-wen/code-practice/blob/master/USTC-ACM-Prob1012.cpp)
+具体代码在：[a\* C++ implementation](https://github.com/chunyang-wen/code-practice/blob/master/CPP/USTC-ACM-Prob1012.cpp)
 
 本文完
