@@ -7,7 +7,7 @@ tags:
 - ratio
 ---
 
-C++11中引入了一个分数类，之前还没明白是怎么回事，看了内部的定义才明白是做什么的。我们首先将其代码贴出来。
+C++11中引入了一个分数类，之前还没明白是怎么回事，看了内部的定义才明白是做什么的。其特色是所有结构都是在编译器间决定，所以我们在初始化分数的分子和分母时都必须给出常量的值，否则会编译出错。在编译期间会报告所有错误，例如除以0或者溢出等。在chrono类中的time_point和duration中应用。我们首先将其代码贴出来。
 
 ```cpp
 	namespace std {
@@ -22,10 +22,10 @@ C++11中引入了一个分数类，之前还没明白是怎么回事，看了内
 		};
 
 		// ratio arithmic
-		template <class R1, class R2> using ratio_add = /\* ratio \*/;
-		template <class R1, class R2> using ratio_subtract = /\* ratio \*/;
-		template <class R1, class R2> using ratio_multiply = /\* ratio \*/;
-		template <class R1, class R2> using ratio_divide = /\* ratio \*/;
+		template <class R1, class R2> using ratio_add = /* ratio */;
+		template <class R1, class R2> using ratio_subtract = /* ratio */;
+		template <class R1, class R2> using ratio_multiply = /* ratio */;
+		template <class R1, class R2> using ratio_divide = /* ratio */;
 
 		// ratio comparison
 		template <class R1, class R2> struct ratio_equal;
