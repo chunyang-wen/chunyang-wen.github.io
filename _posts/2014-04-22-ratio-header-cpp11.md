@@ -74,6 +74,6 @@ C++11中引入了一个分数类，之前还没明白是怎么回事，看了内
 
 参考文献：
 
-+ <a href=en.cppreference.com/w/cpp/header/ratio target="_blank"> Ratio</a>
++ <a href="http://en.cppreference.com/w/cpp/header/ratio" target="_blank"> Ratio</a>
 
 <本文完\>
