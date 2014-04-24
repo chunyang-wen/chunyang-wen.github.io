@@ -6,4 +6,7 @@ pygments: false
 safe: true
 paginate: 16
 auto: true
+redcarpet:
+  extensions: [fenced_code_blocks]
+  render_options:
 
