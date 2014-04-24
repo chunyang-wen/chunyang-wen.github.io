@@ -11,6 +11,14 @@ tags:
 ##Closures in Ruby
 @(Technology)[Ruby|Closure]
 
+{% highlight ruby linenos %}
+public void main(string argv)
+{
+    return 0;
+}
+{% endhighlight %}
+
+
 这篇文章是翻译自：[Paul Cantrell](http://innig.net/software/ruby/closures-in-ruby)。
 
 我推荐先运行这个文件，然后一边读，一边观察其后的结果。当然你也可也先删除所有的注释，猜测所有程序的结果，以此来测试你自己Ruby能力。
