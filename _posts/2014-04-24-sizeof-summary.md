@@ -218,11 +218,11 @@ P.S. 如果sizeof(void\*)大小的虚函数也要参与字节对齐过程。4字
 以上的分析不知道是否是正确的，在参考文中分析菱形继承和虚拟继承时并没有考虑基类也具有虚函数的场景。但是通过测试发现如下现象：
 
 + 当采用虚拟继承时，基类（若基类有虚函数）的虚表指针也会在派生类中出现，即派生类会增加一个虚表指针的大小
-
 + 当不采用虚拟继承时，只需要关心派生类的基类的情况，以及基类的成员情况，不用增加一个额外的指针。即上面的Derived3中，如果Base1中没有虚函数，那么这个大小就是12字节。Derived有两个虚表指针，加上一个（由于是虚拟继承，只有一份）整型变量。
 
-+ <a href="http://www.go4expert.com/articles/size-cpp-class-object-t16676/" target="_blank">sizeof of class</a>
+参考：
 
++ <a href="http://www.go4expert.com/articles/size-cpp-class-object-t16676/" target="_blank">sizeof of class</a>
 + <a href="http://stackoverflow.com/questions/9439240/sizeof-class-with-int-function-virtual-function-in-c" target="_blank">stackoverflow</a>
 
 <本文完\>
