@@ -9,7 +9,7 @@ tags:
 
 C/C++，Java中都有字节对齐的概念。字节对齐的目的是加快CPU的访问速度，因为将字节对齐的相应长度的整数倍位置上，CPU取数据会更快。为什么呢？
 
-> Cache可以看成一些可以用非常快的速度进行访问的临时内存。但是Cache的容量不大，比如一般一级Cache只有几K到几十K,二级Cache只有几百K到几M.这个同数G的内存相比，是比较小的。但是CPU访问内存非常慢，所以硬件会将平时经常使用的内容存放到Cache里面。Cache是通过一些Cache Line来组织的，每一条Cache Line一般包含16个字节，32个字节或64个字节等。 比如某个计算机一级Cache的Cache Line长度是32个字节，那么每段Cache Line总是会包含32个字节对齐的一段内存。现在有一个4字节的整数，如果它的地址不是4字节对齐的，那么就有可能访问它的时候，需要使用两条Cache Line,这增加了总线通讯量，而且增加了对Cache的使用量，而且使用的数据没有在Cache里面（这时需要将数据从内存调入Cache,会非常慢）的机会会增加，这些都降低了程序的速度。<a href="www.cnblogs.com/yezhenhan/archive/2012/07/17/2594655.html" target="_blank">参考</a>
+> Cache可以看成一些可以用非常快的速度进行访问的临时内存。但是Cache的容量不大，比如一般一级Cache只有几K到几十K,二级Cache只有几百K到几M.这个同数G的内存相比，是比较小的。但是CPU访问内存非常慢，所以硬件会将平时经常使用的内容存放到Cache里面。Cache是通过一些Cache Line来组织的，每一条Cache Line一般包含16个字节，32个字节或64个字节等。 比如某个计算机一级Cache的Cache Line长度是32个字节，那么每段Cache Line总是会包含32个字节对齐的一段内存。现在有一个4字节的整数，如果它的地址不是4字节对齐的，那么就有可能访问它的时候，需要使用两条Cache Line,这增加了总线通讯量，而且增加了对Cache的使用量，而且使用的数据没有在Cache里面（这时需要将数据从内存调入Cache,会非常慢）的机会会增加，这些都降低了程序的速度。<a href="http://www.cnblogs.com/yezhenhan/archive/2012/07/17/2594655.html" target="_blank">参考</a>
 
 C/C++中可以使用sizeof来获取一个结构或者类所占的空间大小，它有三种用法：
 
@@ -218,9 +218,11 @@ P.S. 如果sizeof(void\*)大小的虚函数也要参与字节对齐过程。4字
 以上的分析不知道是否是正确的，在参考文中分析菱形继承和虚拟继承时并没有考虑基类也具有虚函数的场景。但是通过测试发现如下现象：
 
 + 当采用虚拟继承时，基类（若基类有虚函数）的虚表指针也会在派生类中出现，即派生类会增加一个虚表指针的大小
+
 + 当不采用虚拟继承时，只需要关心派生类的基类的情况，以及基类的成员情况，不用增加一个额外的指针。即上面的Derived3中，如果Base1中没有虚函数，那么这个大小就是12字节。Derived有两个虚表指针，加上一个（由于是虚拟继承，只有一份）整型变量。
 
 + <a href="http://www.go4expert.com/articles/size-cpp-class-object-t16676/" target="_blank">sizeof of class</a>
+
 + <a href="http://stackoverflow.com/questions/9439240/sizeof-class-with-int-function-virtual-function-in-c" target="_blank">stackoverflow</a>
 
 <本文完\>
