@@ -31,28 +31,28 @@ Ruby是基于“最小惊异原则”而设计的，但是在学习时，我却�
 
 
 ```ruby
-    def example(num)
-        puts
-        puts "-------- Example #{num}---------"
-    end
+def example(num)
+    puts
+    puts "-------- Example #{num}---------"
+end
 ```
 
 ###第一部分：块
 
 1. 块就像闭包一样，因为他们可以引用他们定义处的变量。
 
-```ruby
-    # example 1
-    def thrice
-        yield
-        yield
-        yield
-    end
-    x = 5
-    puts "value of x before: #{x}"
-    thrice{x += 1}
-    puts "value of x after: #{x}"
-```
+{% highlight linenos %}
+# example 1
+def thrice
+    yield
+    yield
+    yield
+end
+x = 5
+puts "value of x before: #{x}"
+thrice{x += 1}
+puts "value of x after: #{x}"
+{% endhighlight %}
 
 2. 一个块可以引用它定义处的变量，而不是其调用处的变量
 
