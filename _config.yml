@@ -1,4 +1,4 @@
-markdown: rdiscount
+markdown: redcarpet 
 permalink: /:year/:month/:day/:title/
 url: http://chunyang-wen.github.io
 author: chunyang-wen
