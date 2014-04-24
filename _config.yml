@@ -1,12 +1,8 @@
-markdown: redcarpet
+markdown: rdiscount
 permalink: /:year/:month/:day/:title/
 url: http://chunyang-wen.github.io
 author: chunyang-wen
-pygments: false
+pygments: true
 safe: true
 paginate: 16
 auto: true
-redcarpet:
-  extensions: [fenced_code_blocks]
-  render_options:
-
