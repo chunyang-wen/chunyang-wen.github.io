@@ -41,7 +41,7 @@ end
 
 1. 块就像闭包一样，因为他们可以引用他们定义处的变量。
 
-{% highlight linenos %}
+{% highlight ruby linenos %}
 # example 1
 def thrice
     yield
