@@ -12,7 +12,10 @@ a\* 算法在人工智能领域应用比较广泛。这几天在USTC ACM上刷pr
 
 在C++中，其实也有priority_queue。这个是一个接口封装，底层可以使用vector或者deque实现。[priority_queue](http://www.sgi.com/tech/stl/priority_queue.html)
 
-    priority_queue<T, Sequence, Compare>
+```cpp
+
+priority_queue<T, Sequence, Compare>
+```
 
 其中T表示储存值的类型，Sequence表示底层的实现方式，Compare表示比较函数。这里需要注意的是，默认priority_queue是最大堆。
 
@@ -22,20 +25,20 @@ a\* 算法在人工智能领域应用比较广泛。这几天在USTC ACM上刷pr
 
 ```cpp
 
-    struct Compare {
-		bool operatro()(const Type &lhs, const Type &rhs)
-		{
-			//....
-		}
-	};
+struct Compare {
+	bool operatro()(const Type &lhs, const Type &rhs)
+	{
+		//....
+	}
+};
 
-	make_heap(sequence.begin(), sequence.end(), Compare());
+make_heap(sequence.begin(), sequence.end(), Compare());
 
-	sequence.push_back(value);
-	push_heap(sequence.begin(), sequence.end(), Compare());
+sequence.push_back(value);
+push_heap(sequence.begin(), sequence.end(), Compare());
 
-	pop_heap(sequence.begin(), sequence.end(), Compare());
-	sequence.pop_back();
+pop_heap(sequence.begin(), sequence.end(), Compare());
+sequence.pop_back();
 ```
 
 具体代码在：[a\* C++ implementation](https://github.com/chunyang-wen/code-practice/blob/master/CPP/USTC-ACM-Prob1012.cpp)
