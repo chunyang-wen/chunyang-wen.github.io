@@ -13,13 +13,16 @@ C++中的模板是C++中实现元编程的一种主要途径。元编程，即�
 维基百科上说是在编译器间完成，其实脚本像Ruby可以在运行期间可变程序的行为。首先来看看tempalte的一些基本应用。
 
 + 函数模板
+
 	```cpp
 	template<typename T1, typename T2>
 	std::common_type<T1,T2>::type add(T1 t1, T2 t2);
 	```
+
 	上述是声明一个函数模板，其可以针对两种类型相加，然后给出结果。common_type是c++11中在type_traits中引入的。如果T1和T2没有公共类型就会出错。
 
 + 类模板
+
 	```cpp
 	template<typename T>
 	class Stack
@@ -29,6 +32,7 @@ C++中的模板是C++中实现元编程的一种主要途径。元编程，即�
 		//...other stuff...
 	};
 	```
+
 	上述是声明一个简单的Stack类，其中模板参数表示其可以存储任何类型。
 
 一般主要就是用于以上两个目的：函数模板和类模板。函数模板和类模板是不一样的，类模板有特化，偏特化和完全特化；函数模板**没有**，函数模板只有重载。看看下面一个例子：
@@ -112,6 +116,7 @@ class Earth
 + 利用内存布局的知识，将其重新解释reinterpret\_cast<int*>(&earth\_obj)
 + 添加友元函数
 + 给类增加一个模板函数：Bingo.
+
 	```cpp
 	struct Y{};
 	template<>
