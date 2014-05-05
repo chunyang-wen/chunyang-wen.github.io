@@ -12,12 +12,12 @@ tags:
 他们之间的区别：
 
 + malloc/free是cstdlib中的函数，new/delete是操作符。
-+ malloc/free只是分配所需的空间，若分配空间失败则返回空指针；new/delete不仅会分配空间，也会调用想用的构造函数和析构函数。其失败可以返回空指针，也可以抛出bad_alloc的异常，或者调用相应的handler，其函数声明是void(\*)(void)，在new头文件中，通过set_new_handler来设置，其返回之前的处理，一般都是调用terminate()，结束程序的执行。
++ malloc/free只是分配所需的空间，若分配空间失败则返回空指针；new/delete不仅会分配空间，也会调用想用的构造函数和析构函数。其失败可以返回空指针，也可以抛出bad\_alloc的异常，或者调用相应的handler，其函数声明是void(\*)(void)，在new头文件中，通过set\_new\_handler来设置，其返回之前的处理，一般都是调用terminate()，结束程序的执行。
 
 在C++中系统提供了几种全局的函数：
 
 + void \* operator new(size_t sz)
-+ void \* operator new(size_t sz, std::nothrow_t&);
++ void \* operator new(size\_t sz, std::nothrow\_t&);
 + void \* operator new(size_t sz, void \*ptr);
 + void \* operator new(size_t sz,/\* args... \*/); // class specific
 
@@ -82,5 +82,7 @@ int main()
 
 上面是简易版本的重载。需要注意的是，重载时必须其函数是静态函数，函数的声明除了必须的函数参数，其它参数都是可选的。在重载的时候需要提供其它参数，就如上面代码中的std::nothrow。
 
-1. <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank"> Cpp Reference new</a>
+1. <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank"> Cpp Reference operator new</a>
 2. <a href="http://en.cppreference.com/w/cpp/memory/new/operator_delete" target="_blank">Cpp Reference Operator delete </a>
+
+<本文完\>
