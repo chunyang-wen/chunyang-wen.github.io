@@ -14,26 +14,26 @@ C++中的模板是C++中实现元编程的一种主要途径。元编程，即�
 
 + 函数模板
 
-	```cpp
-	template<typename T1, typename T2>
-	std::common_type<T1,T2>::type add(T1 t1, T2 t2);
-	```
+```cpp
+template<typename T1, typename T2>
+std::common_type<T1,T2>::type add(T1 t1, T2 t2);
+```
 
-	上述是声明一个函数模板，其可以针对两种类型相加，然后给出结果。common_type是c++11中在type_traits中引入的。如果T1和T2没有公共类型就会出错。
+上述是声明一个函数模板，其可以针对两种类型相加，然后给出结果。common_type是c++11中在type_traits中引入的。如果T1和T2没有公共类型就会出错。
 
 + 类模板
 
-	```cpp
-	template<typename T>
-	class Stack
-	{
-		private:
-			T value;
-		//...other stuff...
-	};
-	```
+```cpp
+template<typename T>
+class Stack
+{
+private:
+	T value;
+	//...other stuff...
+};
+```
 
-	上述是声明一个简单的Stack类，其中模板参数表示其可以存储任何类型。
+上述是声明一个简单的Stack类，其中模板参数表示其可以存储任何类型。
 
 一般主要就是用于以上两个目的：函数模板和类模板。函数模板和类模板是不一样的，类模板有特化，偏特化和完全特化；函数模板**没有**，函数模板只有重载。看看下面一个例子：
 
@@ -60,8 +60,8 @@ f(b)
 函数调用的顺序如下：
 
 + plain old function: 没有模板修饰的，匹配的优先级最高。
-+ primary template: 最开始的模板。
 + primary template overload: 稍微特化一点的模板。
++ primary template: 最开始的模板。
 
 上述函数调用使用的是primary template overload这种调用方式。第一个模板实际上是T-\>T的形式，而第三个模板是T-\>T\*的形式。上面是函数模板与类模板一个重要的区别，需要仔细体会。
 
@@ -101,12 +101,12 @@ void print(T t, Args...args)
 ```cpp
 class Earth
 {
-	private:
-		int private_;
-	public:
-		template<typename T>
-		void f(T t);
-		void g();
+private:
+	int private_;
+public:
+	template<typename T>
+	void f(T t);
+	void g();
 };
 ```
 
@@ -117,11 +117,68 @@ class Earth
 + 添加友元函数
 + 给类增加一个模板函数：Bingo.
 
-	```cpp
-	struct Y{};
-	template<>
-	void Earth::f<Y>(Y y) {/* hacker's laugh */};
-	```
+```cpp
+struct Y{};
+template<>
+void Earth::f<Y>(Y y) {/* hacker's laugh */};
+```
+
+接下来研究一下《More Exceptional C++》（Herb sutter）上的一个例子。
+
+```cpp
+template<typename T1, typename T2>
+void g(T1, T2);
+template<typename T> void g(T);
+template<typename T> void g(T,T);
+template<typename T> void g(T*);
+template<typename T> void g(T*,T);
+template<typename T> void g(T, T*);
+template<typename T> void g(int, T*);
+template<> void g<int>(int);
+void g(int, double);
+void g(int);
+
+int i;
+double d;
+float f;
+complex<double> c;
+
+// test cases
+g(i);         // 1
+g<int>(i);    // 2
+g(i,i);       // 3
+g(c);         // 4
+g(i,f);       // 5
+g(i,d);       // 6
+g(c, &c);     // 7
+g(i, &d);     // 8
+g(&d, d);     // 9
+g(&d);        // 10
+g(d, *i);     // 11
+g(&i,&i);     // 12
+```
+
+上面提到函数模板只有重载，而没有偏特化这种形式，再强调一次，在匹配时，
+
++ 自由函数，函数参数类型必须完全一致，不允许转换
++ 函数模板-\>最特化的模板
++ 函数模板-\>通用模板
+
+匹配结果如下：
+
++ 第一个函数匹配：g(int);
++ 第二个匹配：template<\> void g<int\>(int);
++ 第三个匹配：template<typename T\> void g(T,T);
++ 第四个匹配：template<typename T\> void g(T);
++ 第五个匹配：template<typenmae T1, typename T2\> void g(T1, T2);
++ 第六个匹配：void g(int, double);
++ 第七个匹配：template<typename T\> void g(T, T*);
++ 第八个匹配：template<typename T\> void g(int, T*);
++ 第九个匹配：template<typename T\> void g(T*,T);
++ 第十个匹配：template<typename T\> void g(T*);
++ 第十一个匹配：template<typename T1, typename T2\> void g(T1, T2);
++ 第十二个匹配：template<typename T\> void g(T,T);
 
 总结一下：C++中的模板帮助我们编写通用的函数和类，而且也提供了元编程的能力。但是每一技术都需要仔细去研究才会得心应手。
+
 <本文完\>
