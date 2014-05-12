@@ -24,6 +24,7 @@ typedef basic_ostream<char, char_traits<char> > ostream;
 ```
 
 通常我们使用的头文件<iostream/>，其中包含如下流对象的定义：
+
 + cerr/wcerr
 + cin/wcin
 + clog/wclog
@@ -31,11 +32,11 @@ typedef basic_ostream<char, char_traits<char> > ostream;
 
 由于cin/cout分别是istream和ostream类型的变量，而istream和ostream分别是basic\_istream和basic\_ostream的typedef，接下来看看basic\_istream和basic\_ostream中的成员变量和函数：
 
-1. basic_istream
-	+ basic_istream构造函数  
+1. basic\_istream
+	+ basic\_istream构造函数     
 		```cpp
 		explicit basic_istream( basic_streambuf<Elem, Tr> *_Strbuf, bool _Isstd = flase);
-		```  
+		```     
 	+ streamsize gcount() const，返回上一次读入的字节数
 	+ get，读入一个字符
 	+ getline，读入一行字符
