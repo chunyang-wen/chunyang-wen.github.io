@@ -32,10 +32,10 @@ typedef basic_ostream<char, char_traits<char> > ostream;
 由于cin/cout分别是istream和ostream类型的变量，而istream和ostream分别是basic\_istream和basic\_ostream的typedef，接下来看看basic\_istream和basic\_ostream中的成员变量和函数：
 
 1. basic_istream
-	+ basic_istream构造函数
+	+ basic_istream构造函数  
 		```cpp
 		explicit basic_istream( basic_streambuf<Elem, Tr> *_Strbuf, bool _Isstd = flase);
-		```
+		```  
 	+ streamsize gcount() const，返回上一次读入的字节数
 	+ get，读入一个字符
 	+ getline，读入一行字符
@@ -83,14 +83,12 @@ C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全
 四个设置函数在头文件<iomanip>中。
 
 1. 整形数输出格式控制
-
     + boolalpha, noboolalpha：在输出true/false时，是numeric（0, 1）还是literal（true, false）。
     + showbase/noshowbase：显示表示整数的基，0X，0等。
     + hex/oct/dec：显示输出的进制。 16进制中x的大小写，uppercase/lowercase 
-    以上功能改变都是持续性的，直到改变回原样为止。
     
+	以上功能改变都是持续性的，直到改变回原样为止。    
 2. 浮点数格式化输出
-
     - setw(int), setprecision(int), setfill(char), setbase(8/10/16)：这三个函数分别是设置输出的宽度，精度以及当宽度不足时的补充和输出的基数。
     - showpoint/noshowpoint：设置输出小数位是0的浮点数时是否强制显示小数位的0。
     - left/right/internal：设置在setw后当宽度小于设置的值时的填充位置。internal输出有符号数时，左移符号位，右移数字，在中间填充字符。
@@ -98,6 +96,7 @@ C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全
     - fixed/scientific：fixed固定输出小数点后6位
 
 会导致流刷新的事件：
+
 + 缓冲区满。
 + 在输出流之后有输入操作，立即刷新缓冲区
 + 使用相关运算子或者函数主动刷新流。
@@ -109,3 +108,5 @@ C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全
         cout << ... << flush;
 	+ 从 cin 流中读取或写入 cerr 或 clog 的流。由于这些对象会与 cout 共享缓冲区，每对它进行任何更改之前刷新缓冲区的内容。
 	+ 退出该程序以刷新当前正在使用的所有缓冲区。
+
+<本文完\>
