@@ -112,7 +112,7 @@ C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全
 
 参考文献：
 
-1. <a href=http://msdn.microsoft.com/en-us/library/yeecc295%28v=vs.80%29.aspx>MSDN iostream</a>
-2. <a href=http://www.cplusplus.com/reference/iolibrary/>cplusplus.com,继承图出处</a>
+1. <a href=http://msdn.microsoft.com/en-us/library/yeecc295%28v=vs.80%29.aspx target="_blank">MSDN iostream</a>
+2. <a href=http://www.cplusplus.com/reference/iolibrary/ target="_blank">cplusplus.com,继承图出处</a>
 
 <本文完\>
