@@ -110,4 +110,9 @@ C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全
 	+ 从 cin 流中读取或写入 cerr 或 clog 的流。由于这些对象会与 cout 共享缓冲区，每对它进行任何更改之前刷新缓冲区的内容。
 	+ 退出该程序以刷新当前正在使用的所有缓冲区。
 
+参考文献：
+
+1. <a href=http://msdn.microsoft.com/en-us/library/yeecc295%28v=vs.80%29.aspx>MSDN iostream</a>
+2. <a href=http://www.cplusplus.com/reference/iolibrary/>cplusplus.com,继承图出处</a>
+
 <本文完\>
