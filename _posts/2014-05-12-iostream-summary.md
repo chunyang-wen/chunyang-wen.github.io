@@ -101,12 +101,11 @@ std::cout<<std::dec<<a<<std::oct<<a<<std::hex<<a<<std::endl;
 
 以上功能改变都是持续性的，直到改变回原样为止。    
 2. 浮点数格式化输出
-
-    - setw(int), setprecision(int), setfill(char), setbase(8/10/16)：这三个函数分别是设置输出的宽度，精度以及当宽度不足时的补充和输出的基数。
-    - showpoint/noshowpoint：设置输出小数位是0的浮点数时是否强制显示小数位的0。
-    - left/right/internal：设置在setw后当宽度小于设置的值时的填充位置。internal输出有符号数时，左移符号位，右移数字，在中间填充字符。
-    - cout.unsetf(ostream::floatfield)：恢复到初始状态，有效数字为6位。
-    - fixed/scientific：fixed固定输出小数点后6位
+    + setw(int), setprecision(int), setfill(char), setbase(8/10/16)：这三个函数分别是设置输出的宽度，精度以及当宽度不足时的补充和输出的基数。
+    + showpoint/noshowpoint：设置输出小数位是0的浮点数时是否强制显示小数位的0。
+    + left/right/internal：设置在setw后当宽度小于设置的值时的填充位置。internal输出有符号数时，左移符号位，右移数字，在中间填充字符。
+    + cout.unsetf(ostream::floatfield)：恢复到初始状态，有效数字为6位。
+    + fixed/scientific：fixed固定输出小数点后6位
 
 ```cpp
 #include <iostream>
