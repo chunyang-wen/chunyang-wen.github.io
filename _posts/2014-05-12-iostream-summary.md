@@ -113,14 +113,16 @@ std::cout<<std::dec<<a<<std::oct<<a<<std::hex<<a<<std::endl;
 
 int main()
 {
-std::ios::fmtflags flags(std::cout.flags());
-int a = 3;
-// fill 0, default: fill '', right align;
-std::cout<<std::left<<std::setw(3)<<std::setfill('x')<<a<<std::endl;
-double b = 3.123;
-std::cout<<std::fixed<<std::setprecision(2)<<b<<std::endl; // output two effective numbers after decimal point
-std::cout.flags(flags);
-std::cout<<std::setprecision(2)<<b<<std::endl; // output 2 effective number
+	std::ios::fmtflags flags(std::cout.flags());
+	int a = 3;
+	// fill 0, default: fill '', right align;
+	std::cout<<std::left<<std::setw(3)<<std::setfill('x')<<a<<std::endl;
+	double b = 3.123;
+	// output two effective numbers after decimal point
+	std::cout<<std::fixed<<std::setprecision(2)<<b<<std::endl; 
+	std::cout.flags(flags);
+	// output 2 effective number
+	std::cout<<std::setprecision(2)<<b<<std::endl; 
 }
 ```
 
