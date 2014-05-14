@@ -81,13 +81,24 @@ typedef basic_ostream<char, char_traits<char> > ostream;
 
 C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全，但是同时也导致其效率相对低。
 
-四个设置函数在头文件<iomanip>中。
+四个设置函数在头文件<iomanip\>中。
 
 1. 整形数输出格式控制
     + boolalpha, noboolalpha：在输出true/false时，是numeric（0, 1）还是literal（true, false）。
+
+```cpp
+bool is_good = false;
+std::cout<<std::boolalpha<<is_good<<std::endl;
+std::cout<<std::noboolalpha<<is_good<<std::endl;
+```
     + showbase/noshowbase：显示表示整数的基，0X，0等。
     + hex/oct/dec：显示输出的进制。 16进制中x的大小写，uppercase/lowercase 
     
+```cpp
+int a = 0x36;
+std::cout<<std::dec<<a<<std::oct<<a<<std::hex<<a<<std::endl;
+```
+
 	以上功能改变都是持续性的，直到改变回原样为止。    
 2. 浮点数格式化输出
     - setw(int), setprecision(int), setfill(char), setbase(8/10/16)：这三个函数分别是设置输出的宽度，精度以及当宽度不足时的补充和输出的基数。
@@ -95,6 +106,23 @@ C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全
     - left/right/internal：设置在setw后当宽度小于设置的值时的填充位置。internal输出有符号数时，左移符号位，右移数字，在中间填充字符。
     - cout.unsetf(ostream::floatfield)：恢复到初始状态，有效数字为6位。
     - fixed/scientific：fixed固定输出小数点后6位
+
+```cpp
+#include <iostream>
+#include <iomanip>
+
+int main()
+{
+std::ios::fmtflags flags(std::cout.flags());
+int a = 3;
+// fill 0, default: fill '', right align;
+std::cout<<std::left<<std::setw(3)<<std::setfill('x')<<a<<std::endl;
+double b = 3.123;
+std::cout<<std::fixed<<std::setprecision(2)<<b<<std::endl; // output two effective numbers after decimal point
+std::cout.flags(flags);
+std::cout<<std::setprecision(2)<<b<<std::endl; // output 2 effective number
+}
+```
 
 会导致流刷新的事件：
 
