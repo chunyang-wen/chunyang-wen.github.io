@@ -81,7 +81,7 @@ typedef basic_ostream<char, char_traits<char> > ostream;
 
 C++中输入输出流使用cin/cout，其相对于C的scanf和printf更加安全，但是同时也导致其效率相对低。
 
-四个设置函数在头文件<iomanip\>中。
+四个设置函数在头文件\<iomanip\>中。
 
 1. 整形数输出格式控制
     + boolalpha, noboolalpha：在输出true/false时，是numeric（0, 1）还是literal（true, false）。
@@ -91,15 +91,15 @@ bool is_good = false;
 std::cout<<std::boolalpha<<is_good<<std::endl;
 std::cout<<std::noboolalpha<<is_good<<std::endl;
 ```
-    + showbase/noshowbase：显示表示整数的基，0X，0等。
-    + hex/oct/dec：显示输出的进制。 16进制中x的大小写，uppercase/lowercase 
++ showbase/noshowbase：显示表示整数的基，0X，0等。
++ hex/oct/dec：显示输出的进制。 16进制中x的大小写，uppercase/lowercase 
     
 ```cpp
 int a = 0x36;
 std::cout<<std::dec<<a<<std::oct<<a<<std::hex<<a<<std::endl;
 ```
 
-	以上功能改变都是持续性的，直到改变回原样为止。    
+以上功能改变都是持续性的，直到改变回原样为止。    
 2. 浮点数格式化输出
     - setw(int), setprecision(int), setfill(char), setbase(8/10/16)：这三个函数分别是设置输出的宽度，精度以及当宽度不足时的补充和输出的基数。
     - showpoint/noshowpoint：设置输出小数位是0的浮点数时是否强制显示小数位的0。
