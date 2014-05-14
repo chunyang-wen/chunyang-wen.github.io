@@ -99,7 +99,8 @@ int a = 0x36;
 std::cout<<std::dec<<a<<std::oct<<a<<std::hex<<a<<std::endl;
 ```
 
-以上功能改变都是持续性的，直到改变回原样为止。    
+以上功能改变都是持续性的，直到改变回原样为止。
+
 2. 浮点数格式化输出
     + setw(int), setprecision(int), setfill(char), setbase(8/10/16)：这三个函数分别是设置输出的宽度，精度以及当宽度不足时的补充和输出的基数。
     + showpoint/noshowpoint：设置输出小数位是0的浮点数时是否强制显示小数位的0。
