@@ -23,7 +23,7 @@ tags:
 
 我们提到了多任务，当然，在系统是可以有多个计算线程。当前处理器正在执行指令所属的线程的状态为活跃（active）。因为在单处理器系统中，在某一个时刻只有一个指令可以执行，所以只有一个线程处于活跃状态。处理器选择active线程的过程称为调度，负责线程选择的模块称为调度器。
 
-![Thread1](/assets/images/thread1.png, "Thread")
+![Thread1](/assets/images/thread1.png "Thread")
 
 在系统中有多种调度方法，基本上可以分为两个大类：
 
@@ -95,7 +95,7 @@ int main(void)
 
 **CPU使用图如下：**
 
-![Graph CPU Usage](/assets/images/thread2.png, "Thread")
+![Graph CPU Usage](/assets/images/thread2.png "Thread")
 
 ###带基本事件处理的协作调度器
 
@@ -206,7 +206,7 @@ int main(void)
 
 **CPU使用图如下：**
 
-![CPU](/assets/images/thread3.png, "Thread")
+![CPU](/assets/images/thread3.png "Thread")
 
 ###带消息队列的协作调度器
 
@@ -331,7 +331,7 @@ int main(void) {
 
 **CPU使用情况如下:**
 
-![CPU](/assets/images/thread4.png, "thread")
+![CPU](/assets/images/thread4.png "thread")
 
 ###带调用顺序存储的协作调度器
 
@@ -435,13 +435,13 @@ int main(void) {
 
 **CPU使用情况如下：**
 
-![CPU](/assets/images/thread5.png, "Thread")
+![CPU](/assets/images/thread5.png "Thread")
 
 在继续讲解抢占式调度器之前，我想说明在实际系统中任务切换的代价很低。这个途径需要程序员特别的关注，它需要注意到在性能测试时不要让任务死循环。
 
 ##抢占式调度器
 
-![Preemptive](/assets/images/thread6.png, "Preemptive")
+![Preemptive](/assets/images/thread6.png "Preemptive")
 
 首先做如下假设。在同一个执行的程序中有个计算线程。在任意有个指令执行期间，调度器可以中断一个激活的线程，激活另外一个线程。为了管理这种任务，向协作调度器那样保存任务的执行函数和参数是不够的。你必须至少知道当前执行指令的地址和每个任务局部变量的集合的地址。所以，你必须保存每个任务变量的备份。因为线程中的局部变量是被隔开的，必须分配一些空间来保存线程的栈；那个地方也应该存储栈的当前位置。
 
@@ -449,7 +449,7 @@ int main(void) {
 
 ###CPU context
 
-![CPU context](/assets/images/thread7.png, "CPU context")
+![CPU context](/assets/images/thread7.png "CPU context")
 
 处理器上下文（Processor context/CPU context）是一种存储处理器寄存器内部状态的数据结构。该上下文必须把处理器转至一个计算线程执行的正确状态。处理器处理的线程由一个切换至另外一个称为上下文切换（context switch）。
 
@@ -475,7 +475,7 @@ CPU上下文和上下文切换的概念是理解抢占式调度器的基础。
 
 在之前我已经提到：调度器可以中断任何一个激活的线程，这实际上在某些方面简化模式。现实中，不仅调度器会中断线程，CPU在响应外部硬件中断事件时也会中断线程。，执行中断处理后会将控制权返回调度器。例如，假设外部事件是系统计时器，它负责记录激活线程的所使用的时间片。我们假设系统只有系统计时器一个中断源，那么处理的时间图和下图相近：
 
-![Time slice](/assets/images/thread8.png, "CPU time graph")
+![Time slice](/assets/images/thread8.png "CPU time graph")
 
 在x86架构上的上下文切换过程如下：
 
@@ -906,7 +906,7 @@ int sched_wakeup(struct thread *t) {
 
 线程可能处于多个状态叠加后的状态。当其进入休眠后，设置一个额外的等待标记。在唤醒时，该标记被移除；只有当线程到达调度器，离开了激活线程队列，它才会被重新加入。考虑下述图片的场景：
 
-![Waiting](/assets/images/thread12.png, "Waiting")
+![Waiting](/assets/images/thread12.png "Waiting")
 
 + A: active
 + R: Ready
@@ -915,7 +915,7 @@ int sched_wakeup(struct thread *t) {
 用字母代替了状态。浅绿色表示状态处于wait\_prepare，绿色表示wait\_prepare后，深绿色表示重新安排。如果事件在重新安排前没有发生，线程会继续进入休眠并且等待被唤醒。
 
 
-![Waiting](/assets/images/thread13.png, "Waiting")
+![Waiting](/assets/images/thread13.png "Waiting")
 
 ###重新组织
 
