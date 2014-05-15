@@ -512,7 +512,7 @@ context_switch:
 
 抢占式调度器和协作调度器的一个明显区别是上下文出现的频率。我们看看线程从创建到结束发生了什么。
 
-![Thread State Machine](/assets/images/thread9.png, "Thread state machine")
+![Thread State Machine](/assets/images/thread9.png "Thread state machine")
 
 + 初始状态(init)，负责线程的创建，但是并没有假如执行队列。当初始状态完成后，线程完成创建，但是并没有释放内存
 + 执行(run)状态很明显，线程由CPU运行
@@ -524,7 +524,7 @@ context_switch:
 
 通用的线程状态转移图如下：
 
-![General State Machine](/assets/images/thread10.png, "General State Machine")
+![General State Machine](/assets/images/thread10.png "General State Machine")
 
 在上述图中，出现了一个等待状态。它通知调度器其出于休眠状态，知直到其唤醒前，其不需要处理器时间片。接下来，让我们考虑一下抢占式调度器中的API，深入理解线程的状态。
 
@@ -706,7 +706,7 @@ static void __attribute__((noreturn)) thread_trampoline(void) {
 
 ##总结：线程结构描述
 
-![Thread structure description](/assets/images/thread11.png, "Thread structure description")
+![Thread structure description](/assets/images/thread11.png "Thread structure description")
 
 为了更加清楚滴描述抢占式调度器，我们需要一个复杂的数据结构，它包括：
 
