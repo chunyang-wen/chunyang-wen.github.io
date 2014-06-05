@@ -213,7 +213,7 @@ float类型转换成double，其值不变。
 + volatile修饰：变成 const volatile
 
 
-<a id="safe_bool" />  
+<a id="safe_bool"></a> 
 ##安全bool值问题
 
 
