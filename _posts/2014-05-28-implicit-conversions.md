@@ -7,7 +7,30 @@ tags:
 - conversions
 ---
 
-该博文翻译自<a href="http://en.cppreference.com/w/cpp/language/implicit_cast" target="_blank">Implicit conversionts</a>
+该博文翻译自<a href="en.cppreference.com/w/cpp/language/implicit_cast" target="_blank">Implicit conversionts</a>
+
+
+##目录
+
+
+[转换优先级](#Convert_order)
+[左值转换](#lvalue_convert)
+&nbsp;&nbsp;&nbsp;&nbsp;[左值到右值转换](#lvalue_rvalue)
+&nbsp;&nbsp;&nbsp;&nbsp;[数组名到指针的转换](#array_name_pointer)
+&nbsp;&nbsp;&nbsp;&nbsp;[函数指针的转换](#function_ptr)
+[数值提升](#integer_promotion)
+&nbsp;&nbsp;&nbsp;&nbsp;[整型提升](#integral_promotion)
+[数值转换](numeric_conversion)
+&nbsp;&nbsp;&nbsp;&nbsp;[整型转换](#integral_conversion)
+&nbsp;&nbsp;&nbsp;&nbsp;[浮点转换](#float_conversion)
+&nbsp;&nbsp;&nbsp;&nbsp;[浮点-整型转换](#float_integer)
+&nbsp;&nbsp;&nbsp;&nbsp;[指针转换](#ptr_conversion)
+&nbsp;&nbsp;&nbsp;&nbsp;[指向成员指针转换](#ptr_mem_conversion)
+[布尔转换](#bool_conversion)
+[修饰符转换](#cv_conversion)
+[安全bool值问题](#safe_bool)
+
+
 
 隐式转换发生在将任何表达式需要类型T1应用在某上下文不接受该类型，但是接受其他某类型T2的场景中，特别的是：
 
@@ -19,7 +42,10 @@ tags:
 
 在以上场景中，当仅存在一个从T1到T2的隐式转换时，程序可以正常编译。如果存在多个函数或者运算符重载函数被调用，当从T1到T2的每一个可能的隐式转换发生后，重载决议才会执行。
 
+
+<a id="Convert_order" />
 ##转换的优先级
+---
 
 隐式转换的序列的优先级如下：
 
@@ -60,25 +86,39 @@ tags:
 
 表达式e是contextually implicit转换成T。
 
+<a id="lvalue_convert" />
 ##左值转换
+---
+
 
 左值转换是指在需要右值的上下文中提供左值。
 
+<a id="lvalue_rvalue" />
 ###左值到右值的转换
+---
+
 
 任何非函数，非数组的类型T的glvalue可以被隐式转换成相同类型的prvalue。如果T是非类类型，这种转换会移除cv修饰。除非遇到不估值的上下文，例如sizeof,typeid, noexcept, decltype，这种转换会使用原来的glvalue为构造函数的参数，复制构造类型为T的临时变量，临时变量会以prvalue形式返回。如果glvaule是nullptr\_t，返回的变量值为nullptr。
 
+
+<a id="array_name_pointer" />
 ###数组名到指针的转换
+
 
 类型是长度为N，类型T数组的左值或者右值，或者是未知长度类型T的数组可以隐式转换为指向T的prvalue。产生的指针指向数组的第一个元素。
 
+<a id="function_ptr" />
 ###函数到指针的转换
+
 
 函数类型T的左值可以隐式转换为一个指向该函数的prvalue。这个不适用于non-static成员函数，因为指向非静态成员函数的左值不存在。
 
+<a id="integer_promotion" />
 ##数值提升
 
+<a id="integral_promotion" />
 ###整型提升
+
 
 小整型的prvalue值（例如char）会转换成表示范围个更大的整型（例如int）。特别是在算数操作符不接受类型比int小的数作为参数，整型提升自动执行。这种转换保持之前的值。
 
@@ -93,15 +133,21 @@ tags:
 
 >枚举类型如果底层实现类型指定了，其整型提升按照指定的类型提升规则进行提升。
 
+<a id="float_promotion" />
 ###浮点提升
+
 
 float类型转换成double，其值不变。
 
+<a id="numeric_conversion" />
 ##数值转换
 
 与提升不同，数值转换可能会改变值，造成精度的丢失。
 
+
+<a id="integral_conversion" />
 ###整型转换
+
 
 整型和unscoped枚举类型可以转换成任何其它的整型值。如果转换是按如下方式进行，那么是整型提升，不是整型转换。
 
@@ -110,7 +156,10 @@ float类型转换成double，其值不变。
 + 如果源类型是bool，false是0，true是1（如果目标类型是int，则是整型提升，不是整数转换）
 + 如果目标类型是bool，这是bool转换。
 
+
+<a id="float_conversion" />
 ###浮点转换
+
 
 浮点类型的值可以转换任何其它的浮点类型。如果转换是按下述进行，那么是浮点提升，不是转换：
 
@@ -118,27 +167,42 @@ float类型转换成double，其值不变。
 + 源类型表示成目标类型两个值之间的某个值，结果是两个值之一，是实现相关的。
 + 其它情况，未定义。
 
+
+<a id="float_integer" />
 ###浮点-整型转换
+
 
 + 浮点类型可以转换成任意的整型，小数部分直接被截断（直接丢弃）。如果截断后的值没法用目标类型表示，那么行为是未定义的。如果目标类型是bool，则是bool转换。
 + 整型或者unscoped枚举类型是可以转换任意浮点类型。如果其值无法精确表示，则由实现定义选择最接近最大值或者最小值来表示。如果其值无法用指定类型表示，行为未定义。如果源类型是bool，false是0，ture是1.
 
+
+<a id="ptr_conversion" />
 ###指针转换
+
 
 + 空指针是NULL常量，为0的整型值或者std::nullptr\_t类型，包括nullptr，可以转换成任意类型，结果是转换后类型的空指针。这种转换（又被称为空指针转换）可以一次变成cv修饰的类型，意思是说这不是数值类型转换和修饰符转换的组合。
 + 指向任意目标类型T（cv修饰是可选的）的指针可以转换成void（相同的cv修饰符）。所得类型在内存布局上一致的。如果原指针是空指针，则结果是相应类型的空指针。
 + 指向派生类类型的指针（cv修饰是可选的）可以转换成相应的基类类型（相同的cv修饰）。转换的结果是指向原来对象中subobject的基类部分的指针。空指针是转换成相应类型的空指针。
 
+
+<a id="ptr_mem_conversion" />
 ###指向成员指针的转换
+
 
 + 空指针是NULL常量值，值为0的整型值或者std::nullptr\_t类型，包括nullptr，可以转换成指向成员的指针，结果是指向相应类型的空指针。
 + 指向某类型T基类B成员的指针可以转换成相同类型T的派生类中的成员指针。如果B无法访问或者未定义或者D的虚基类或者是D基类的基类，转换是ill-formed（不会编译）。结果类型可以解引用为D对象，其可以访问D类中为B的subojbect。空指针还是转换成相应类型的空指针。
 
+
+<a id="bool_conversion" />
 ##布尔转换
+
 
 整型、浮点、枚举、指针以及指向成员的指针类型可以转换成bool。0值（整型、浮点和枚举）以及空指针，指向成员的空指针转换成false，其它值是true。
 
+
+<a id="cv_conversion" />
 ##修饰符转换
+
 
 + 指向cv修饰符修饰的指针，可以转换为更多cv修饰符修饰的指针。
 + 指向cv修饰符修饰的成员类型的指针，可以转换更多cv修饰符修饰的指针。
@@ -149,7 +213,9 @@ float类型转换成double，其值不变。
 + volatile修饰：变成 const volatile
 
 
-###安全bool值问题
+<a id="safe_bool" />
+##安全bool值问题
+
 
 直到C++11中引入的显示转换，设计一个可以用在需要布尔值的上下文是一个问题：考虑用户自定义的转换函数，例如T::operator bool() const，隐式的转换顺序允许在函数调用后有额外的转换，即bool值可以转换为int，这样像obj<<1，或者 int i = obj是合法的。
 
