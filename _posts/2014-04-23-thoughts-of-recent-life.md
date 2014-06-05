@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 近半个月感慨
+title: Remove comments in java or C++
 categories:
 - Programming
 tags:
