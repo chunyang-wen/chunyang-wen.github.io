@@ -7,7 +7,7 @@ tags:
 - conversions
 ---
 
-该博文翻译自<a href="en.cppreference.com/w/cpp/language/implicit_cast" target="_blank">Implicit conversionts</a>
+该博文翻译自<a href="http://en.cppreference.com/w/cpp/language/implicit_cast" target="_blank">Implicit conversionts</a>
 
 隐式转换发生在将任何表达式需要类型T1应用在某上下文不接受该类型，但是接受其他某类型T2的场景中，特别的是：
 
