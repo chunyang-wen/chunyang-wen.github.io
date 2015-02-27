@@ -1,1 +1,5 @@
-若你对本博的模板感兴趣，欢迎克隆。    
+###Notice###
+
+You are welcomed if you are interested in the details of the blog.
+
+please checkout [Blog](http://chunyang-wen.github.io 'chunyang')
