@@ -19,7 +19,7 @@ set expandtab
 set autoindent
 filetype plugin indent on
 syntax on
-set hlssearch " highlight search
+set hlsearch " highlight search
 " set backup extension and directory
 set backupext=.bak
 set backupdir=~/Backup
