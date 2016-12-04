@@ -1,8 +1,9 @@
-markdown: redcarpet 
+markdown: kramdown
 permalink: /:year/:month/:day/:title/
 url: http://chunyang-wen.github.io
 author: chunyang-wen
-pygments: true
+#pygments: true
+highlighter: rouge
 safe: true
 paginate: 16
 auto: true
