@@ -1,12 +1,11 @@
 markdown: kramdown
 kramdown:
   input: GFM
-  highlighter: rouge
 permalink: /:year/:month/:day/:title/
 url: http://chunyang-wen.github.io
 author: chunyang-wen
 #pygments: true
-#highlighter: rouge
+highlighter: rouge
 safe: true
 paginate: 16
 auto: true
