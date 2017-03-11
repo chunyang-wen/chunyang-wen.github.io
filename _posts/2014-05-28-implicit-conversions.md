@@ -7,10 +7,10 @@ tags:
 - conversions
 ---
 
-该博文翻译自<a href="en.cppreference.com/w/cpp/language/implicit_cast" target="_blank">Implicit conversionts</a>
+该博文翻译自[Implicit conversion](http://en.cppreference.com/w/cpp/language/implicit_cast)
 
 
-##目录
+## 目录
 
 
 [转换优先级](#Convert_order)  
@@ -44,7 +44,7 @@ tags:
 
 
 <a id="Convert_order"></a>   
-##转换的优先级
+## 转换的优先级
 ---
 
 隐式转换的序列的优先级如下：
@@ -87,14 +87,14 @@ tags:
 表达式e是contextually implicit转换成T。
 
 <a id="lvalue_convert"></a>   
-##左值转换
+## 左值转换
 ---
 
 
 左值转换是指在需要右值的上下文中提供左值。
 
 <a id="lvalue_rvalue"></a>   
-###左值到右值的转换
+### 左值到右值的转换
 ---
 
 
@@ -102,25 +102,25 @@ tags:
 
 
 <a id="array_name_pointer"></a>   
-###数组名到指针的转换
+### 数组名到指针的转换
 ---
 
 
 类型是长度为N，类型T数组的左值或者右值，或者是未知长度类型T的数组可以隐式转换为指向T的prvalue。产生的指针指向数组的第一个元素。
 
 <a id="function_ptr"></a>   
-###函数到指针的转换
+### 函数到指针的转换
 ---
 
 
 函数类型T的左值可以隐式转换为一个指向该函数的prvalue。这个不适用于non-static成员函数，因为指向非静态成员函数的左值不存在。
 
 <a id="integer_promotion"></a>   
-##数值提升
+## 数值提升
 ---
 
 <a id="integral_promotion"></a>  
-###整型提升
+### 整型提升
 ---
 
 
@@ -138,21 +138,21 @@ tags:
 >枚举类型如果底层实现类型指定了，其整型提升按照指定的类型提升规则进行提升。
 
 <a id="float_promotion"></a>   
-###浮点提升
+### 浮点提升
 ---
 
 
 float类型转换成double，其值不变。
 
 <a id="numeric_conversion"></a>  
-##数值转换
+## 数值转换
 ---
 
 与提升不同，数值转换可能会改变值，造成精度的丢失。
 
 
 <a id="integral_conversion"></a>  
-###整型转换
+### 整型转换
 ---
 
 
@@ -165,7 +165,7 @@ float类型转换成double，其值不变。
 
 
 <a id="float_conversion"></a>   
-###浮点转换
+### 浮点转换
 ---
 
 
@@ -177,7 +177,7 @@ float类型转换成double，其值不变。
 
 
 <a id="float_integer"></a>  
-###浮点-整型转换
+### 浮点-整型转换
 ---
 
 
@@ -186,7 +186,7 @@ float类型转换成double，其值不变。
 
 
 <a id="ptr_conversion"></a>   
-###指针转换
+### 指针转换
 ---
 
 
@@ -196,7 +196,7 @@ float类型转换成double，其值不变。
 
 
 <a id="ptr_mem_conversion"></a>    
-###指向成员指针的转换
+### 指向成员指针的转换
 ---
 
 
@@ -205,7 +205,7 @@ float类型转换成double，其值不变。
 
 
 <a id="bool_conversion"></a>   
-##布尔转换
+## 布尔转换
 ---
 
 
@@ -213,7 +213,7 @@ float类型转换成double，其值不变。
 
 
 <a id="cv_conversion"></a>    
-##修饰符转换
+## 修饰符转换
 ---
 
 
@@ -227,7 +227,7 @@ float类型转换成double，其值不变。
 
 
 <a id="safe_bool"></a>  
-##安全bool值问题
+## 安全bool值问题
 ---
 
 

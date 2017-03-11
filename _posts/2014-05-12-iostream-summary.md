@@ -146,4 +146,4 @@ int main()
 1. <a href=http://msdn.microsoft.com/en-us/library/yeecc295%28v=vs.80%29.aspx target="_blank">MSDN iostream</a>
 2. <a href=http://www.cplusplus.com/reference/iolibrary/ target="_blank">cplusplus.com,继承图出处</a>
 
-<本文完\>
+本文完

@@ -8,7 +8,7 @@ tags:
 - closure
 ---
 
-##Closures in Ruby
+## Closures in Ruby
 @(Technology)[Ruby|Closure]
 
 这篇文章是翻译自：[Paul Cantrell](http://innig.net/software/ruby/closures-in-ruby)。
@@ -37,7 +37,7 @@ def example(num)
 end
 ```
 
-###第一部分：块
+### 第一部分：块
 
 1. 块就像闭包一样，因为他们可以引用他们定义处的变量。
 
@@ -129,7 +129,7 @@ puts "Deferred execution of a block:"
 
 到底是怎么回事？我觉得这种单个块的限制违反了最小惊异原则，原因是C实现的难易程度，而不是语法问题。所以：现在我们用闭包任何健壮以及有兴趣的事的想法被毁了吗？
 
-###Ruby中类似闭包的构建
+### Ruby中类似闭包的构建
 
 1. 事实上想法还在。当我们利用&block传递块时，他们指向那个没有&的参数，他们是Proc.new(&param)的简写
 
@@ -171,6 +171,7 @@ puts "Here are four superficially identical forms of deferred execution:"
 ```
 
 其实事实上，至少有7中方法
+
 + block(implicitly passed, called with yield)
 + block(&b, f(&b) yield)
 + block(&b, b.call)
@@ -181,7 +182,7 @@ puts "Here are four superficially identical forms of deferred execution:"
 
 尽管他们长相各异，但是其中一些事等价的。其中1和2不是真正的闭包，实际上他们是同样的东西。3-7看起来是一样的。但是他们只是语法不同还是语义上完全一样呢？
 
-###第三部分：闭包和控制流
+### 第三部分：闭包和控制流
 
 他们不一样，其中一个很明显的不同是他们对return语句的处理。在如下没有return语句的不同像闭包一样的东西中，他们表现方式完全一样。
 
@@ -384,7 +385,7 @@ puts; puts "Method:"  ; call_with_too_many_args(method(:no_arg_method))
 
 Ruby中Proc.new, proc, lambda将一个参数作为一个特殊情况，表现不一致，但是method是一致的。（译者注：在Ruby2.0中行为一致，即Proc.new/proc全适应，lambda/method，全不适应，抛出异常）
 
-###第五部分：责骂
+### 第五部分：责骂
 
 这是一个比较令人眩晕的语法选项，具有一些不是十分清楚的细微语法区别，而且在特殊情况下表现不同。程序员希望语言能工作，就像一个捉大熊的陷阱。
 
@@ -395,10 +396,9 @@ Ruby中Proc.new, proc, lambda将一个参数作为一个特殊情况，表现不
 
 语言一直在发展，因为Ruby小组一直有好玩的想法，但是没有除了CRuby没有维护一个实际的说明书。一个将语言的逻辑结构表述清楚，进而帮助支出我们刚才所见的不一致性。相反，这种不一致性已经渗入语言，把像我这样想学这种语言的人搞得晕头转向，然后以为是bug就提交上去了。向上帝发誓，类似proc这种基本语义的东西不应该是一团糟，以至于不得不在版本之间回溯。是的，我知道，设计语言很难，但是像proc/lambda对arity这种问题第一次时容易解决。抱怨，抱怨。
 
-###第六部分：总结
+### 第六部分：总结
 
 到现在为止，对于创建闭包的7种方法，我们发现了什么东西：
-
 
 name  | True closure | Return  | Arith check
 ----- | ------------ |---------| -----------
@@ -432,7 +432,7 @@ method | Y | closure | y
 
 或者至少是我基于实验给出的观点。除了测试CRuby的实现，没有其他权威的回答。因为根本没有说明书，所以可能还有其他我没有发现的区别。到此为止，“Ruby makes Paul carzy”告一段落。从这里开始，将是一个特别棒的部分。
 
-###第七部分：用闭包做一些非常炫的事
+### 第七部分：用闭包做一些非常炫的事
 
 让我们一起写一个包含所有Fibonacci数的数据结构。是的，我说的是全部。这个可能吗？我们将使用闭包来实现懒惰评估，所以电脑只计算我们要它做的。
 
@@ -517,4 +517,4 @@ end
 
 由于lambda函数可以延迟调用，所以我们得到一个无穷链表。
 
-\<本文完\>
+本文完

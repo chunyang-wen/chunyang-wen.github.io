@@ -85,4 +85,4 @@ int main()
 1. <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank"> Cpp Reference operator new</a>
 2. <a href="http://en.cppreference.com/w/cpp/memory/new/operator_delete" target="_blank">Cpp Reference Operator delete </a>
 
-<本文完\>
+本文完

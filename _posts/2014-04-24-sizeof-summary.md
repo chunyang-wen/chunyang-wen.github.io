@@ -225,4 +225,4 @@ P.S. 如果sizeof(void\*)大小的虚函数也要参与字节对齐过程。4字
 + <a href="http://www.go4expert.com/articles/size-cpp-class-object-t16676/" target="_blank">sizeof of class</a>
 + <a href="http://stackoverflow.com/questions/9439240/sizeof-class-with-int-function-virtual-function-in-c" target="_blank">stackoverflow</a>
 
-<本文完\>
+本文完
