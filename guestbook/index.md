@@ -4,4 +4,6 @@ title: 留言
 comments: yes
 ---
 
-来了，就留下你的足迹吧。。
+欢迎留言：
+
+![You can reach me](/media/images/gmail.png)
