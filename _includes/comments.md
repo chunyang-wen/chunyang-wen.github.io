@@ -1,4 +1,5 @@
 <!-- Duoshuo Comment BEGIN -->
+<!--
 	<div class="ds-thread"></div>
 	<script type="text/javascript">
 	var duoshuoQuery = {short_name:"webfrogs"};
@@ -11,4 +12,5 @@
 		|| document.getElementsByTagName('body')[0]).appendChild(ds);
 	})();
 	</script>
+	-->
 <!-- Duoshuo Comment END -->
