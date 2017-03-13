@@ -9,3 +9,4 @@ highlighter: rouge
 safe: true
 paginate: 16
 auto: true
+theme: jekyll-theme-cayman
