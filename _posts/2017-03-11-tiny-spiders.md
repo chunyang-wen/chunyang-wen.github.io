@@ -3,8 +3,11 @@ layout: post
 title: awk + wget 实现的简单爬虫
 categories: [tools, ]
 tags: [linux, shell, ]
+description: test test
 ---
 
+
+## I am testing
 在很多人眼中，**爬虫**可能是一个非常厉害的东西，它的编写肯定会非常的复杂。当然 Google 和 Baidu 的爬虫
 历经那么多次迭代，其系统整个流程肯定会非常的完善和复杂。万里之行，始于足下。
 
