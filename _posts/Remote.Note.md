@@ -1,5 +1,5 @@
 ---  
-layout: post  
+layout: post
 title: 远程协同的当下与未来   
 categories: [blog ]  
 tags: [iOS,  ]
