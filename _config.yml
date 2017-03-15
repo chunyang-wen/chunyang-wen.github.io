@@ -1,41 +1,41 @@
 # Site settings
-title: Microdust
+title: Chunyang
 header-img: "img/autumn2.jpg"
-tagline: "吉光片羽"  
-description: "在遙遠的地方 一切虔誠終必相遇"  
+tagline: "吉光片羽"
+description: "在遙遠的地方 一切虔誠終必相遇"
 baseurl: ""
-# url: "http://azeril.me"  
+# url: "http://azeril.me"
 # url: "http://localhost:4000"
 
-url: http://stardust.cat
-# enforce_ssl: 
+url: http://chunyang-wen.github.io
+# enforce_ssl:
 
 # About/contact
-owner: 
-  name: "Azeril"
-  email: azeril@live.cn
-  bio: "明朝即長路 惜取此時心"
+owner:
+  name: "chunyang"
+  email: chunyang.wen@gmail.com 
+  bio: "If you cannot measure it, you cannot improve it."
 
 # Data
 gavatar: https://dreamofbook.qiniudn.com/Az..png
 favicon: img/favicon.ico
 
 douban_username: Azeril
-twitter_username: Azeril_Lapland  
-github_username: Azeril  
-facebook_username: Azeril_Lapland  
-weibo_username: Azeril  
-zhihu_username: Azeril  
+twitter_username: Azeril_Lapland
+github_username: chunyang-wen
+facebook_username: Azeril_Lapland
+weibo_username: 老文or小文
+zhihu_username: damnfish
 
-# Build settings  
-# use Github Flavored Markdown !important  
-# document: http://jekyllrb.com/docs/configuration/#kramdown  
+# Build settings
+# use Github Flavored Markdown !important
+# document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
 kramdown:
   input: GFM
 highlighter: rouge
 
-gems: 
+gems:
 - jekyll-gallery-generator
 - jekyll-paginate
 permalink: none
@@ -51,27 +51,27 @@ timezone: Asia/Shanghai
 # Defaults for posts
 defaults:
   -
-    scope: 
+    scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-      author: "Azeril"
+      author: "chunyang"
       header-img: "img/fantasy.jpg" # We don't want posts without a header image, that whould mean white on white
 
 
-# Comments 
-comments :
-  provider : duoshuo
-  duoshuo :
-    short_name : Azeril
-  disqus :
-      short_name : Azeril
+# Comments
+#comments :
+#  provider : duoshuo
+#  duoshuo :
+#    short_name : Azeril
+#  disqus :
+#      short_name : Azeril
 
 # Analytics and webmaster tools stuff goes here
-google_analytics: UA-66863061-1
-google_verify:
+#google_analytics: UA-66863061-1
+#google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+#bing_verify:
 
 # Links to include in footer navigation
