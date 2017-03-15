@@ -13,17 +13,17 @@ url: http://chunyang-wen.github.io
 # About/contact
 owner:
   name: "chunyang"
-  email: chunyang.wen@gmail.com 
+  email: chunyang.wen@gmail.com
   bio: "If you cannot measure it, you cannot improve it."
 
 # Data
 gavatar: https://dreamofbook.qiniudn.com/Az..png
 favicon: img/favicon.ico
 
-douban_username: Azeril
-twitter_username: Azeril_Lapland
+#douban_username: Azeril
+#twitter_username: Azeril_Lapland
 github_username: chunyang-wen
-facebook_username: Azeril_Lapland
+#facebook_username: Azeril_Lapland
 weibo_username: 老文or小文
 zhihu_username: damnfish
 
