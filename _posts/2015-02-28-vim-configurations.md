@@ -1,5 +1,5 @@
 ---
-layout: post post
+layout: post
 title: vim configuration
 categories: [tools, ]
 tags: [vim, ]

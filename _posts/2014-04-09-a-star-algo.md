@@ -1,6 +1,6 @@
 ---
+layout: post
 title: Implementation of A star algorithm
-layout: post post
 categories: [algorithms, ]
 tags: [a-star, c++, ]
 ---

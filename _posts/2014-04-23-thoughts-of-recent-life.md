@@ -1,5 +1,5 @@
 ---
-layout: post post
+layout: post
 title: Remove comments in java or C++
 categories: [Programming, ]
 tags: [Ruby, ]
