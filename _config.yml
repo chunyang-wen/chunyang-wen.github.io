@@ -1,8 +1,8 @@
 # Site settings
 title: CoolMind
-header-img: "img/autumn2.jpg"
+header-img: "images/mountain.jpg"
 tagline: "吉光片羽"
-description: "If you cannot measured it, you cannot improve it."
+description: "If you cannot measure it, you cannot improve it."
 baseurl: ""
 # url: "http://azeril.me"
 # url: "http://localhost:4000"
