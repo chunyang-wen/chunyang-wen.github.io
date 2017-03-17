@@ -5,9 +5,7 @@ description: ""
 header-img: "img/plane.jpg"
 ---
 
-<figure>
 ![Myself](/images/personal-images/myself.jpg)
-</figure>
 
 热爱生活，热爱大自然。
 
