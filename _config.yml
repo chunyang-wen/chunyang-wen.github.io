@@ -33,6 +33,8 @@ zhihu_username: damnfish
 markdown: kramdown
 kramdown:
   input: GFM
+  no_auto_ids: true
+  auto_ids: false
 highlighter: rouge
 
 gems:
