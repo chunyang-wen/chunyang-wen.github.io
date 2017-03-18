@@ -23,7 +23,8 @@
                 {% for item in target_page %}
 
                     {% for page in site.pages %}
-                        {% if page.title == item %}
+                        {% assign title = page.title | downcase %}
+                        {% if title == item %}
                 <li>
                     <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                 </li>
