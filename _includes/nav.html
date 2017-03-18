@@ -18,11 +18,19 @@
                 <li>
                     <a href="{{ site.baseurl }}/">Home</a>
                 </li>
-                {% for page in site.pages %}{% if page.title %}
+                {% assign pages_size = site.pages | size | minus:1 %}
+                {% assign target_page = "tools,travel,tags,about" | split:"," %}
+                {% for i in (0..pages_size) %}
+
+                    {% for page in site.pages %}
+                        {% if page.title = target_page[i] %}
                 <li>
                     <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                 </li>
-                {% endif %}{% endfor %}
+                        {% break %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
 
             </ul>
         </div>
