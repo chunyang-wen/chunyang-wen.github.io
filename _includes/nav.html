@@ -19,7 +19,7 @@
                     <a href="{{ site.baseurl }}/">Home</a>
                 </li>
                 <!-- add new pages, remember to change here -->
-                {% assign target_page = "tools,travel,tags,about" | split:"," %}
+                {% assign target_page = site.page_seq | replace:" ", "" | split:"," %}
                 {% for item in target_page %}
 
                     {% for page in site.pages %}

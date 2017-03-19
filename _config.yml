@@ -6,6 +6,7 @@ description: "If you cannot measure it, you cannot improve it."
 baseurl: ""
 # url: "http://azeril.me"
 # url: "http://localhost:4000"
+page_seq: "tools, travel, tags,  about" # lower case, separated by ','
 
 url: http://chunyang-wen.github.io
 # enforce_ssl:
