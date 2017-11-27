@@ -39,7 +39,8 @@ title: Integrating RemarkJS with Jekyll
 
 在官方的 [Wiki](https://github.com/gnab/remark/wiki/Using-with-Jekyll) 上有方法说怎么和 `Jekyll`
 结合，但是这个方法实际使用起来不行。主要是因为 `Remark` 需要的是 Markdown 文件，而不是被渲染生成
-的 HTML 文件。现在 Github 支持的 Jekyll 版本较高，`{{ content  }}` 和 `{{ page.content }}` 都是
+的 HTML 文件。现在 Github 支持的 Jekyll 版本较高，
+{%raw%}{{ content  }} 和 {{ page.content }}{%endraw%} 都是
 渲染过的。所以现在问题是：
 
 > 如何得到没被渲染过的 Markdown 文件？
@@ -57,7 +58,7 @@ title: Integrating RemarkJS with Jekyll
 
 解决问题的方法：
 
-+ 在对应的 Layout 文件中使用 `include` 语句，`{% include {{ slide/page.slide }} %}`
++ 在对应的 Layout 文件中使用 `include` 语句，{%raw%}{% include {{ slide/page.slide }} %}{%endraw%}
 + 在对应的 post 文件中增加自定义的变量： slide: you-name-it.md
 
 `slide/you-name-it.md` 放在 `_includes` 目录。
@@ -77,7 +78,7 @@ I like remark
 
 在对应的 \_layouts/ 目录中的文件将 `textarea` 中的内容换成：
 
-> {% include {{ page.slide }} %}
+> {%raw%} {% include {{ page.slide }} %} {%endraw%}
 
 注意前面需要顶格，不要追加额外的空格，否则会打乱 `Remark` 需要的格式。
 
