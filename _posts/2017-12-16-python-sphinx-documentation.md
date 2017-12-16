@@ -4,8 +4,6 @@ title: 如何使用 sphinx 来生成代码文档
 tags: [python,]
 ---
 
-目录：
-
 - [注释](#comment)
   - [模块注释](#module-comment)
   - [类的注释](#class-comment)
@@ -33,13 +31,13 @@ tags: [python,]
 
 ```python
 
-'''
+\'\'\'
 .. module:: module_name
 .. moduleauthor:: some one <some_one@some.com>
 
 # Other documents about `module_name`
 This is an awesome module.
-'''
+\'\'\'
 
 ```
 
