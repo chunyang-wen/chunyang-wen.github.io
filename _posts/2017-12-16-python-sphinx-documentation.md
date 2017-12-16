@@ -30,15 +30,10 @@ tags: [python,]
 #### 模块注释
 
 ```python
-
-\'\'\'
 .. module:: module_name
 .. moduleauthor:: some one <some_one@some.com>
 
 # Other documents about `module_name`
-This is an awesome module.
-\'\'\'
-
 ```
 
 <a name='class-comment'></a>
@@ -50,13 +45,12 @@ This is an awesome module.
 ```python
 
 class StarCraft(object):
-    '''StarCraft is a fantastic class.
+
+    StarCraft is a fantastic class.
        Bla. Bla.
 
        >>> sc = StartCraft()
        >>> sc.start(1, 'north')
-
-    '''
 
     def __init__(self):
         super(StarCraft, self).__init__()
@@ -68,9 +62,8 @@ class StarCraft(object):
 #### 函数的注释
 
 ```python
-
 def start(engine, direction):
-    '''start a starcraft
+    start a starcraft
     Args:
        engine(int): engine number
        direction(str, int): direction to fly
@@ -78,9 +71,8 @@ def start(engine, direction):
        boolean: indicate whether starting operation is successful.
     Raises:
        BadEngineError: engine number is not supported
-    '''
-    pass
 
+    pass
 ```
 
 <a name='gen-doc'></a>
