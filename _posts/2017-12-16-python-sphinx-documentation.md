@@ -17,13 +17,14 @@ tags: [python,]
 
 ```python
 
-'''
+"""
 .. module:: module_name
 .. moduleauthor:: some one <some_one@some.com>
 
 # Other documents about `module_name`
 This is an awesome module.
-'''
+"""
+
 ```
 
 #### 类的注释
@@ -31,6 +32,7 @@ This is an awesome module.
 `>>>` 用于增加代码块，但是注意其前后需要增加空行。
 
 ```python
+
 class StarCraft(object):
     '''StarCraft is a fantastic class.
        Bla. Bla.
@@ -42,11 +44,13 @@ class StarCraft(object):
 
     def __init__(self):
         super(StarCraft, self).__init__()
+
 ```
 
 #### 函数的注释
 
 ```python
+
 def start(engine, direction):
     '''start a starcraft
     Args:
@@ -58,6 +62,7 @@ def start(engine, direction):
        BadEngineError: engine number is not supported
     '''
     pass
+
 ```
 
 ### 生成文档
