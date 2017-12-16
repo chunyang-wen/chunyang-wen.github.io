@@ -4,28 +4,46 @@ title: 如何使用 sphinx 来生成代码文档
 tags: [python,]
 ---
 
+目录：
+
+- [注释](#comment)
+  - [模块注释](#module-comment)
+  - [类的注释](#class-comment)
+  - [函数注释](#function-comment)
+- [生成文档](#gen-doc)
+  - [初始化](#gen-doc-ini)
+  - [生成 API 文档](#gen-api-doc)
+  - [生成 HTML 文件](#gen-html)
+  - [展示网页](#serve-html)
+
 当编写比较大的库时，如果代码具有良好的注释规范，可以使用 `sphinx` 来生成文档。本文主要介绍生成文档
 的步骤，以及编写代码中注释的添加方式。本文主要参考 [Reference][1]，更加详细的使用说明可以参考它。
 本文主要简单介绍下基本的规范，以及生成文档的方式。
+
+<a name='comment'></a>
 
 ### 注释
 
 良好的代码中可能超过 50% 都属于注释。不鼓励写很多不用的注释，但是清晰的注释使得文档的阅读，代码的
 理解都会方便很多。个人更加倾向于 [Google 的风格][2]
 
+<a name='module-comment'></a>
+
 #### 模块注释
 
 ```python
 
-"""
+'''
 .. module:: module_name
 .. moduleauthor:: some one <some_one@some.com>
 
 # Other documents about `module_name`
 This is an awesome module.
-"""
+'''
 
 ```
+
+<a name='class-comment'></a>
 
 #### 类的注释
 
@@ -47,6 +65,8 @@ class StarCraft(object):
 
 ```
 
+<a name='function-comment'></a>
+
 #### 函数的注释
 
 ```python
@@ -64,6 +84,8 @@ def start(engine, direction):
     pass
 
 ```
+
+<a name='gen-doc'></a>
 
 ### 生成文档
 
@@ -91,6 +113,8 @@ pip install sphinx
 └── docs
 ```
 
+<a name='gen-doc-ini'></a>
+
 #### 初始化
 
 然后进入 `docs` 目录，先执行初始化的命令
@@ -114,6 +138,8 @@ sphinx-quickstart
 │       ├── _static
 │       └── _templates
 ```
+
+<a name='gen-api-doc'></a>
 
 #### 生成 API 文档
 
@@ -149,6 +175,8 @@ sys.insert(0, os.path.abspath('../..')
 
 这里的路径是需要执行你模块的所在的目录。
 
+<a name='gen-html'></a>
+
 #### 生成 HTML 文件
 
 进入 `source` 目录, `./html` 是输出的文件夹。
@@ -159,6 +187,8 @@ sphinx-build -b html . ./html
 
 如果之前生成过 `Makefile`，在那个 `Makefile` 所在的目录，执行 `make html`，会生成 `build/html/`
 目录。
+
+<a name='serve-html'></a>
 
 ### 展示网页
 
