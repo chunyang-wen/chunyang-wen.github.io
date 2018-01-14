@@ -8,6 +8,7 @@ category: [python,]
 
 - [引言](#introduction)
 - [构造和初始化](#ctor-and-ini)
+- [自定义类中工作的算子](#op-work-custom-classes)
 
 <a name='introduction'></a>
 
@@ -72,7 +73,35 @@ class FileObject(object):
         del self.file
 ```
 
-**未完待续**
+<a name='op-work-custom-classes'></a>
+
+### 在自定义类中工作的算子
+
+`Python` 的魔法方法的最大优势在于其提供了一个方法使得对象表象得如内置类型。这意味着你可以避免丑陋地，
+不符合常识地，不标准的方法来执行基本的算子。在某些语言中，如下很正常：
+
+```python
+if instance.equals(other_instance):
+    # do something
+```
+
+在 `Python` 中也可以这么做，但是这样增加了混淆，而且是不必要地冗余。不同的库对同样的操作使用不同的
+名字，客户端可以做更多的工作。然而，使用魔法方法的力量，我们可以定义一个方法（此处是`__eq__`），来
+表示如下的含义：
+
+```python
+if instance == other_instance:
+    # do something
+```
+
+这是魔法方法的部分能力。他们中大部分允许我们为内置操作定义算子，以使得我们可以像内置类型一样使用
+他们。
+
+<a name='comparison-on-magic-method'></a>
+
+### 比较的魔法方法
+
+**原文写得十分详尽，感觉翻译实际是累赘，不在翻译，大家参考原文**
 
 [1]: https://rszalski.github.io/magicmethods/
 [2]: http://www.python.org/download/releases/2.2/descrintro/#__new__
