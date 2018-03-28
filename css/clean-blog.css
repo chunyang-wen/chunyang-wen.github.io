@@ -105,7 +105,7 @@ hr.small {
   margin-top: 20px;
 }
 .navbar-custom {
-  background: white;
+  background: black;
   position: absolute;
   top: 0;
   left: 0;
@@ -132,20 +132,24 @@ hr.small {
     font-size: 20px;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color: black;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
+    /*color: rgba(255, 255, 255, 0.8);*/
+	color: #5e5e5e:
+	background-color: transparent:
   }
   .navbar-custom .nav li a {
-    color: white;
+    color: black;
     padding: 20px;
   }
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
+    /*color: rgba(255, 255, 255, 0.8);*/
+	color: #5e5e5e;
+	background-color: transparent:
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -197,7 +201,7 @@ hr.small {
 }
 .intro-header {
   background: no-repeat center center;
-  background-color: #808080;
+  background-color: white;
   background-attachment: scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -216,7 +220,7 @@ hr.small {
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 100px 0 50px;
-  color: white;
+  color: black;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
