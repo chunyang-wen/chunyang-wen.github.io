@@ -36,7 +36,7 @@ A->B-C->HEAD
 
 #### 流程
 
-```bash
+```shell
 git reset A # DO NOT add --hard, on your own risk if you do
 git add any-new-file
 git add -u . # changed file
@@ -60,15 +60,13 @@ git rebase -i A
 
 这个时候会跳出来一个编辑框：pick/squash/edit/drop/exec(自己增加执行的命令)
 
-```conf
-p, pick = use commit
-r, reword = use commit, but edit the commit message
-e, edit = use commit, but stop for amending
-s, squash = use commit, but meld into previous commit
-f, fixup = like "squash", but discard this commit's log message
-x, exec = run command (the rest of the line) using shell
-d, drop = remove commit
-```
++ p, pick = use commit
++ r, reword = use commit, but edit the commit message
++ e, edit = use commit, but stop for amending
++ s, squash = use commit, but meld into previous commit
++ f, fixup = like "squash", but discard this commit's log message
++ x, exec = run command (the rest of the line) using shell
++ d, drop = remove commit
 
 我们选择 edit，这样在每次重放 commit 时，会允许我们去编辑相应的信息。
 
