@@ -15,6 +15,7 @@ header-img: "img/autumn.jpg"
 + grep
 + find
 + Python
++ shell
 
 ### Mac
 
