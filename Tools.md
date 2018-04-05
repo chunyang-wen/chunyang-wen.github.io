@@ -22,7 +22,7 @@ header-img: "img/autumn.jpg"
 
 ### Websites
 
-+ https://coolshell.cn
-+ https://github.com
-+ http://www.allitebooks.com
++ [CoolShell](https://coolshell.cn)
++ [Github](https://github.com/chunyang-wen)
++ [Allitebooks](http://www.allitebooks.com)
 
