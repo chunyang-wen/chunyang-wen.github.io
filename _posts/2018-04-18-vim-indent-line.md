@@ -7,6 +7,7 @@ tags: [vim, linux]
 
 + [问题](#problem)
 + [解决方法](#solution)
++ [Backspace 失效](#bp-not-working)
 
 之前有一次误操作，将 `~` 文件夹进行了删除。幸亏及时遇到了权限问题，没有清理完，不然要悲剧。现在已经
 将 `rm` 重定向成 `mv` 操作。
@@ -57,5 +58,15 @@ brew install vim
 安装后将 vim 重定向到自己安装的 vim 就行。我是自己做了一个 alias。
 
 ![效果](/images/blogs-images/indent-line-effect.png)
+
+<a id="bp-not-working"></a>
+
+### backspace 失效
+
+使用从 `brew` 安装的代码后，好像回退键(backspace) 失效了。解决方法
+
+```vim
+set backspace=indent,eol,start
+```
 
 本文完
