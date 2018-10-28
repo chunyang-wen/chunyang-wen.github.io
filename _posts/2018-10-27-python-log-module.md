@@ -63,10 +63,11 @@ logging.warn('I warn you!')
 
 ```python
 import logging
-# If we set filename or stream, we will be able to output to specific file or stream
 logging.basicConfig(format='[%(levelname)s]:%(message)s', level='INFO')
 logging.info('SayHi')
 ```
+
+> If we set filename or stream parameter of `basicConfig`, we will be able to output to specific file or stream
 
 <a id="advanced-usage"></a>
 
@@ -92,16 +93,12 @@ logging.info('SayHi')
 import logging
 import sys
 
-# set root logger level
-# logging.getLogger().setLevel('INFO')
-
 logger1 = logging.getLogger('TestLogger1')
 logger2 = logging.getLogger('TestLogger2')
 handler = logging.StreamHandler(stream=sys.stderr)
 formatter = logging.Formatter('%(name)s:%(message)s')
 handler.setFormatter(formatter)
 handler.setLevel(logging.getLevelName('DEBUG'))
-#logger1.handlers = [handler]
 logger1.addHandler(handler)
 
 handler2 = logging.StreamHandler(stream=sys.stderr)
@@ -111,18 +108,16 @@ handler2.setLevel(logging.getLevelName('DEBUG'))
 
 logger2.handlers = [handler2]
 
-
-#-----------------
-# 每个 logger 都有自己的 Level，通过 handler 来限制，只能从 >= logger 的 level 才会
-# 生效。例如 handler 的 level = debug，但是 logger 的 level = info，这个时候 debug
-# 日志仍然不会输出给 handler
-#-----------------
 logger1.setLevel('INFO')
 logger2.setLevel('DEBUG')
 
 logger1.info('I am TestLogger1')
 logger2.info('I am TestLogger2')
 ```
+
+> 每个 logger 都有自己的 Level，通过 handler 来限制，只能从 >= logger 的 level 才会
+> 生效。例如 handler 的 level = debug，但是 logger 的 level = info，这个时候 debug
+> 日志仍然不会输出给 handler
 
 只要保证系统在打印日志时，不要和普通用户使用同样的 `logger` 即可。而且在创建`logger` 的格式上完全
 可以自定义。其主要就是通过不同的 `handler` 来实现的。
