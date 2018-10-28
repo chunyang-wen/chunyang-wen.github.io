@@ -60,6 +60,7 @@ logging.warn('I warn you!')
 |thread	|%(thread)d	|Thread ID (if available).|
 |threadName	|%(threadName)s	|Thread name (if available).|
 
+
 ```python
 import logging
 # If we set filename or stream, we will be able to output to specific file or stream
@@ -126,11 +127,10 @@ logger2.info('I am TestLogger2')
 只要保证系统在打印日志时，不要和普通用户使用同样的 `logger` 即可。而且在创建`logger` 的格式上完全
 可以自定义。其主要就是通过不同的 `handler` 来实现的。
 
-+ addHandler(handler)
-+ logger.handlers = [handler1, handler2]
++ `addHandler(handler)`
++ `logger.handlers = [handler1, handler2]`
 
 建议使用第一种方式，利用 API 来完成添加。
-
 
 <a id="file-stdout-stderr"></a>
 
@@ -138,13 +138,13 @@ logger2.info('I am TestLogger2')
 
 框架希望将日志不仅输出到终端，也希望输出到文件，而且希望文件可以按照时间或者大小来切分，这些都可以通过增加不同的 `handler` 来实现
 
-+ StreamHandler(stream=None)
++ `StreamHandler(stream=None)`
   + stream 可以取值为：`sys.stderr`, `sys.stdout`
-+ FileHandler(filename, mode='a', encoding=None, delay=False)
++ `FileHandler(filename, mode='a', encoding=None, delay=False)`
   + 将日志输出到某个文件
 + WatchedFileHandler: 类似 FileHandler
   + 检测对应文件是否有改变，有的话会关闭重新打开
-+ RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=0)
++ `RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=0)`
   + 将日志输出到文件，且文件会切割
 + TimedRotatingFileHandler
 
