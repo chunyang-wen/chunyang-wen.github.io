@@ -20,7 +20,7 @@ tags: [cpp, misc]
 + `pair`
 + `type_traits`
 
-<a id="pair"</a>
+<a id="pair"></a>
 
 ### pair
 
