@@ -65,8 +65,8 @@ vector<_Tp, _Alloc>::_M_insert_aux(iterator __position, const _Tp& __x) {
 + 为什么要调用一下 `construct`?
   + 那部分 `_M_end_of_storage` 标记的只是内存空间，并没有初始化，所以必须先 `construct`，然后再复制
   + `else` 分支中调用了：`uninitialized_copy`，函数内部会根据情况去调用复制构造函数
-+ 复制一份 `__x`: 放置变量会被覆盖吗？
-  + 放置传入的引用是在 `copy_backward` 的方位之内
++ 复制一份 `__x`: 防止变量会被覆盖吗？
+  + 防止传入的引用是在 `copy_backward` 的方位之内
 
 <a id="del-ele"></a>
 
