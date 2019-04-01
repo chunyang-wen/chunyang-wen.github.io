@@ -92,9 +92,9 @@ void slist<_Tp,_Alloc>::remove(const _Tp& __val)
   _Node_base* __cur = &this->_M_head;
   while (__cur && __cur->_M_next) {
     if (((_Node*) __cur->_M_next)->_M_data == __val)
-    | this->_M_erase_after(__cur);
+      this->_M_erase_after(__cur);
     else
-    | __cur = __cur->_M_next;
+      __cur = __cur->_M_next;
   }
 }
 ```
@@ -110,8 +110,8 @@ void slist<_Tp,_Alloc>::remove(const _Tp& __val)
    _Node_base* __n1 = &this->_M_head;
    while (__n1->_M_next && __x._M_head._M_next) {
      if (((_Node*) __x._M_head._M_next)->_M_data <
-     |   ((_Node*)       __n1->_M_next)->_M_data)
-     | __slist_splice_after(__n1, &__x._M_head, __x._M_head._M_next);
+         ((_Node*)       __n1->_M_next)->_M_data)
+       __slist_splice_after(__n1, &__x._M_head, __x._M_head._M_next);
      __n1 = __n1->_M_next;
    }
    if (__x._M_head._M_next) {
@@ -136,8 +136,8 @@ __pos->__first->__before_last->__pos.next
 
 ```cpp
 inline void __slist_splice_after(_Slist_node_base* __pos,
-    |   |   |   |   |   |   |   |_Slist_node_base* __before_first,
-    |   |   |   |   |   |   |   |_Slist_node_base* __before_last)
+                                 _Slist_node_base* __before_first,
+                                 _Slist_node_base* __before_last)
 {
   if (__pos != __before_first && __pos != __before_last) {
     _Slist_node_base* __first = __before_first->_M_next;
@@ -188,21 +188,21 @@ __slist_splice_after(_Slist_node_base* __pos, _Slist_node_base* __head)
      slist __counter[64];
      int __fill = 0;
      while (!empty()) {
-     | __slist_splice_after(&__carry._M_head,
-     |   |   |   |   |   |  &this->_M_head, this->_M_head._M_next);
-     | int __i = 0;
-     | while (__i < __fill && !__counter[__i].empty()) {
-     |   __counter[__i].merge(__carry);
-     |   __carry.swap(__counter[__i]);
-     |   ++__i;
-     | }
-     | __carry.swap(__counter[__i]);
-     | if (__i == __fill)
-     |   ++__fill;
+       __slist_splice_after(&__carry._M_head,
+                            &this->_M_head, this->_M_head._M_next);
+       int __i = 0;
+       while (__i < __fill && !__counter[__i].empty()) {
+         __counter[__i].merge(__carry);
+         __carry.swap(__counter[__i]);
+         ++__i;
+       }
+       __carry.swap(__counter[__i]);
+       if (__i == __fill)
+         ++__fill;
      }
 
      for (int __i = 1; __i < __fill; ++__i)
-     | __counter[__i].merge(__counter[__i-1]);
+       __counter[__i].merge(__counter[__i-1]);
      this->swap(__counter[__fill-1]);
    }
  }
