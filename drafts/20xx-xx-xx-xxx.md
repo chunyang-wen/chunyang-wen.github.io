@@ -1,8 +1,8 @@
 ---
 layout: post
 title:
-categories:[algorithm]
-tags:[leetcode]
+categories: [algorithm]
+tags: [leetcode]
 ---
 
 + [题目](#problem)
