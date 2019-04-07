@@ -63,6 +63,9 @@ defaults:
       header-img: "img/fantasy.jpg" # We don't want posts without a header image, that whould mean white on white
 
 
+# enable future docs
+future: true
+
 # Comments
 #comments :
 #  provider : duoshuo
