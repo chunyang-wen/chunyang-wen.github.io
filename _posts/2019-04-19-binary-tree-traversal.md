@@ -201,7 +201,7 @@ vector<int> postorder(TreeNode* node) {
     TreeNode* prev = NULL;
     while(!st.empty()) {
         TreeNode* top = st.top();
-        if (prev != NULL && prev == top->right) {
+        if (prev != NULL && (prev == top->right || prev == top->left)) {
             result.push_back(top->val);
             st.pop();
             prev = top;
