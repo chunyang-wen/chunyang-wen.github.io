@@ -40,8 +40,6 @@ You may assume nums1 and nums2 cannot be both empty.
 
 ### 解法
 
-算法复杂度 `O(n)`，空间复杂度 `O(n)`
-
 <a id="way"></a>
 
 #### 思路
@@ -73,11 +71,9 @@ class Solution {
         if (mid1 >= e1) mid1 = e1-1;
         int mid2 = s2 + (target - 1) - (mid1 - s1);
 
-        /*
         cout << "num1: " << s1 << " " << e1 << " " << mid1 << endl;
         cout << "num2: " << s2 << " " << e2 << " " << mid2 << endl;
         cout << "target: " << target << " index: " << (mid1 - s1 + mid2 - s2 + 2) << endl;
-        */
 
         // assert(target >= 0);
 
