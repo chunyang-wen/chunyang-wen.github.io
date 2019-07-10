@@ -6,7 +6,7 @@ tags: [redis]
 ---
 
 + [Introduction](#intro)
-+ 主要的类和函数
++ [主要的类和函数](#entry)
   + [Redis, StrictRedis](#a)
   + [Monitor](#b)
   + [Pubsub, PubSubWorkerThread](#c)
@@ -14,13 +14,14 @@ tags: [redis]
   + [Script](#e)
   + [BitFieldOperation](#f)
 
-
 <a id="intro"></a>
 
 ### Introduction
 
 本文主要介绍 `Redis` 的 Python API 的常见使用方法。Python API 也是具体 Redis 命令的包装。
 只不过是实现了支持 Redis 协议的功能。
+
+<a id="entry"></a>
 
 ### 主要的类和函数
 
@@ -62,6 +63,8 @@ tags: [redis]
 
 #### 基础命令
 
+##### 单个 key
+
 + `append(self, key, value)`
 + `get(self, name)`
 + `getrange(self, key, start, end)`
@@ -76,6 +79,7 @@ tags: [redis]
 + `incrby(self, name, amount=1)`
 + `incrbyfloat(self, name, amount=1.0)`
 
+##### 一般命令
 
 + `psetex(self, name, time_ms, value)`
 + `pttl(self, name)`
@@ -94,6 +98,7 @@ tags: [redis]
 + `watch(self, *names)`: **Deprecated**，使用 `Pipeline`
 + `unwatch(self)`: **Deprecated**，使用 `Pipeline`
 
+##### Bit 相关
 
 + `bitcount(self, key, start=None, end=None)`
 + `getbit(self, name, offset)`
@@ -102,10 +107,14 @@ tags: [redis]
 + `bitop(self, operation, dest, *keys)`
 + `bitpos(self, key, bit, start=None, end=None)`
 
+##### 批量命令
 
 + `mget(self, keys, *args)`
 + `mset(self, mapping)`: mapping 是 `dict`
 + `msetnx(self, mapping)`
+
+
+##### List
 
 + `blpop(self, name, timeout=0)`
 + `brpop(self, name, timeout=0)`
@@ -124,6 +133,8 @@ tags: [redis]
 + `sort(self, name, start=None, num=None, by=None, get=None, desc=False, alpha=False, store=None, groups=False)`
 
 
+##### Set
+
 + `sadd(self, name, *values)`
 + `scard(self, name)`
 + `sdiff(self, keys, *args)`
@@ -139,6 +150,7 @@ tags: [redis]
 + `sunion(self, keys, *args)`
 + `sunionstore(self, dest, keys, *args)`
 
+##### Map
 
 + `hdel(self, name, *keys)`
 + `hexists(self, name, key)`
@@ -161,6 +173,7 @@ tags: [redis]
 + `zcount(self, name, min, max)`
 + `zincrby(self, name, amount, value)`
 
+##### Scan
 
 + `scan(self, cursor=0, match=None, count=None)`: scan list
 + `scan_iter(self, match=None, count=None)`: scan list
@@ -171,6 +184,8 @@ tags: [redis]
 + `zscan(self, name, cursor=0, match=None, count=None, score_cast_func=float)`
 + `zscan_iter(self, name, match=None, count=None, score_cast_func=float)`
 
+
+##### 清除和 `expire` 相关
 
 + `delete(self, key)`
 + `dump(self, name)`
