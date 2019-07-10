@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Reids python API cheatsheet
+title: Redis python API cheatsheet
 categories: [python]
 tags: [redis]
 ---
@@ -76,6 +76,7 @@ tags: [redis]
 + `incrby(self, name, amount=1)`
 + `incrbyfloat(self, name, amount=1.0)`
 
+
 + `psetex(self, name, time_ms, value)`
 + `pttl(self, name)`
 + `ttl(self, name)`
@@ -89,8 +90,10 @@ tags: [redis]
 + `restore(self, name, ttl, value, replace=False)`
 + `unlink(self, *names)`
 
+
 + `watch(self, *names)`: **Deprecated**，使用 `Pipeline`
 + `unwatch(self)`: **Deprecated**，使用 `Pipeline`
+
 
 + `bitcount(self, key, start=None, end=None)`
 + `getbit(self, name, offset)`
@@ -98,6 +101,7 @@ tags: [redis]
 + `bitfield(self, key, default_overflow=None)`
 + `bitop(self, operation, dest, *keys)`
 + `bitpos(self, key, bit, start=None, end=None)`
+
 
 + `mget(self, keys, *args)`
 + `mset(self, mapping)`: mapping 是 `dict`
@@ -110,6 +114,7 @@ tags: [redis]
 + `linsert(self, name, where, refvalue, value)`
 + `llen(self, name)`
 + `[l/r]pop(self, name)`
++ `[l/r]push(self, *values)`
 + `[l/r]pushx(self, name, *values)`
 + `[l/r]range(self, name, start, end)`
 + `lrem(self, name, count, value)`
@@ -117,6 +122,7 @@ tags: [redis]
 + `ltrim(self, name, start, end)`: 删除 start 和 end 之间的内容
 + `rpoplpush(self, src, dst)`
 + `sort(self, name, start=None, num=None, by=None, get=None, desc=False, alpha=False, store=None, groups=False)`
+
 
 + `sadd(self, name, *values)`
 + `scard(self, name)`
@@ -132,6 +138,7 @@ tags: [redis]
 + `srem(self, name, *values)`
 + `sunion(self, keys, *args)`
 + `sunionstore(self, dest, keys, *args)`
+
 
 + `hdel(self, name, *keys)`
 + `hexists(self, name, key)`
@@ -154,6 +161,7 @@ tags: [redis]
 + `zcount(self, name, min, max)`
 + `zincrby(self, name, amount, value)`
 
+
 + `scan(self, cursor=0, match=None, count=None)`: scan list
 + `scan_iter(self, match=None, count=None)`: scan list
 + `sscan(self, name, cursor=0, match=None, count=None)`: scan set
@@ -162,6 +170,7 @@ tags: [redis]
 + `hscan_iter(self, name, match=None, count=None)`
 + `zscan(self, name, cursor=0, match=None, count=None, score_cast_func=float)`
 + `zscan_iter(self, name, match=None, count=None, score_cast_func=float)`
+
 
 + `delete(self, key)`
 + `dump(self, name)`
