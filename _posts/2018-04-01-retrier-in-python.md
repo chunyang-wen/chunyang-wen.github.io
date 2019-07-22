@@ -54,6 +54,7 @@ def clear_cache():
 ```
 def retry_with_hook(fn):
     def inner(fn_to_wrap): # decorator
+        @functools.wraps(fn_to_wrap)
         def inner_most(*args, **kwargs): # decorated result function
             status = fn_to_wrap(*args, **kwargs)
             if status != 0:
@@ -90,6 +91,7 @@ def exec_cmd(a, cache):
 ```python
 def retry_with_sleep_and_count(sleep_gap, count):
     def inner(fn_to_wrap):
+        @functools.wraps(fn_to_wrap)
         def inner_most(*args, **kwargs):
             for i in range(count):
                 try:
@@ -101,3 +103,5 @@ def retry_with_sleep_and_count(sleep_gap, count):
 ```
 
 本文完. Enjoy it.
+
++ Update at 2019-07-22, add `functools.wraps` to preserve infomation of original
