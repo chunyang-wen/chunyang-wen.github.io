@@ -31,4 +31,6 @@ categories: [books]
 
 ### Behavioral design pattern
 
-<image src="/images/2019-08-16/behavioral-pattern.jpg"</image>
+<image src="/images/2019-08-16/behavioral-pattern.jpg"></image>
+
+本文完
