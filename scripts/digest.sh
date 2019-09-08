@@ -29,8 +29,10 @@ tags: [leetcode]
 
 ### Summary
 
+**Solved problems list**
 
-<a id="height"></a>
+
+<a id="highlight"></a>
 
 ### Highlight
 
