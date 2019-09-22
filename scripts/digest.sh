@@ -24,6 +24,7 @@ tags: [leetcode]
 
 + [Summary](#summary)
 + [Highlight](#highlight)
++ [Code Section](#code)
 
 <a id="summary"></a>
 
@@ -35,5 +36,11 @@ tags: [leetcode]
 <a id="highlight"></a>
 
 ### Highlight
+
+<a id="code"></a>
+
+### Code Section
+
+The sequence of code is the same with the problem list.
 
 EOF
