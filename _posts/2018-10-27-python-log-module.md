@@ -2,7 +2,7 @@
 layout: post
 title: Python logging module
 categories: [python, logging]
-tags: [python, logging]
+tags: [python]
 ---
 
 + [简介](#intro)
