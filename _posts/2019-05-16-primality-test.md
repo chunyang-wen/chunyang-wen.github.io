@@ -2,7 +2,7 @@
 layout: post
 title: Prime related
 categories: [blog, algorithm]
-tags: [prime]
+tags: [algorithm]
 ---
 
 + [Introduction](#intro)

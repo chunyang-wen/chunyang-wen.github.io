@@ -1,6 +1,6 @@
 ---
 layout: post
-title: <高效能程序员的修炼>读后感
+title: <<高效能程序员的修炼>>读后感
 categories: [blog, books]
 tags: [reading]
 description: coding horror
@@ -11,7 +11,7 @@ description: coding horror
 
 这里来个小插曲：为什么有的RSS软件无法获取很久之前的文章？RSS软件需要从类似Google Reader这种信息聚合的网站下载信息，不然的话就要自己一个一个添加网站的订阅。自从Google Reader关闭了以后，很多替代的产品出现：鲜果？Feedly？Feedburner？这些都是比较好的产品。但是他们相对于Google Reader还是存在差距，因为他们查阅很久之前的文章能力有限，因为Google的爬虫已经记录了很多页面，很多内容，它可以轻松查询一个博客，不论多久的文章（理论上Google之后的都没问题）。但是其它替代产品都没法做到这点，国内的鲜果阅读器做得还行，但是它的客户端做得不够好，显示内容以及排版还是存在差距，缺少审美观点。
 
-直到最近看了codinghorror博客的一些精华收集翻译版本<高效能程序员的修炼>这本书，才觉得恍然大悟。作者Jeff Atwood时[stackoverflow](http://www.stackoverflow.com)的联合创始人，还有一位是软件界的教父级别人物（Jeff称的）Joel（[他的博客](http://www.joelonsoftware.com)）。这本书的内容很多，毕竟作者博客已经维持了十多年，基本每周一篇（当然出去开发stackoverflow和[discourse](http://www.discourse.org)的时间）。不得不佩服作者的毅力，当然作者也从写博客中得到自我价值的提升。就像左耳朵耗子说得一样，把复杂的事情说得简单是一种能力，长篇累牍反而说明你的理解不够深入，表达欠缺技巧。作者在博客十周年的日子发了一篇感悟，博客伴随了很多人成长，但同时也说明他已经老了（^_^）。但是他奉献给读者的远远超过他的想象，充实的内容，用句话叫都是干货和硬货。
+直到最近看了codinghorror博客的一些精华收集翻译版本<高效能程序员的修炼>这本书，才觉得恍然大悟。作者Jeff Atwood时[stackoverflow](http://www.stackoverflow.com)的联合创始人，还有一位是软件界的教父级别人物（Jeff称的）Joel（[他的博客](http://www.joelonsoftware.com)）。这本书的内容很多，毕竟作者博客已经维持了十多年，基本每周一篇（当然出去开发stackoverflow和[discourse](http://www.discourse.org)的时间）。不得不佩服作者的毅力，当然作者也从写博客中得到自我价值的提升。就像左耳朵耗子说得一样，把复杂的事情说得简单是一种能力，长篇累牍反而说明你的理解不够深入，表达欠缺技巧。作者在博客十周年的日子发了一篇感悟，博客伴随了很多人成长，但同时也说明他已经老了（^\_^）。但是他奉献给读者的远远超过他的想象，充实的内容，用句话叫都是干货和硬货。
 
 <高效能程序员的修炼>中提到了很多话题，谈谈自己感触很深的。
 
