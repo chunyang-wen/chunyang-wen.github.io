@@ -22,6 +22,7 @@ typedef pair<int, int> IntPair;
 IntPair partition(vector<int>& arr, int start, int end) {
     if (start >= end) return make_pair(end, end);
     // select the first element as the pivot
+
     int i = start;
     int j = start;
     int k = end;
@@ -56,6 +57,7 @@ void quick_sort(vector<int>& arr, int start, int end) {
     auto middle1 = std::partition(beg, end, [](int x) {return x < pivot;});
     auto middle2 = std::partition(middle1, end, [](int x){return x <= pivot;});
     // middle1 and middle2 are the start and end of the array with same element;
+
     quick_sort(arr, start, distance(middle1, arr.begin()));
     quick_sort(arr, distance(middle2, arr.begin()), end);
 }
