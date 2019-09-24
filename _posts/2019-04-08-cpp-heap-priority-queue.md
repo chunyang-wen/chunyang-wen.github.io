@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ STL priority queue and heap
-categories: [cpp]
-tags: [stl, heap, priority_queue]
+categories: [queue, heap]
+tags: [stl]
 ---
 
 + [简介](#intro)

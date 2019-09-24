@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Approach a System Design Interview
-categories: [interview]
-tags: [system-design]
+categories: [system-design]
+tags: [reading]
 ---
 
 翻译自：[Approach a System Design Interview](https://medium.com/system-designing-interviews/approach-a-system-design-interview-f3594e243730)

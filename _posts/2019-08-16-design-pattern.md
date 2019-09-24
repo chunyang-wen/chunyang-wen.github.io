@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Design pattern
-tags: [design-pattern]
-categories: [books]
+tags: [reading]
+categories: [design-pattern]
 ---
 
 无意中发现一个网址介绍设计模式，觉得介绍的特别清楚，而且每种模式用语言描述得比较直观。

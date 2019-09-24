@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ Iterator
-categories: [cpp]
-tags: [cpp, exception]
+categories: [iterator]
+tags: [stl]
 ---
 
 + [Introduction](#intro)
