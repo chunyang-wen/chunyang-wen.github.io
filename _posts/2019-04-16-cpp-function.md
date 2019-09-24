@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ bind and function
-categories: [cpp]
-tags: [bind, function]
+categories: [blog, cpp]
+tags: [cpp]
 ---
 
 + [简介](#intro)

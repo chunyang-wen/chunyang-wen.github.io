@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 如何使用 sphinx 来生成代码文档
-tags: [python,]
+categories:[blog, python]
+tags: [python]
 ---
 
 - [注释](#comment)

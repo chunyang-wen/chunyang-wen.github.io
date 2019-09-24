@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Subsets and Permutations
-categories: [algorithm]
+categories: [blog, algorithm]
 tags: [leetcode]
 ---
 

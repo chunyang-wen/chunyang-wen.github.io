@@ -1,8 +1,8 @@
 ---
 layout: post
 title: <高效能程序员的修炼>读后感
-categories: [reading-books, ]
-tags: [tech-books, codinghorror, ]
+categories: [blog, books]
+tags: [reading]
 description: coding horror
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python logging module
-categories: [python, logging]
+categories: [blog, python]
 tags: [python]
 ---
 

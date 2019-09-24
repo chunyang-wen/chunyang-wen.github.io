@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nginx server and location selection
-categories: [nginx]
+categories: [blog, nginx]
 tags: [reading]
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Descriptor and decorator in Python
-categories: [python,]
-tags: [python, ]
+categories: [blog, python]
+tags: [python]
 ---
 
 装饰器 (Decorator) 模式是为既有的功能增加新的功能，例如都是标题，可以不改变原来的代码，增加一个加粗

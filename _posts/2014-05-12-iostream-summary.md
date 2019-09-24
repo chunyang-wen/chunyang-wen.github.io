@@ -1,8 +1,8 @@
 ---
 layout: post
 title: iostream用法
-categories: [programming, ]
-tags: [iostream, ]
+categories: [blog, cpp]
+tags: [cpp]
 ---
 
 

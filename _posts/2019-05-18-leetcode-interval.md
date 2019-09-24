@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Merge interval and Insert interval
-categories: [algorithm]
+categories: [blog, algorithm]
 tags: [leetcode]
 ---
 

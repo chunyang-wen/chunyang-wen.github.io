@@ -1,8 +1,8 @@
 ---
 layout: post
 title: why indentLint not working with mac vim (8.0)?
-categories: [vim, linux]
-tags: [vim, linux]
+categories: [blog, tools]
+tags: [tools]
 ---
 
 + [问题](#problem)

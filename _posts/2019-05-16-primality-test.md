@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Prime related
-categories: [algorithm]
+categories: [blog, algorithm]
 tags: [prime]
 ---
 

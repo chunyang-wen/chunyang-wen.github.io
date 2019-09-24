@@ -1,8 +1,8 @@
 ---
 layout: post
 title: git basics
-categories: [tools]
-tags: [git, ]
+categories: [blog, tools]
+tags: [tools]
 ---
 
 

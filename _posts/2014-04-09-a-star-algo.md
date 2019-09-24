@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Implementation of A star algorithm
-categories: [algorithms, ]
-tags: [a-star, c++, ]
+categories: [blog, algorithm]
+tags: [algorithm]
 ---
 
 

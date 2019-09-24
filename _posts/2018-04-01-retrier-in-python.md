@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python 中 Retrier 的实现
-categories: [python]
+categories: [blog, python]
 tags: [python]
 ---
 

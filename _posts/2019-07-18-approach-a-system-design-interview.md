@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Approach a System Design Interview
-categories: [system-design]
+categories: [blog, system-design]
 tags: [reading]
 ---
 

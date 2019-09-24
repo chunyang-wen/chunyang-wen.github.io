@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ STL algo base
-categories: [cpp]
-tags: [algorithm]
+categories: [blog, stl]
+tags: [cpp]
 ---
 
 + [简介](#intro)

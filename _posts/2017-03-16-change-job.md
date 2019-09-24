@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 关于频繁换工作的思考
-categories: [tools, ]
-tags: [thinking, ]
+categories: [blog, thinking]
+tags: [thinking]
 description: thoughts
 ---
 

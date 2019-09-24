@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Integrating RemarkJS with Jekyll
+categories: [blog, tools]
+tags: [tools]
 ---
 
 [RemarkJS](https://github.com/gnab/remark) 是个非常出色的工具。它能很轻易的 `Markdown` 语法的内容

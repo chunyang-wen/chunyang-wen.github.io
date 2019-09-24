@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Closures in Ruby
-categories: [translating, ]
-tags: [Ruby, closure, ]
+categories: [blog, ruby]
+tags: [ruby]
 ---
 
 

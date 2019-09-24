@@ -1,8 +1,8 @@
 ---
 title: 改变之前 commit 的信息
 layout: post
+categories: [blog, git]
 tags: [git]
-categories: [git]
 ---
 
 + [综述](#intro)

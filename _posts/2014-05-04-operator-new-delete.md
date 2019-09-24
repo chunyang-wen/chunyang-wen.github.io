@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++中动态内存分配
-categories: [programming, ]
-tags: [operator new, ]
+categories: [blog, cpp]
+tags: [cpp]
 ---
 
 

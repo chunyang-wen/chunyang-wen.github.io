@@ -1,8 +1,8 @@
 ---
 layout: post
 title: sizeof的总结
-categories: [programming, ]
-tags: [sizeof, ]
+categories: [blog, cpp]
+tags: [cpp]
 ---
 
 

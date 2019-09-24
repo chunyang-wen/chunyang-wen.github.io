@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dijkstra's 3-way quick sort
-categories: [stl]
+categories: [blog, algorithm]
 tags: [algorithm]
 ---
 

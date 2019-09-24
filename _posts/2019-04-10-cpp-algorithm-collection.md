@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ STL algorithm
-categories: [cpp]
-tags: [stl, algorithm]
+categories: [blog, stl]
+tags: [cpp]
 ---
 
 + [简介](#intro)

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Multitasking Management in the Operating System Kernel
-categories: [translating, ]
-tags: [os, ]
+categories: [blog, translating]
+tags: [operating system]
 ---
 
 

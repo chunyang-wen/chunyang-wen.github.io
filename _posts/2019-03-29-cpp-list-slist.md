@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ STL list and slit
-categories: [cpp]
-tags: [cpp, STL, slist, list]
+categories: [blog, stl]
+tags: [cpp]
 ---
 
 + [简介](#intro)

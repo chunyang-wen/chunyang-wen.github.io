@@ -1,8 +1,8 @@
 ---
 layout: post
 title: awk + wget 实现的简单爬虫
-categories: [tools, ]
-tags: [linux, shell, spider, ]
+categories: [blog, tools]
+tags: [tools]
 description: spider
 ---
 

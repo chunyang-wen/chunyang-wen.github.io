@@ -1,7 +1,8 @@
 ---
 layout: post
 titile: A guide to Python's Magic Methods
-category: [python,]
+category: [blog, translating]
+tags: [python]
 ---
 
 翻译自：[A guide to Python's Magic Methods][1]

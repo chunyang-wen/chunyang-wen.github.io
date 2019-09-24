@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 去除下载文档中的水印
-categories: [tools, ]
-tags: [linux, shell, ]
+categories: [blog, tools]
+tags: [tools]
 ---
 
 

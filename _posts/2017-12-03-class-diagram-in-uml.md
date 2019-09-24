@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Diagram in UML
-category: [tools,]
-tags: [UML, diagram-class]
+category: [blog, tools]
+tags: [tools]
 ---
 
 UML (Unified Modeling Language) 是一个通用的建模工具，其很多图形的绘制对程序员来说是比较重要地

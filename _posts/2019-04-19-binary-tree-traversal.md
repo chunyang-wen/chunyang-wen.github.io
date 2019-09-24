@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Binary tree traversal
-categories: [algorithm]
-tags: [binary-tree]
+categories: [blog, algorithm]
+tags: [leetcode]
 ---
 
 + [介绍](#intro)

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: C++ STL Vector
-categories: [cpp]
-tags: [cpp, STL, vector]
+categories: [blog, stl]
+tags: [cpp]
 ---
 
 + [简介](#intro)

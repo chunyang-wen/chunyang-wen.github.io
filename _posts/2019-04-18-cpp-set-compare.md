@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Compare in set and map
-categories: [cpp]
-tags: [set, map, compare]
+categories: [blog, stl]
+tags: [cpp]
 ---
 
 + [简介](#intro)

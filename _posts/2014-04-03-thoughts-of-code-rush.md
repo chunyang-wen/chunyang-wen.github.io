@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Code Rush观后感
-categories: [movies, ]
-tags: [code-rush, ]
+categories: [blog, movies]
+tags: [reading]
 ---
 
 

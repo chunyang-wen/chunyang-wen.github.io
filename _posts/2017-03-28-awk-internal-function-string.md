@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      awk内置函数和字符串
-categories: [Linux, awk,]
-tags: [awk,]
+categories: [blog, shell]
+tags: [shell]
 ---
 
 

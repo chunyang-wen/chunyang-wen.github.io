@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Majority Element I && II
-categories: [algorithm]
+categories: [blog, algorithm]
 tags: [leetcode]
 ---
 

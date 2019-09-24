@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Median of two sorted arrays
-categories: [algorithm]
+categories: [blog, algorithm]
 tags: [leetcode]
 ---
 

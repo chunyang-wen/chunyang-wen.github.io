@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Linux shell 条件判断
-categories: [Linux, shell]
-tags: [programming, ]
+categories: [blog, shell]
+tags: [shell]
 ---
 
 

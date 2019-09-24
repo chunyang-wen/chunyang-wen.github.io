@@ -1,8 +1,8 @@
 ---
 layout:     post
 title:      awk 基本概念
-categories: [Linux, awk, ]
-tags: [Linux, awk, string, ]
+categories: [blog, shell]
+tags: [shell]
 ---
 
 

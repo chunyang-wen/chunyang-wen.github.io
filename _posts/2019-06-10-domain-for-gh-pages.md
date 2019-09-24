@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Add custom domain for github pages
-categories: [gh-pages]
-tags: [DNS]
+categories: [blog, git]
+tags: [reading]
 ---
 
 由于特殊原因，导致自己的 VPS 无法访问。

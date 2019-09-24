@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Redis python API cheatsheet
-categories: [python]
+categories: [blog, redis]
 tags: [reading]
 ---
 

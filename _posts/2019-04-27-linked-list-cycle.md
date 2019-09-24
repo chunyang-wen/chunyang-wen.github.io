@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linked list cycle
-categories: [algorithm]
+categories: [blog, algorithm]
 tags: [leetcode]
 ---
 
