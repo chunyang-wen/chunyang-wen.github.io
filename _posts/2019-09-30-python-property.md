@@ -12,6 +12,8 @@ class can support it.
 class AwesomeClass:
     pass
 
+# directly call `setattr` or `getattr`
+
 c = AwesomeClass()
 
 setattr(c, "hi", "hello")
