@@ -13,10 +13,13 @@ class AwesomeClass:
     pass
 
 c = AwesomeClass()
+
 setattr(c, "hi", "hello")
+
 setattr(c, "earth", "world")
 
 c.hi = "3"
+
 c.earth = 4
 ```
 
@@ -56,6 +59,7 @@ class AwesomeClass:
     hi = property(fget=get_hi, fset=set_hi)
 
 # full function signature
+
 # property(fget=xxx, fset=xx, fdel=xx, doc=xx)
 
 ```
@@ -68,9 +72,11 @@ c = AwesomeClass()
 prop = vars(type(c))["hi"]  # the property
 
 # prop.setter(val)
+
 # prop()
 
 # prop.fset(val)
+
 # prop.fget()
 ```
 
