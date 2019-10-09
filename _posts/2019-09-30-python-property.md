@@ -9,8 +9,10 @@ Recently in my project, I need to **dynamically add property to an instance**. I
 class can support it.
 
 ```python
+
 class AwesomeClass:
-    pass
+    def __init__(self):
+        pass
 
 # directly call `setattr` or `getattr`
 
@@ -33,6 +35,10 @@ If we know all the property beforehand, we can define them in the class definiti
 class AwesomeClass:
 
     def __init__(self):
+        #Args:
+
+            #self
+
         self._hi = None
 
     @property

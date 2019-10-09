@@ -18,7 +18,7 @@ cat > ${FILE} << EOF
 ---
 layout: post
 title: Leetcode summary of ${START}-${END}
-categories: [leetcode]
+categories: [blog, algorithm]
 tags: [leetcode]
 ---
 
