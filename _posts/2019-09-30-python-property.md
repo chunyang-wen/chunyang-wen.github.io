@@ -12,6 +12,10 @@ class can support it.
 
 class AwesomeClass:
     def __init__(self):
+        """
+        Args:
+            self
+        """
         pass
 
 # directly call `setattr` or `getattr`
