@@ -1,7 +1,7 @@
 ---
 layout: post
 title: To the last day of March
-categories:[blog, test]
+categories: [blog, test]
 tags: [Dummy]
 ---
 
