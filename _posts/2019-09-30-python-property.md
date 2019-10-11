@@ -5,6 +5,9 @@ categories: [blog, python]
 tags: [python]
 ---
 
+* TOC
+{:toc}
+
 Recently in my project, I need to **dynamically add property to an instance**. It is easy that any
 class can support it.
 

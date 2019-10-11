@@ -77,6 +77,10 @@ hr.small {
 .post-container a {
   color: #4da6ff;
 }
+
+.post-container .anchorjs-link {
+  color: #FF5231;
+}
 .post-container a:hover,
 .post-container a:focus {
   color: #6bb4bf;
