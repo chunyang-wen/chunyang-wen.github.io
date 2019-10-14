@@ -130,16 +130,15 @@ var dsqjs = new DisqusJS({
 <!-- gitment -->
 <script>
     const gitment = new Gitment({
-        id: '{{ page.title }}', // optional
-  owner: 'chunyang-wen',
-  repo: 'site-comment',
-  oauth: {
-    client_id: '592388ccabd0311d6866',
-    client_secret: '48c6050bdc712fd4f2f3db89781e98ce967df107',
-  },
-})
-
-gitment.render('gitment_thread')
+        id: '', // optional
+        owner: 'chunyang-wen',
+        repo: 'site-comment',
+        oauth: {
+            client_id: '592388ccabd0311d6866',
+            client_secret: '48c6050bdc712fd4f2f3db89781e98ce967df107',
+        },
+    })
+    gitment.render('gitment_thread')
 // or
 // gitment.render(document.getElementById('comments'))
 // or
