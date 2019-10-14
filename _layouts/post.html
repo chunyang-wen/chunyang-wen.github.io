@@ -57,67 +57,11 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
-
-                <!-- Duoshuo Share start
-                <style>
-                    .ds-share{
-                        text-align: right;
-                    }
-                    @media only screen and (max-width: 700px) {
-                        .ds-share {
-
-                        }
-                    }
-                </style>
-
-                <div class="ds-share"
-                    data-thread-key="{{page.id}}" data-title="{{page.title}}"
-                    data-images="{{ site.url }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}"
-                    data-content="{{ content | strip_html | truncate:80 }} | Microdust:Azeril's blog"
-                    data-url="{{site.url}}{{page.url}}">
-                    <div class="ds-share-inline">
-                      <ul  class="ds-share-icons-16">
-
-                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
-                        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-                        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-                        <li><a class="ds-douban" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
-                      </ul>
-                      <div class="ds-share-icons-more">
-                      </div>
-                    </div>
-                <hr>
-                </div>
-                Duoshuo Share end-->
-
-
-
-
-                <!-- Duoshuo comment start
-                <div class="comment">
-                    <div class="ds-thread" data-thread-key="{{page.id}}" data-title="{{page.title}}" data-url="{{site.url}}{{page.url}}"></div>
-                </div>
-                Duoshuo comment end -->
+                <div id="disqus_thread"></div>
             </div>
         </div>
     </div>
 </article>
-
-
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) 
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"azeril"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
--->
 
 
 <!-- async load function -->
@@ -161,3 +105,19 @@ var duoshuoQuery = {short_name:"azeril"};
         color: #FF5231;
     }
 </style>
+
+<!-- discuss js -->
+
+<script>
+var dsqjs = new DisqusJS({
+    shortname: 'SiteComment',
+    siteName: 'CoolMind',
+    identifier: "{{ page.title }}",
+    url: "{{site.url}}/{{ page.url }}",
+    title: "{{ page.title }}",
+    api: "{{ site.url }}/disqus",
+    apikey: 'FTdoSpJhWd0FSipHIjEsL4fy1wLcNj907qB8lhx9iSbDZrYJRtreZuqBIDTBLPtz',
+    admin: 'chunyangwen',
+    adminLabel: 'chunyangwen'
+});
+</script>
