@@ -57,7 +57,10 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
+                <!-- disqus thread
                 <div id="disqus_thread"></div>
+                -->
+                <div id="gitment_thread></div>"
             </div>
         </div>
     </div>
@@ -108,6 +111,7 @@ layout: default
 
 <!-- discuss js -->
 
+<!--
 <script>
 var dsqjs = new DisqusJS({
     shortname: 'SiteComment',
@@ -120,4 +124,24 @@ var dsqjs = new DisqusJS({
     admin: 'chunyangwen',
     adminLabel: 'chunyangwen'
 });
+</script>
+-->
+
+<!-- gitment -->
+<script>
+    const gitment = new Gitment({
+  id: 'chunyang-wen', // optional
+  owner: 'chunyang-wen',
+  repo: 'https://github.com/chunyang-wen/site-comment',
+  oauth: {
+    client_id: '592388ccabd0311d6866',
+    client_secret: '48c6050bdc712fd4f2f3db89781e98ce967df107',
+  },
+})
+
+gitment.render('gitment_thread')
+// or
+// gitment.render(document.getElementById('comments'))
+// or
+// document.body.appendChild(gitment.render())
 </script>
