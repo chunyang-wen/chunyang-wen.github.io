@@ -75,3 +75,17 @@ async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
     anchors.add().remove('.intro-header h1').remove('.subheading');
 })
 ```
+
+### Comment
+
+Comment function is one of the common functions. There are certain services that are suitable
+for static generated pages:
+
++ <a href="https://disqus.com" target="_blank">disqus</a>
++ <a href="https://github.com/imsun/gitment" target="_blank">Gitment</a>
++ <a href="https://github.com/gitalk/gitalk" target="_blank">Gitalk</a>
+
+Disqus is blocked in certain areas on the earth; `Gitment` seems not working and the service is
+not stable; `Gitalk` is awesome. Please refer to the detail README of `Gitalk`.
+
++ <a href="https://github.com/settings/applications/new" target="_blank">OAuth apply</a>
