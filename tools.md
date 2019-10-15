@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Tools"
-description: "Tools that I like"
+title: "tools"
+description: "Tools that I use"
 header-img: "img/autumn.jpg"
 ---
 
@@ -16,10 +16,11 @@ header-img: "img/autumn.jpg"
 + find
 + Python
 + shell
++ vim
 
 ### Mac
 
-+ taurine: 保持 Mac 清醒的app
++ taurine: Keep Mac from sleeping
 
 ### Websites
 
