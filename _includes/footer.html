@@ -7,6 +7,7 @@
                     <!-- kill the Facebook and Weibo -->
                     <li>
                         <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                            <img src="/images/feed.png" class="hover_image"></img>
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
@@ -31,6 +32,7 @@
                     {% if site.github_username %}
                     <li>
                         <a href="https://github.com/{{ site.github_username }}">
+                            <img src="/images/github.png" class="hover_image"></img>
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -125,3 +127,12 @@
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1276779737'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1276779737%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 
 <link href="/css/style.css" rel="stylesheet">
+
+<style>
+.hover_image{
+cursor: default;
+}
+.hover_image:hover{
+cursor: pointer;
+}
+</style>
