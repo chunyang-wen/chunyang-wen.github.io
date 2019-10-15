@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Tags
-description: "我的航海志"
+title: tags
+description: "Detail blogs categoried by tags"
 header-img: "img/bay.jpg"
 ---
 
@@ -23,3 +23,34 @@ header-img: "img/bay.jpg"
 </ul>
 {% endfor %}
 </div>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          /*icon: '¶'*/
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading');
+    })
+</script>
+
+<style type="text/css">
+.anchorjs-link {
+    color: #FF5231
+}
+</style>
+
