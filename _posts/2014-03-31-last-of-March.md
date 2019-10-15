@@ -3,6 +3,7 @@ layout: post
 title: To the last day of March
 categories: [blog, test]
 tags: [dummy]
+include_math: true
 ---
 
 
