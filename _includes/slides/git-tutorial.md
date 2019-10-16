@@ -177,3 +177,5 @@ template: inverse
 
 ## Thanks
 
+[Return Home](https://www.chunyangwen.com)
+
