@@ -2,7 +2,7 @@
 layout: post
 title: git basics
 categories: [blog, tools]
-tags: [tools]
+tags: [git]
 ---
 
 
