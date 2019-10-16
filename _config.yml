@@ -34,7 +34,6 @@ highlighter: rouge
 
 #gems:
 plugins:
-- jekyll-gallery-generator
 - jekyll-paginate
 permalink: none
 paginate: 8
