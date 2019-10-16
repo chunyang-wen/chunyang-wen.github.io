@@ -17,10 +17,10 @@ categories: [blog, design]
 + Interface Segregation
 + Dependency Inversion
 
-<image src="/images/2019-08-16/creational-pattern.jpg"></image>
+<image src="/images/design-pattern/creational-pattern.jpg"></image>
 
-<image src="/images/2019-08-16/structural-pattern.jpg"></image>
+<image src="/images/design-pattern/structural-pattern.jpg"></image>
 
-<image src="/images/2019-08-16/behavioral-pattern.jpg"></image>
+<image src="/images/design-pattern/behavioral-pattern.jpg"></image>
 
 本文完

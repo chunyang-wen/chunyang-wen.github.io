@@ -2,7 +2,6 @@
 layout: page
 title: "tools"
 description: "Tools that I use"
-header-img: "img/autumn.jpg"
 ---
 
 ### Common

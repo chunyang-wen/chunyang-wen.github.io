@@ -8,7 +8,7 @@ tags: [cpp]
 
 iostream是C++中一个比较复杂的库，其设计的时候还应用了为人所诟病的钻石继承。在GoNative大会上，有人提问iostream那么复杂，而且相对于C的库函数，其效率相对低，为什么还要将其一直留在标准中。这个问题得到了如下回答（个人总结）：
 
-![iostream.gif](/images/iostream.gif "iostream inheritance")
+![iostream.gif](/images/cpp/iostream.gif "iostream inheritance")
 
 >C++中的iostream是安全的；目前没有库可以取代iostream。
 
@@ -32,10 +32,10 @@ typedef basic_ostream<char, char_traits<char> > ostream;
 由于cin/cout分别是istream和ostream类型的变量，而istream和ostream分别是basic\_istream和basic\_ostream的typedef，接下来看看basic\_istream和basic\_ostream中的成员变量和函数：
 
 1. basic\_istream
-	+ basic\_istream构造函数     
+	+ basic\_istream构造函数
 		```cpp
 		explicit basic_istream( basic_streambuf<Elem, Tr> *_Strbuf, bool _Isstd = flase);
-		```     
+		```
 	+ streamsize gcount() const，返回上一次读入的字节数
 	+ get，读入一个字符
 	+ getline，读入一行字符
@@ -91,8 +91,8 @@ std::cout<<std::boolalpha<<is_good<<std::endl;
 std::cout<<std::noboolalpha<<is_good<<std::endl;
 ```
 + showbase/noshowbase：显示表示整数的基，0X，0等。
-+ hex/oct/dec：显示输出的进制。 16进制中x的大小写，uppercase/lowercase 
-    
++ hex/oct/dec：显示输出的进制。 16进制中x的大小写，uppercase/lowercase
+
 ```cpp
 int a = 0x36;
 std::cout<<std::dec<<a<<std::oct<<a<<std::hex<<a<<std::endl;
@@ -119,10 +119,10 @@ int main()
 	std::cout<<std::left<<std::setw(3)<<std::setfill('x')<<a<<std::endl;
 	double b = 3.123;
 	// output two effective numbers after decimal point
-	std::cout<<std::fixed<<std::setprecision(2)<<b<<std::endl; 
+	std::cout<<std::fixed<<std::setprecision(2)<<b<<std::endl;
 	std::cout.flags(flags);
 	// output 2 effective number
-	std::cout<<std::setprecision(2)<<b<<std::endl; 
+	std::cout<<std::setprecision(2)<<b<<std::endl;
 }
 ```
 

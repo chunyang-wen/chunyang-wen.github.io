@@ -2,10 +2,9 @@
 layout: page
 title: "about"
 description: ""
-header-img: "img/plane.jpg"
 ---
 
-![Myself](/images/personal-images/myself.jpg)
+![Myself](/images/personal/myself.jpg)
 
 Love life. Love the nature.
 

@@ -13,7 +13,7 @@ UML (Unified Modeling Language) 是一个通用的建模工具，其很多图形
 
 新建一个类很简单，直接在 UML 工具中拖出一个框就行。
 
-![New Class](/images/2017-12-03-uml/new-class.png)
+![New Class](/images/tools/uml/new-class.png)
 
 新建一个类图有好几种类型，比较常见的：
 
@@ -22,7 +22,7 @@ UML (Unified Modeling Language) 是一个通用的建模工具，其很多图形
 + 枚举类
   + 枚举类在 C++11，Java，Python 中都有相关的专门解决方法
 
-![Demo new class](/images/2017-12-03-uml/demo-new-class.png)
+![Demo new class](/images/tools/uml/demo-new-class.png)
 
 ## 类的属性设置
 
@@ -33,7 +33,7 @@ UML (Unified Modeling Language) 是一个通用的建模工具，其很多图形
 
 在 UML 图中会将类或者操作的名字设置为斜体表示其实抽象的
 
-![Abstract class and operation](/images/2017-12-03-uml/abstract-class-operation.png)
+![Abstract class and operation](/images/tools/uml/abstract-class-operation.png)
 
 ## 类之间的关系
 
@@ -47,7 +47,7 @@ UML (Unified Modeling Language) 是一个通用的建模工具，其很多图形
   + Association：类之间的关系（一个人可以有多个手机）
   + Dependency: 之间存在调用的依赖关系
 
-![Class relationship](/images/2017-12-03-uml/class-relationship.png)
+![Class relationship](/images/tools/uml/class-relationship.png)
 
 需要注意各种关系的顺序：
 
