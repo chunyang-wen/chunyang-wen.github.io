@@ -146,7 +146,9 @@ Previous solution is a little tedious.
 
 ```python
 import heapq
-with open("file1.txt", "r") as fd1, open("file2.txt", "r") as fd2, open("out.txt", "w") as fd:
+with open("file1.txt", "r") as fd1,
+     open("file2.txt", "r") as fd2,
+     open("out.txt", "w") as fd:
     for data in heapq.merge(fd1, fd2, key=lambda x:int(x)):
         fd.write(data)
 ```
