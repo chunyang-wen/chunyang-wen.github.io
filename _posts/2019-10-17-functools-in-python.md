@@ -1,6 +1,6 @@
 ---
 layout: post
-title: functools in python
+title: functools in Python
 categories: [blog, python]
 tags: [python]
 ---
