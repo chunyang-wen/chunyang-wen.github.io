@@ -35,6 +35,7 @@ highlighter: rouge
 #gems:
 plugins:
 - jekyll-paginate
+- jekyll-sitemap
 permalink: none
 paginate: 8
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
