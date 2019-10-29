@@ -3,6 +3,8 @@ layout: post
 title: Prime related
 categories: [blog, algorithm]
 tags: [algorithm]
+redirect_from:
+ - /algorithm/primality-test
 ---
 
 + [Introduction](#intro)

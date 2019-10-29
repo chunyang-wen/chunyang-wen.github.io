@@ -3,6 +3,8 @@ layout: post
 title: Python logging module
 categories: [blog, python]
 tags: [python]
+redirect_from:
+ - /python/logging/python-log-module
 ---
 
 + [简介](#intro)

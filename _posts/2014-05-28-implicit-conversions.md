@@ -3,6 +3,8 @@ layout: post
 title: Implicit conversions
 categories: [blog, translating]
 tags: [cpp]
+redirect_from:
+ - /translating/implicit-conversions
 ---
 
 

@@ -3,6 +3,8 @@ layout: post
 titile: A guide to Python's Magic Methods
 category: [blog, translating]
 tags: [python]
+redirect_from:
+  - /python/a-guide-to-python-magic-methods
 ---
 
 翻译自：[A guide to Python's Magic Methods][1]

@@ -3,6 +3,8 @@ layout: post
 title: Python 中 Retrier 的实现
 categories: [blog, python]
 tags: [python]
+redirect_from:
+ - /python/retrier-in-python
 ---
 
 - [简介](#introduction)

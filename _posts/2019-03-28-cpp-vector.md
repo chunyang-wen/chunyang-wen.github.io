@@ -3,6 +3,8 @@ layout: post
 title: C++ STL Vector
 categories: [blog, stl]
 tags: [cpp]
+redirect_from:
+ - /cpp/cpp-vector
 ---
 
 + [简介](#intro)

@@ -3,6 +3,8 @@ layout:     post
 title:      awk 基本概念
 categories: [blog, shell]
 tags: [shell]
+redirect_from:
+ - /linux/awk/awk-basics
 ---
 
 

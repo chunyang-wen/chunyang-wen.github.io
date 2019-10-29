@@ -3,6 +3,8 @@ layout: post
 title: Closures in Ruby
 categories: [blog, ruby]
 tags: [ruby]
+redirect_from:
+ - /translating/closures-in-ruby
 ---
 
 

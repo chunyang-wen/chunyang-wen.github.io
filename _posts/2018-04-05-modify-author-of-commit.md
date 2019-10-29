@@ -3,6 +3,8 @@ title: 改变之前 commit 的信息
 layout: post
 categories: [blog, git]
 tags: [git]
+redirect_from:
+ - /git/modify-author-of-commit
 ---
 
 + [综述](#intro)

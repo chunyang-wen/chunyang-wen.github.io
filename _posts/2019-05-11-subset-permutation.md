@@ -3,6 +3,8 @@ layout: post
 title: Subsets and Permutations
 categories: [blog, algorithm]
 tags: [leetcode]
+redirect_from:
+ - /translating/implicit-conversions
 ---
 
 + [题目](#problem)

@@ -3,6 +3,8 @@ layout: post
 title: Binary tree traversal
 categories: [blog, algorithm]
 tags: [leetcode]
+redirect_from:
+ - /algorithm/binary-tree-traversal
 ---
 
 + [介绍](#intro)
