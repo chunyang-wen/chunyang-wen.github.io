@@ -3,6 +3,8 @@ layout: post
 title: C++ STL stack, queue and deque
 categories: [blog, stl]
 tags: [cpp]
+redirect_from:
+ - /cpp/cpp-queue-stack-deque
 ---
 
 + [简介](#intro)

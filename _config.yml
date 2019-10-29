@@ -8,7 +8,7 @@ baseurl: ""
 page_seq: "tools, tags,  about" # lower case, separated by ','
 
 #url: http://chunyang-wen.github.io
-url: http://chunyangwen.com
+url: https://www.chunyangwen.com
 # enforce_ssl:
 
 # About/contact

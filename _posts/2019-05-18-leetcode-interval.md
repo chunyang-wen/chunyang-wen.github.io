@@ -3,6 +3,8 @@ layout: post
 title: Merge interval and Insert interval
 categories: [blog, algorithm]
 tags: [leetcode]
+redirect_from:
+ - /algorithm/leetcode-interval
 ---
 
 + [题目](#problem)

@@ -3,6 +3,8 @@ layout: post
 title: C++ STL algo base
 categories: [blog, stl]
 tags: [cpp]
+redirect_from:
+ - /cpp/cpp-algorithm-base
 ---
 
 + [简介](#intro)

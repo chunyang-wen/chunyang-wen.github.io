@@ -3,6 +3,8 @@ layout: post
 title: C++ STL list and slit
 categories: [blog, stl]
 tags: [cpp]
+redirect_from:
+ - /cpp/cpp-list-slist
 ---
 
 + [简介](#intro)
