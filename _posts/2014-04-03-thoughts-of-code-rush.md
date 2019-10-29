@@ -3,6 +3,8 @@ layout: post
 title: Code Rush观后感
 categories: [blog, movies]
 tags: [reading]
+redirect_from:
+ - /movies/thoughts-of-code-rush
 ---
 
 

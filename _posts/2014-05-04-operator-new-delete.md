@@ -3,6 +3,8 @@ layout: post
 title: C++中动态内存分配
 categories: [blog, cpp]
 tags: [cpp]
+redirect_from:
+ - /programming/operator-new-delete
 ---
 
 

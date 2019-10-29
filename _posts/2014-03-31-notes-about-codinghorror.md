@@ -4,6 +4,8 @@ title: <<高效能程序员的修炼>>读后感
 categories: [blog, books]
 tags: [reading]
 description: coding horror
+redirect_from:
+ - /reading-books/notes-about-codinghorror
 ---
 
 
