@@ -21,8 +21,8 @@ functions.
 + `neg`, `pos`
 + `abs`
 
-The `i*` is the cooresponding part of swap the arguments. For example if `a + b` fails due to
-the missing definition of operator `+` for a, Python will try try to swap them and call `b+a`.
+The `i*` is the corresponding part of swapping the arguments. For example if `a + b` fails due to
+the missing definition of operator `+` for a, Python will try to swap them and call `b+a`.
 
 ### Relation
 
