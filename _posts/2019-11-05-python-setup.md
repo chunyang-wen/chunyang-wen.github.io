@@ -105,8 +105,8 @@ The entrance is the `setup` function. It has a couple of arguments we are intere
 
 #### name, version, description, author
 
-These fields are the Common information of your package. Usually we put information in
-package's `__init__.py` and read from there instead of hard code them here.
+These fields are the common information of your package. Usually we put information in
+package's `__init__.py` and read from there instead of hard coding them here.
 
 #### packages
 
@@ -133,7 +133,7 @@ find_packages(where='.', exclude=(), include=('*',))
 
 #### install_requires
 
-This descripts the requirements of your package. Valid forms are:
+This describes the requirements of your package. Valid forms are:
 
 + numpy
 + numpy==1.0.0
