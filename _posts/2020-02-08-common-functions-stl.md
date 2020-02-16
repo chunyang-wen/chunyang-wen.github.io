@@ -10,7 +10,7 @@ tags: [stl]
 
 ### Introduction
 
-STL provides a lot of usefull utilities. They can be used to implement interesting functions.
+STL provides a lot of useful utilities. They can be used to implement interesting functions.
 
 * This is a collection of this *
 
@@ -74,7 +74,7 @@ string to_lower(string input) {
 }
 ```
 
-### Split and Join trings
+### Split and Join strings
 
 
 ### Filter
