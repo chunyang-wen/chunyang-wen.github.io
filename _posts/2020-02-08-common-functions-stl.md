@@ -2,7 +2,7 @@
 layout: post
 title: Common functions implemented using STL
 categories: [blog, cpp]
-tags: [stl]
+tags: [cpp]
 ---
 
 + toc
