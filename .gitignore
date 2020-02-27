@@ -10,7 +10,6 @@ Thumbs.db
 .rvmrc
 *.md~
 *.swp
-drafts/*
 \.*
 /*/\.*
 Gemfile.lock
