@@ -2,8 +2,10 @@
 layout: default
 ---
 
+<!--
 <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+-->
 
 
 <!-- Post Header -->
@@ -123,7 +125,7 @@ layout: default
 
 <!-- discuss js -->
 
-<!--
+<!-- Disqus -->
 <script>
 var dsqjs = new DisqusJS({
     shortname: 'SiteComment',
@@ -137,7 +139,6 @@ var dsqjs = new DisqusJS({
     adminLabel: 'chunyangwen'
 });
 </script>
--->
 
 <!-- gitment
 <script>
@@ -158,6 +159,7 @@ var dsqjs = new DisqusJS({
 </script>
 -->
 
+<!-- gitalk
 <script>
     // https://lowrey.me/implementing-javas-string-hashcode-in-javascript/
     function hashString(str){
@@ -181,3 +183,4 @@ var dsqjs = new DisqusJS({
     })
     gitalk.render('comment-container')
 </script>
+-->
