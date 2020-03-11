@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python contextlib
-categories:[blog, python]
+categories: [blog, python]
 tags: [python]
 ---
 
