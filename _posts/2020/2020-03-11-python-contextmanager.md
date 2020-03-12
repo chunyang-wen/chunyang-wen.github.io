@@ -6,8 +6,8 @@ tags: [python]
 ---
 
 There are some resources we need to release when we finish our job. It is easy for us to forget
-those operations. Python has a keyword *with* which can be used to help solve this problem.
-After we go out the scope of with, python will make sure certain operations will be executed.
+those operations. Python has a keyword `with` which can be used to help solve this problem.
+After we go out the scope of `with`, python will make sure certain operations will be executed.
 
 + TOC
 {:toc}
@@ -42,7 +42,7 @@ will be executed when leaving out the scope.
 
 ### contextlib.closing
 
-Works with object which imlements a `close()` function such as a socket connection.
+Works with object which implements a `close()` function such as a socket connection.
 
 ```python
 from contextlib import closing
