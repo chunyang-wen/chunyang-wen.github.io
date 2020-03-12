@@ -102,6 +102,7 @@ prop = vars(type(c))["hi"]  # the property
 + `__get__(self, instance, owner)`: `owner` is `instance`'s type.
 + `__set__(self, instance, value)`
 + `__delete__(self, instance)`
++ `__doc__`: return the docstring
 
 ```python
 class Property(object):
@@ -116,6 +117,10 @@ class Property(object):
 
     def __set__(self, instance, value):
         self._val = value
+
+    @property
+    def __doc__(self):
+        return "I am doc"
 
 class AwesomeClass(object):
     pass
