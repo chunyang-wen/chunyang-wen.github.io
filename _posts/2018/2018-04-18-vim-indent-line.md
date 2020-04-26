@@ -57,7 +57,7 @@ brew install vim
 
 安装后将 vim 重定向到自己安装的 vim 就行。我是自己做了一个 alias。
 
-![效果](/images/blogs-images/indent-line-effect.png)
+![效果](/images/tools/vim/indent-line-effect.png)
 
 <a id="bp-not-working"></a>
 
