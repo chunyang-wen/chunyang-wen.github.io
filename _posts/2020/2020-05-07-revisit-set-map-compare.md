@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Revisit compare in `map` and `set`
+title: Revisit compare in map and set
 categories: [blog, stl]
 tags: [cpp]
 ---
