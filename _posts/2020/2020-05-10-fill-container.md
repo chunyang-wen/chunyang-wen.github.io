@@ -78,7 +78,7 @@ generate_n(back_inserter(d), n, x);
 
 ```cpp
 set<int> a{1,2,3};
-map<int, int> b{{1,2}, {2,3}};
+map<int, int> b{ {1,2}, {2,3} };
 ```
 
 #### Fill different number
