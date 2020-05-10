@@ -18,9 +18,9 @@ elements. But what if we want to fill a couple of initial elements?
 + `deque`
 + `string`
 
-### Use initilizer list
+### Use initializer list
 
-Almost all the conatiner types support this kind of initilization.
+Almost all the container types support this kind of initialization.
 
 ```cpp
 vector<int> a{1,2,3};
