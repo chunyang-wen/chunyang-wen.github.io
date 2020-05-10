@@ -67,7 +67,6 @@ generate_n(back_inserter(c), n, x);
 
 deque<int> d;
 generate_n(back_inserter(d), n, x);
-
 ```
 
 ### Associative container
@@ -120,5 +119,4 @@ c.assign(b.begin(), b.end());
 
 vector<int> d(c);
 vector<int> e(c.begin(), c.end());
-
 ```
