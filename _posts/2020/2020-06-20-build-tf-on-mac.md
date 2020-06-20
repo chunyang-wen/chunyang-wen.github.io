@@ -22,7 +22,7 @@ brew install bazel
 It is a pity that I cannot specify the version like `brew install bazel@0.21.0`.
 
 Why I want to install version 0.21.0? Please refer to [Github issue](https://github.com/tensorflow/tensorflow/issues/30556).
-Different versions of tensorflow has different requirements. Currently I am building **r1.13**.
+Different versions of tensorflow have different requirements. Currently I am building **r1.13**.
 It requires bazel with a version lower than 0.21.0.
 
 Go to [Github bazel release page](https://github.com/bazelbuild/bazel/releases), find the version
@@ -40,6 +40,13 @@ page.
 Select functions you care and you are ready to go.
 
 #### Build
+
+Install the python packages needed by tensorflow. It is better that we use `virtualenv` or
+`anaconda` to manage the environment.
+
+```bash
+pip install numpy scipy matplotlib ipython jupyter pandas sympy nose
+```
 
 ```bash
 bazel build -c opt //tensorflow/tools/pip_package:build_pip_package
