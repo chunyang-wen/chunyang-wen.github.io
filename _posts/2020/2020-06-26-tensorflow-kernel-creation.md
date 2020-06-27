@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How tensorflow create a kernel?
+title: How does tensorflow create a kernel?
 categories: [blog, tensorflow]
 tags: [tensorflow]
 ---
