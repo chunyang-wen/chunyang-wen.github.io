@@ -19,7 +19,7 @@ devices, e.g. CPU, GPU.
 
 ### Register an OP
 
-<img src="/images/tensorflow/register_op.jpg" width="50%" height="50%">
+<img src="/images/tensorflow/register_op.jpg" width="50%" height="50%" align="center">
 
 We can register an op by:
 
@@ -57,7 +57,7 @@ OpDefBuilderReceiver::OpDefBuilderReceiver(
 
 ### Register a kernel
 
-<img src="/images/tensorflow/register_kernel.jpg" width="50%" height="50%">
+<img src="/images/tensorflow/register_kernel.jpg" width="50%" height="50%" align="center">
 
 ```cpp
 // defined in tensorflow/core/framework/op_kernel.h
