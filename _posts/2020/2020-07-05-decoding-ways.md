@@ -1,5 +1,5 @@
 ---
-layout: title
+layout: post
 title: Dailycodingproblem-Decode ways
 categories: [blog, algorithm]
 tags: [dailycodingproblem]
