@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dailycodingproblem-cdr and car of a pair
+title: Cdr and car of a pair
 categories: [blog, algorithm]
 tags: [dailycodingproblem]
 ---
