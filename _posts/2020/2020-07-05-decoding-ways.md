@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dailycodingproblem-Decode ways
+title: Decode ways
 categories: [blog, algorithm]
 tags: [dailycodingproblem]
 ---
@@ -34,6 +34,7 @@ int decode_ways(const string& input) {
             ++count;
             return;
         }
+        if (input[start] == '0') return
         decode(start+1);
         if (start+1 >= size) return;
         int next = start+1;
