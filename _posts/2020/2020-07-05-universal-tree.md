@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Universal tree
-categories: [blog, dailycodingproblem]
+title: Dailycodingproblem-Universal tree
+categories: [blog, algorithm]
 tags: [dailycodingproblem]
 ---
 
