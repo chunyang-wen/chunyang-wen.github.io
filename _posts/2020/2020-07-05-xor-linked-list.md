@@ -6,7 +6,7 @@ tags: [dailycodingproblem]
 ---
 
 + toc
-{toc}
+{:toc}
 
 ### Problem
 
