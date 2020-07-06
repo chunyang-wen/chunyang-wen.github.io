@@ -29,7 +29,7 @@ F(0) = n[0]
 
 F(1) = max(n[0], n[1])
 
-F(i) = max(F(i-1), F(i-2) + (0 if n[i] <= 0 else n[i]))
+F(i) = max(F(i-1), F(i-2) + (0 if n[i] <= 0 else n[i]), n[i])
 
 ```cpp
 int max_nonadjacent_sum(vector<int>& n) {
@@ -40,7 +40,7 @@ int max_nonadjacent_sum(vector<int>& n) {
     int f1 = max(n[0], n[1]);
     for (int i = 2; i < size; ++i) {
         auto cur = n[i] <= 0 ? 0: n[i];
-        auto tmp = max(f1, f0 + cur);
+        auto tmp = max({f1, f0 + cur, n[i]});
         f0 = f1;
         f1 = tmp;
     }
