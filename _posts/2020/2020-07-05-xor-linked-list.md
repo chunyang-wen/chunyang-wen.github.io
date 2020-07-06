@@ -23,16 +23,29 @@ If using a language that has no pointers (such as Python), you can assume you ha
 ### Solution
 
 + Assume: `get(index)`, index >=0, a valid index
-+ Assume: on 64 bit machine, long and pointers are equal length.
-  + Find out a better way to describe this
 
 ```cpp
 #include <iostream>
 using namespace std;
 
+template<int n>
+struct PointerSize {
+    typedef int Type;
+};
+
+template<>
+struct PointerSize<8> {
+    typedef long Type;
+};
+
+template<>
+struct PointerSize<4> {
+    typedef int Type;
+};
+
 struct ListNode {
     int val;
-    long both;
+    PointerSize<sizeof(ListNode*)>::Type both;
     ListNode(int v): val(v), both(0) {};
 };
 
