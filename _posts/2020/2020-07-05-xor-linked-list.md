@@ -43,9 +43,11 @@ struct PointerSize<4> {
     typedef int Type;
 };
 
+typedef PointerSize<sizeof(ListNode*)>::Type  PointerType;
+
 struct ListNode {
     int val;
-    PointerSize<sizeof(ListNode*)>::Type both;
+    PointerType both;
     ListNode(int v): val(v), both(0) {};
 };
 
@@ -63,19 +65,19 @@ public:
             head = tail = new ListNode(val);
         } else {
             ListNode* new_node = new ListNode(val);
-            tail->both = tail->both ^ (long)(new_node);
-            new_node->both = (long)tail;
+            tail->both = tail->both ^ (PointerType)(new_node);
+            new_node->both = (PointerType)tail;
             tail = new_node;
         }
         cout << "head: " << head->val << " tail: " << tail->val << endl;
     }
     void print() {
         ListNode* node = head;
-        long prev = 0;
+        PointerType prev = 0;
         while (node) {
             cout << node->val << ", ";
             ListNode* next = (ListNode*)(node->both ^ prev);
-            prev = (long)node;
+            prev = (PointerType)node;
             node = next;
         }
         cout << endl;
@@ -85,7 +87,7 @@ public:
         ListNode* node = head;
         ListNode* prev = 0;
         while (count < index) {
-            ListNode* next = (ListNode*)(node->both ^ (long)prev);
+            ListNode* next = (ListNode*)(node->both ^ (PointerType)prev);
             prev = node;
             node = next;
             ++count;
@@ -108,3 +110,7 @@ int main() {
     cout << l.get(2)->val << endl;
 }
 ```
+
+### Comments
+
++ Given a node, how to find the previous and next node?
