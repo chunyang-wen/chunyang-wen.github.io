@@ -43,7 +43,7 @@ struct PointerSize<4> {
     typedef int Type;
 };
 
-typedef PointerSize<sizeof(ListNode*)>::Type  PointerType;
+typedef PointerSize<sizeof(int*)>::Type  PointerType;
 
 struct ListNode {
     int val;
