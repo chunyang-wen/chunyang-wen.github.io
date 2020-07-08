@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A autocomplete system
+title: An autocomplete system
 categories: [blog, algorithm]
 tags: [dailycodingproblem]
 ---
