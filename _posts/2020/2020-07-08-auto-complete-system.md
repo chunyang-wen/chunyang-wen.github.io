@@ -2,7 +2,7 @@
 layout: post
 title: An autocomplete system
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, twitter]
 ---
 
 + toc

@@ -2,7 +2,7 @@
 layout: post
 title: Xor linked list
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, google]
 ---
 
 + toc

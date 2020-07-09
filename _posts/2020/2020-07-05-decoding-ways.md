@@ -2,7 +2,7 @@
 layout: post
 title: Decode ways
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, facebook]
 ---
 
 + toc
@@ -34,7 +34,7 @@ int decode_ways(const string& input) {
             ++count;
             return;
         }
-        if (input[start] == '0') return
+        if (input[start] == '0') return;
         decode(start+1);
         if (start+1 >= size) return;
         int next = start+1;

@@ -2,7 +2,7 @@
 layout: post
 title: Job scheduler
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, apple]
 ---
 
 + toc

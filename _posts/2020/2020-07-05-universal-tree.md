@@ -2,7 +2,7 @@
 layout: post
 title: Universal tree
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, google]
 ---
 
 + toc

@@ -2,7 +2,7 @@
 layout: post
 title: Maximum non-adjacent sum
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, airbnb]
 ---
 
 + toc
