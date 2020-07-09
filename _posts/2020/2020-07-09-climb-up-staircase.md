@@ -31,7 +31,7 @@ steps at a time.
 ### Solution
 
 $$
-F(n) = \sum{F(n-i)} \forall i
+\begin{aligned}F\left( n\right) =\sum F\left( n-i\right) \forall i\\ F\left( 0\right) =1\end{aligned}
 $$
 
 ```cpp
