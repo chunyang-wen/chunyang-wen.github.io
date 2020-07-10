@@ -39,9 +39,7 @@ int longest_substring(const string& s, int k) {
     int size = s.size();
     while (j < size) {
         if (m.size() == k) {
-            if (m.find(s[j]) != m.end()) {
-                ++m[s[j]];
-            } else {
+            if (m.find(s[j]) == m.end()) {
                 while (m.size() >= k) {
                     m[s[i]]--;
                     if (m[s[i]] == 0) {
