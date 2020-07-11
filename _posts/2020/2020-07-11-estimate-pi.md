@@ -3,6 +3,7 @@ layout: post
 title: Estimate PI
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
+include_math: True
 ---
 
 + toc
