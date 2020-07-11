@@ -13,10 +13,10 @@ include_math: True
 
 This problem was asked by Google.
 
-The area of a circle is defined as $ \pi r^{2} $. Estimate $ \pi $ to 3 decimal places using a
+The area of a circle is defined as $\pi r^{2}$ . Estimate $\pi$ to 3 decimal places using a
 Monte Carlo method.
 
-Hint: The basic equation of a circle is $ x^{2}+y^{2}=r^{2} $.
+Hint: The basic equation of a circle is $x^{2}+y^{2}=r^{2}$ .
 
 ### Solution
 
@@ -24,7 +24,7 @@ Hint: The basic equation of a circle is $ x^{2}+y^{2}=r^{2} $.
 <img src="/images/dcp/estimator-pi.jpg" width="50%" height="50%" align="center">
 
 We generate enough points in the up right of the rectangle. The probability is
-$ \dfrac {\pi }{4} $.
+$\dfrac {\pi }{4}$ .
 
 ```cpp
 #include <iostream>
