@@ -61,7 +61,7 @@ int minimum_coloring_cost(const vector<vector<int>> & price) {
 int main() {
 
     // assume 5 houses, 4 color
-    vector<vector<int>> price{{1,2,3,4}, {7,1,3,9}, {8,19,2,1}, {7,19,1,10}, {100,39,1,2}};
+    vector<vector<int>> price{ {1,2,3,4}, {7,1,3,9}, {8,19,2,1}, {7,19,1,10}, {100,39,1,2} };
     cout << minimum_coloring_cost(price) << endl;
 
     return 0;
