@@ -2,7 +2,7 @@
 layout: post
 title: Minimum cost to color houses
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, facebook]
 ---
 
 + toc
