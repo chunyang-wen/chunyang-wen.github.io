@@ -27,7 +27,7 @@ is
 
 $$
 
-\min\left(O\left(N \times \left(maxi - mini\right)\right), N\log N\right)
+\max\left(O\left(N \times \left(maxi - mini\right)\right), N\log N\right)
 
 $$
 
