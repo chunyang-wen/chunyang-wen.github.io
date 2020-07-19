@@ -2,7 +2,7 @@
 layout: post
 title: Combinations of words
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, microsoft]
 ---
 
 + toc
