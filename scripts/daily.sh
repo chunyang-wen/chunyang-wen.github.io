@@ -1,10 +1,12 @@
 #!/bin/sh
 
 FILE=$1
+DATE=`date +"%Y-%m-%d"`
+FILENAME=${DATE}-${FILE}
 
-echo "Generating file: ${FILE}"
+echo "Generating file: ${FILENAME}"
 
-cat > ${FILE} << EOF
+cat > ${FILENAME} << EOF
 ---
 layout: post
 title:
