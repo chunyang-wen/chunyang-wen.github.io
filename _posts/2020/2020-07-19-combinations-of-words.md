@@ -26,6 +26,7 @@ Given the set of words 'bed', 'bath', 'bedbath', 'and', 'beyond', and the string
 
 + Iterate through the dict, minimize combinations we need to try
 + Return as soon as we find a valid combination
++ Add a cache to avoid meaningless check
 
 ```cpp
 #include <algorithm>
@@ -47,6 +48,7 @@ vector<string> combinations_of_words(const set<string>& dict, const string& str)
     });
 
     cout << "min_len: " << min_len << " max_len: " << max_len << endl;
+    vector<bool> cache(str.size()+1, true);
 
     function<bool(int)> split = [&](int start) {
 
@@ -57,14 +59,16 @@ vector<string> combinations_of_words(const set<string>& dict, const string& str)
         for (int i = start + min_len; i <= limit; ++i) {
             string cur = str.substr(start, i - start);
             cout << "i: " << i << " cur: " << cur << endl;
-            if (dict.find(cur) == dict.end()) {
+            if (dict.find(cur) == dict.end() || !cache[i]) {
                 cout << "bad: " << cur << endl;
+                cache[i] = false;
                 continue;
             }
             result.push_back(cur);
             if (split(i)) {
                 return true;
             }
+            cache[i] = false;
             result.pop_back();
         }
         return false;
