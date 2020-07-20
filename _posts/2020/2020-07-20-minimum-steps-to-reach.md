@@ -2,7 +2,7 @@
 layout: post
 title: Minimum steps to reach
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, google]
 ---
 
 + toc
