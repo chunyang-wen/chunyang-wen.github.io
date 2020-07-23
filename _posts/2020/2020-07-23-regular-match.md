@@ -1,6 +1,6 @@
 ---
 layout: post
-title:
+title: Regular expression match
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
 ---
@@ -14,8 +14,8 @@ This problem was asked by Facebook.
 
 Implement regular expression matching with the following special characters:
 
-. (period) which matches any single character
-* (asterisk) which matches zero or more of the preceding element
++ \. (period) which matches any single character
++ \* (asterisk) which matches zero or more of the preceding element
 That is, implement a function that takes in a string and a valid regular expression and
 returns whether or not the string matches the regular expression.
 
