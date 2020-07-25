@@ -32,7 +32,7 @@ using namespace std;
 
 bool bracket_match(const string& str) {
     stack<char> st;
-    map<char, char> m {{')', '('}, {']', '['}, {'}', '{'}};
+    map<char, char> m { {')', '('}, {']', '['}, {'}', '{'} };
     for (char c: str) {
         switch (c) {
             case '(':
@@ -60,5 +60,3 @@ int main() {
     return 0;
 }
 ```
-
-
