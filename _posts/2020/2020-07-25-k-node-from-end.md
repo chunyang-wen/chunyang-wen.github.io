@@ -2,7 +2,7 @@
 layout: post
 title: K node from end
 categories: [blog, algorithm]
-tags: [dailycodingproblem]
+tags: [dailycodingproblem, google]
 ---
 
 + toc
