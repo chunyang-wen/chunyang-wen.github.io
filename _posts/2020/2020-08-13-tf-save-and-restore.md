@@ -1,18 +1,18 @@
 ---
 layout: post
-title: Tensorflow save and restore: A tutorial
+title: Tensorflow save and restore A tutorial
 categories: [blog, tensorflow]
 tags: [tensorflow]
 ---
 
 + toc
-
 {:toc}
 
 ### Introduction
+
 一个正常的 Tensorflow 的 Pipeline 大概如下
 
-![image.png](1597653804065-3b86deae-b3bd-411a-8c5a-0bff185abf8b.png)
+![image.png](/images/tensorflow/save-and-restore/1597653804065-3b86deae-b3bd-411a-8c5a-0bff185abf8b.png)
 
 Save 和 Restore 可以在多个阶段同时或者单独发生。
 
@@ -57,7 +57,7 @@ with tf.Session(graph=tf.Graph()) as sess:
 
 保存出：ckpt.py
 
-![image.png](1597656096995-ae2e40fe-379a-4e65-8f17-26726181713a.png)
+![image.png](/images/tensorflow/save-and-restore/1597656096995-ae2e40fe-379a-4e65-8f17-26726181713a.png)
 
 具体文件内容暂时忽略。
 
@@ -90,7 +90,7 @@ with tf.Session(graph=tf.Graph()) as sess:
     print(sess.run(graph.get_tensor_by_name("he:0")))
 ```
 
-![image.png](1597656981066-5ef12719-359f-40bf-bb75-666b923de8a2.png)
+![image.png](/images/tensorflow/save-and-restore/1597656981066-5ef12719-359f-40bf-bb75-666b923de8a2.png)
 
 使用 SavedModel 保存时实际上我们需要填充一个 signature，这样我们通过 signature 获取到输入和输出的所有信息，就可以使用 sess 来直接执行。这里我是直接利用 tensorflow 的命名规则来获取相关的信息。
 
@@ -164,7 +164,7 @@ with tf.Session(graph=tf.Graph()) as sess:
 ### Cpp
 前面都是 Python 前端怎么去使用，tensorflow 背后是怎么实现这些功能的呢？大概的文件结构如下：
 
-![image.png](1597671410637-ebd6654a-2c62-44fb-b1e8-957baf713a54.png)
+![image.png](/images/tensorflow/save-and-restore/1597671410637-ebd6654a-2c62-44fb-b1e8-957baf713a54.png)
 
 ```python
 from tensorflow.python import pywrap_tensorflow
@@ -175,11 +175,11 @@ print(reader.get_variable_to_shape_map())
 
 #### CheckpointReader implementation
 
-![image.png](1597671638822-a94408a6-2ab2-4efc-adf2-96e9afdee969.png)
+![image.png](/images/tensorflow/save-and-restore/1597671638822-a94408a6-2ab2-4efc-adf2-96e9afdee969.png)
 
 ##### tensor_bundle.proto
 
-![image.png](1597671969002-56160c1b-4ac0-4671-87e7-bd842b39539b.png)
+![image.png](/images/tensorflow/save-and-restore/1597671969002-56160c1b-4ac0-4671-87e7-bd842b39539b.png)
 
 对于每一个 tensor 都会记录相应的信息。在读取时，根据协议进行反解就行。
 
