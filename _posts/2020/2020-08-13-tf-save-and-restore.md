@@ -10,7 +10,7 @@ tags: [tensorflow]
 
 ### Introduction
 
-一个正常的 Tensorflow 的 Pipeline 大概如下
+一个正常的 Tensorflow 的 Pipeline 大概如下:
 
 ![image.png](/images/tensorflow/save-and-restore/1597653804065-3b86deae-b3bd-411a-8c5a-0bff185abf8b.png)
 
