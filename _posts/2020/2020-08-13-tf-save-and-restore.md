@@ -183,7 +183,55 @@ print(reader.get_variable_to_shape_map())
 
 对于每一个 tensor 都会记录相应的信息。在读取时，根据协议进行反解就行。
 
+
 ### saver.py
 
-To be continued.
+saver.py 基本是上是 Tensorflow 保存模型的默认入口，例如 MonitoredTrainingSession，CheckpointSaverHook 等。<br />包括主要类：
 
+- BaseSaverBuilder
+- BulkSaverBuilder
+- Saver
+
+#### BaseSaverBuilder && BulkSaverBuilder
+
+主要的接口如下：
+
+![image.png](1597721722447-e1517763-f0be-4cc0-bc83-a73f4f79b310.png)
+
+Save 和 Restore 都要依赖一个 SaveableObject (tensorflow/python/training/saving/)对象，这个对象会依赖：
+
+- Op： 产出需要保存 tensor 的 op
+- specs：SaveSpec
+   - SaveSpec(tensor, slice_spec, name, dtype=None)
+
+现在默认的版本都是 V2。V2 的保存都会先保存成一个临时文件，然后再 Rename 成最终的文件。
+
+#### Saver
+
+![image.png](1597723296753-041977ca-026c-49ef-9883-370f61330864.png)
+
+- 构造 saver_def
+
+默认使用：BulkSaverBuilder.build 来生成 saver_def
+
+- save:
+
+```python
+sess.run(
+    self.saver_def.save_tensor_name,
+    {self.saver_def.filename_tensor_name: checkpoint_file},
+)
+```
+
+- restore:
+
+```python
+sess.run(
+    self.saver_def.restore_op_name,
+    {self.saver_def.filename_tensor_name: save_path},
+)
+```
+### Reference
+
+- [SavedModel Doc](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md)
+- [SavedModel API](https://www.tensorflow.org/versions/r1.15/api_docs/python/tf/saved_model)
