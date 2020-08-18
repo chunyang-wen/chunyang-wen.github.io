@@ -196,7 +196,7 @@ saver.py 基本是上是 Tensorflow 保存模型的默认入口，例如 Monitor
 
 主要的接口如下：
 
-![image.png](1597721722447-e1517763-f0be-4cc0-bc83-a73f4f79b310.png)
+![image.png](/images/tensorflow/save-and-restore/1597721722447-e1517763-f0be-4cc0-bc83-a73f4f79b310.png)
 
 Save 和 Restore 都要依赖一个 SaveableObject (tensorflow/python/training/saving/)对象，这个对象会依赖：
 
@@ -208,7 +208,7 @@ Save 和 Restore 都要依赖一个 SaveableObject (tensorflow/python/training/s
 
 #### Saver
 
-![image.png](1597723296753-041977ca-026c-49ef-9883-370f61330864.png)
+![image.png](/images/tensorflow/save-and-restore/1597723296753-041977ca-026c-49ef-9883-370f61330864.png)
 
 - 构造 saver_def
 
