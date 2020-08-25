@@ -201,6 +201,20 @@ def skipUnlessHasattr(obj, attr):
 |assertSetEqual(a, b)|sets or frozensets|
 |assertDictEqual(a, b)|dicts|
 
+#### Common practices
+
+```python
+# assert whether certain log happens
+with self.assertLogs(logger, level="INFO") as cm:
+    # bla bla
+    self.assertRegex(" ".join(cm.output), ".*xxx.*")
+```
+
+```python
+with self.assertRaises(ValueError):
+    # bla bla
+```
+
 ### unittest.mock
 
 Mock is very important is tests.
@@ -301,11 +315,13 @@ class MyModuleTest(unittest.TestCase):
 
 ```
 
-#### Notices
+#### Notes
 
 + We have to mock the module where it is used. **NOT** from a general place
   + Please refer to `mock_os`
 + When it comes to an instance, `patch.object` is used instead of `patch`.
++ Difference between `patch` and `patch.object`:
+  + `patch.object` mocks a single method or attributes, target is also the class
 
 #### classes
 
@@ -314,9 +330,28 @@ class MyModuleTest(unittest.TestCase):
 + `unittest.mock.PropertyMock`
 + `unittest.mock.AsyncMock`
 
+#### Common practices
+
+```python
+# create a side-effect
+with patch(Clz, "method", side_effect=ValueError) as mock_method:
+    ins = Clz()
+    self.assertRaise(ValueError):
+        ins.method()
+```
+
+```python
+
+from unittest.mock import create_autospec
+
+# automatically behaves like `Clz`
+MockObject = create_autospec(Clz)
+```
+
 
 ### Reference
 
 + [Python unittest](https://docs.python.org/3/library/unittest.html)
 + [Python unitest.mock](https://docs.python.org/3/library/unittest.mock.html)
 + [unittest.mock cookbook](https://chase-seibert.github.io/blog/2015/06/25/python-mocking-cookbook.html)
++ [Real Python](https://realpython.com/python-mock-library/#patching-an-objects-attributes)
