@@ -73,7 +73,7 @@ server = tf.train.Server(
 # such as `tf.train.MonitoredTrainingSession`
 ```
 
-用户会在上述基础上继续构造数据的 pipeline，构造模型，训练（前向和反向），评估模型，最终导出模型。算法工程师宝贵的时间除了用在建模上，用户需要做很多的工作，很多**重复的**工作。Estimator 的出现就是期望对用户屏蔽掉跟多的底层细节，加速算法的研发和迭代。
+用户会在上述基础上继续构造数据的 pipeline，构造模型，训练（前向和反向），评估模型，最终导出模型。算法工程师宝贵的时间除了用在建模上，用户需要做很多的工作，很多**重复的**工作。Estimator 的出现就是期望对用户屏蔽掉更多的底层细节，加速算法的研发和迭代。
 
 ## Estimator
 先看一下 Estimator 的大图。Estimator 主要对外暴露 3 个行为：
@@ -95,7 +95,7 @@ server = tf.train.Server(
 
 ### 行为控制
 
-主要控制逻辑都依赖 **Hooks** 。大概有 4 中 hooks
+主要控制逻辑都依赖 **Hooks** 。大概有 4 种 hooks
 
 - training_chief_hooks
 - training_hooks
@@ -892,3 +892,4 @@ python ${file} \
     --worker-type ${type} --worker-index ${index} &> logs/chief.log.$i
 ```
 
+[Github code](https://github.com/chunyang-wen/estimator-tutorial)
