@@ -5,10 +5,11 @@ categories: [blog, tensorflow]
 tags: [tensorflow]
 ---
 
+介绍 Estiamtor 相关知识。
+
 + toc
 {:toc}
 
-# Estimator A tutorial
 
 ## 背景
 
