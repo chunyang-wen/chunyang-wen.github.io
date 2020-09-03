@@ -5,6 +5,9 @@ categories: [blog, tensorflow]
 tags: [tensorflow]
 ---
 
++ toc
+{:toc}
+
 # Estimator A tutorial
 
 ## 背景
