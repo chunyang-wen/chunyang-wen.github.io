@@ -77,7 +77,7 @@ python main.py --action export # 纯粹只导出模型
 
 ### objgraph 再战
 
-决定使用 Objgraph 再系统性分析下到底哪里出问题。线上使用 Estimator 的方式其实是经典的方式。启动一个 evaluator，当它发现新的 checkpoint 时，会自动 Restore 模型进行打分。如果打分结果符合预期，会调用 `estimator.export_saved_model` 来导出模型。导出模型时会再次发生 Restore。所以这种情况下会发生两次 Restore，通过在相应位置加入内存统计结果，发现每次 Restore 都会出现内存增长。奇怪的是，线上尝试复现时，复现不了线上类似的结果。基本都是内存开始上涨，然后一段时间后平稳。
+决定使用 Objgraph 再系统性分析下到底哪里出问题。线上使用 Estimator 的方式其实是经典的方式。启动一个 evaluator，当它发现新的 checkpoint 时，会自动 Restore 模型进行打分。如果打分结果符合预期，会调用 `estimator.export_saved_model` 来导出模型。导出模型时会再次发生 Restore。所以这种情况下会发生两次 Restore，通过在相应位置加入内存统计结果，发现每次 Restore 都会出现内存增长。奇怪的是，线下尝试复现时，复现不了线上类似的结果。基本都是内存开始上涨，然后一段时间后平稳。
 
 测试模型和线上模型现在区别包括两个：
 
@@ -101,7 +101,7 @@ pred = tf.keras.layers.Dense(1, activation="relu")(x)
 - [training.py](https://github.com/tensorflow/estimator/blob/r1.13/tensorflow_estimator/python/estimator/training.py)
 - [evaluation.py](https://github.com/tensorflow/tensorflow/blob/r1.13/tensorflow/python/training/evaluation.py)
 
-使用 Graph 都用了 `with ops.Graph().as_default()` , 使用 session 的地方也都使用了相应的 `with` 语句。正常情况走出作用率，应该随着 python gc 生效都会被清理。
+使用 Graph 都用了 `with ops.Graph().as_default()` , 使用 session 的地方也都使用了相应的 `with` 语句。正常情况走出作用域，应该随着 python gc 生效都会被清理。
 
 
 > 百思不得其解
