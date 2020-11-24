@@ -87,4 +87,8 @@ set tags=./tags;
 nmap <F5> :NERDTreeToggle<CR>
 ```
 
+#### 新的切分窗口打开
+
+移动鼠标选中文件，按下 `s` 按键即可
+
 本文完
