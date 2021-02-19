@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [leetcode]
 redirect_from:
  - /translating/implicit-conversions
+hidden: true
 ---
 
 + [题目](#problem)

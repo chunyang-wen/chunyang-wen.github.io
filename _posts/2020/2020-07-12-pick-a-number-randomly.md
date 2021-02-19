@@ -3,6 +3,7 @@ layout: post
 title: Pick a number randomly from an unlimited stream
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
+hidden: true
 ---
 
 + toc

@@ -3,6 +3,7 @@ layout: post
 title: Median of two sorted arrays
 categories: [blog, algorithm]
 tags: [leetcode]
+hidden: true
 ---
 
 + [题目](#problem)

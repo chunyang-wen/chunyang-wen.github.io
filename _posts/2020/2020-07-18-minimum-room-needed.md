@@ -4,6 +4,7 @@ title: Minimum number of rooms required
 categories: [blog, algorithm]
 tags: [dailycodingproblem, snapchat]
 include_math: true
+hidden: true
 ---
 
 + toc

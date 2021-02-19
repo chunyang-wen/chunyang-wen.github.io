@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [leetcode]
 redirect_from:
  - /algorithm/leetcode-interval
+hidden: true
 ---
 
 + [题目](#problem)

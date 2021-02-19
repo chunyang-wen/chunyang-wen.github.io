@@ -3,6 +3,7 @@ layout: post
 title: Intersecting node of two lists
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
+hidden: true
 ---
 
 + toc

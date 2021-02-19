@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [leetcode]
 redirect_from:
  - /algorithm/binary-tree-traversal
+hidden: true
 ---
 
 + [介绍](#intro)

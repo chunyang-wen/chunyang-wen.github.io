@@ -3,6 +3,7 @@ layout: post
 title: Ugly number I and II
 categories: [blog, algorithm]
 tags: [leetcode]
+hidden: true
 ---
 
 Ugly numbers are numbers which only divided by 2, 3, 5. By default 1 is also a ugly number.

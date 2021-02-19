@@ -3,6 +3,7 @@ layout: post
 title: How to exit nested loops
 categories: [blog, cpp]
 tags: [cpp]
+hidden: true
 ---
 
 + TOC

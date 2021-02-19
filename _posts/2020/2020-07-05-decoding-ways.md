@@ -3,6 +3,7 @@ layout: post
 title: Decode ways
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
+hidden: true
 ---
 
 + toc

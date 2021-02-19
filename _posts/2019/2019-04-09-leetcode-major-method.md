@@ -3,6 +3,7 @@ layout: post
 title: Majority Element I && II
 categories: [blog, algorithm]
 tags: [leetcode]
+hidden: true
 ---
 
 + [题目](#problem)

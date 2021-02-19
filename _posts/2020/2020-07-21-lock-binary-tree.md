@@ -3,6 +3,7 @@ layout: post
 title: Lock or unlock a binary tree
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
+hidden: true
 ---
 
 + toc

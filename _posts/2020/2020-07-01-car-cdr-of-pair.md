@@ -3,6 +3,7 @@ layout: post
 title: Cdr and car of a pair
 categories: [blog, algorithm]
 tags: [dailycodingproblem, janestreet]
+hidden: true
 ---
 
 I have subscribed to a [website](https://dailycodingproblem.com). Every day an email will be

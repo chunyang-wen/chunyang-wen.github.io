@@ -3,6 +3,7 @@ layout: post
 title: Containing water
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
+hidden: true
 ---
 
 + toc

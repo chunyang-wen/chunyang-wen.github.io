@@ -3,6 +3,7 @@ layout: post
 title: At most distinct K
 categories: [blog, algorithm]
 tags: [dailycodingproblem, amazon]
+hidden: true
 ---
 
 + toc

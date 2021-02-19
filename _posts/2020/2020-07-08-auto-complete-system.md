@@ -3,6 +3,7 @@ layout: post
 title: An autocomplete system
 categories: [blog, algorithm]
 tags: [dailycodingproblem, twitter]
+hidden: true
 ---
 
 + toc

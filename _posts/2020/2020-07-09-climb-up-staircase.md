@@ -4,6 +4,7 @@ title: Climb up staircase
 categories: [blog, algorithm]
 tags: [dailycodingproblem, amazon]
 include_math: true
+hidden: true
 ---
 
 + toc

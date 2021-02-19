@@ -3,6 +3,7 @@ layout: post
 title: Universal tree
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
+hidden: true
 ---
 
 + toc
