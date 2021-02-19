@@ -4,8 +4,6 @@ description: "If you cannot measure it, you cannot improve it."
 ---
 
 {% for post in paginator.posts %}
-{% unless post.tags contains 'leetcode' %}
-{% unless post.tags contains 'dailycodingproblem' %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">
@@ -23,8 +21,6 @@ description: "If you cannot measure it, you cannot improve it."
     <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
 </div>
 <hr>
-{% endunless %}
-{% endunless %}
 {% endfor %}
 
 <!-- Pager -->
