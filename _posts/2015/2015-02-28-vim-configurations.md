@@ -91,4 +91,18 @@ nmap <F5> :NERDTreeToggle<CR>
 
 移动鼠标选中文件，按下 `s` 按键即可
 
+#### 开启拼写检查
+
+```vim
+set spell spelllang=en_us
+hi clear SpellBad
+hi SpellBad cterm=underline
+hi clear SpellRare
+hi SpellRare cterm=underline
+hi clear SpellCap
+hi SpellCap cterm=underline
+hi clear SpellLocal
+hi SpellLocal cterm=underline
+```
+
 本文完
