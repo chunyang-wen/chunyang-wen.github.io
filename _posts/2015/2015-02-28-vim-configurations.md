@@ -85,6 +85,7 @@ set tags=./tags;
 
 ```vim
 nmap <F5> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1 " Show hidden file
 ```
 
 #### 新的切分窗口打开
@@ -104,5 +105,27 @@ hi SpellCap cterm=underline
 hi clear SpellLocal
 hi SpellLocal cterm=underline
 ```
+
+#### 使用 Plug 来管理
+
+首先要先安装 `vim-plug` 这个插件，然后就可以使用它来安装其它插件
+
+```vim
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/nerdcommenter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+```
+执行 `:PlugInstall` 会安装相关的插件
+
+
+#### Python 语法检测
+
+```vim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+```
+
+`:CocInstall coc-pyright`
+
 
 本文完
