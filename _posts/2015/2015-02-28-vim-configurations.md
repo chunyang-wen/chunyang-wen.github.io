@@ -115,6 +115,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 ```
 执行 `:PlugInstall` 会安装相关的插件
 
