@@ -165,6 +165,47 @@ for data in islice(reader, worker_index, None, worker_size):
 
 用户只需要维护好自己的 `index` 和 `size` 即可。
 
+## Block iterator
+
+希望按照块对数据进行切分。例如数据是 `1 2 3 4 5 6 7 8`。如果有 3 个 worker，按照块大小为
+3 进行切分，那么应该是： `1 2 3`, `4 5 6`, `7 8`。
+
+```python
+list_ = list(range(10, 100))
+def block_islice(iterator, size_per_block, block_index, block_size):
+    """
+    Args:
+        iterator: input iterator
+        size_per_block: size for each block
+        block_index: index of a block
+        block_size: block size
+
+    range(10, 100), block_size = 2, size_per_block = 100
+
+    for block_index = 0, 10-19, 30-39, 50-59, 70-79, 90-99
+    for block_index = 1, 20-29, 40-49, 60-69, 80-89
+    """
+    args = [iterator] * size_per_block
+    group_iterator = zip_longest(*args, fillvalue=None)
+    block_iterator = islice(group_iterator, block_index, None, block_size)
+    for block in block_iterator:
+        for datum in block:
+            # We assume that any None means the end of the data
+            if datum is None:
+                break
+            yield datum
+
+
+
+print("="* 20)
+for data in block_islice(iter(list_), 10, 0, 2):
+    print(data)
+
+print("="* 20)
+for data in block_islice(iter(list_), 10, 1, 2):
+    print(data)
+```
+
 ## 其它内容
 
 ### 无穷尽的
