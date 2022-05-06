@@ -19,8 +19,6 @@ tags: [blog, python]
 ```python
 import os
 from kubernetes import client, config
-import yaml
-import pytz
 
 config.load_kube_config(os.path.expanduser("~/.kube/config"))
 
