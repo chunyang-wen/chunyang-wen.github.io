@@ -16,14 +16,17 @@ during my development.
 
 ## Basic usage
 
+{% raw %}
 + `{{...}}` for expressions
 + `{% ... %}` for statements
 + `{# ... #}` for comments
+{% endraw %}
 
 Jinja2 placeholders are wrapped with double curly braces.
 
 ### Use strings as templates
 
+{% raw %}
 ```python
 from jinja2 import Template
 
@@ -33,9 +36,11 @@ template = Template(content)
 result = template.render(apple_cnt=3)
 print(result)
 ```
+{% endraw %}
 
 ### Use a folder as templates sources
 
+{% raw %}
 ```python
 from jinja2 import Envrionment, PackageLoader
 
@@ -44,10 +49,12 @@ env = Environment(
 )
 template = env.get_template("a.html")
 ```
+{% endraw %}
 
 We may package templates with our published packages, using `package_data` in setup.py.
 [Reference](https://www.chunyangwen.com/blog/python/python-setup.html#package_data)
 
+{% raw %}
 ```python
 from jinja2 import Envrionment, FileSystemLoader
 
@@ -56,6 +63,7 @@ env = Environment(
 )
 template = env.get_template("a.html")
 ```
+{% endraw %}
 
 Get templates for a folder from file system.
 
@@ -63,12 +71,15 @@ Get templates for a folder from file system.
 
 ### Comment
 
+{% raw %}
 ```yaml
 {# This is a comment #}
 ```
+{% endraw %}
 
 ### Raise error if certain key not found
 
+{% raw %}
 ```python
 from jinja2 import Envrionment, FileSystemLoader
 
@@ -83,19 +94,23 @@ env.globals["raise"] = raise_helper
 
 template = env.get_template("a.html")
 ```
+{% endraw %}
 
 We can add following template code, calling our predefined `raise_helper`
 
+{% raw %}
 ```yaml
 {% if app_name is none or app_name|length < 1 %}
 {{ raise("app_name must be set") }}
 {% endif %}
 ```
+{% endraw %}
 
 ### Dict related variable
 
 `env` is a dict.
 
+{% raw %}
 ```yaml
 {% for key, value in env.items() %}
 {% endfor %}
@@ -107,6 +122,7 @@ B: env["HOSTNAME"]
 B: "UNKNOWN"
 {% endif %}
 ```
+{% endraw %}
 
 `is mapping` is a test.
 
@@ -122,6 +138,7 @@ B: "UNKNOWN"
 
 ### Trim empty spaces and blocks
 
+{% raw %}
 By default `{% else %}` or similar expression will be empty blocks after render.
 
 ```python
@@ -135,12 +152,15 @@ env = Environment(
     lstrip_blocks=True,
 )
 ```
+{% endraw %}
 
 ### Default value
 
+{% raw %}
 ```yaml
 {{replicas|default(1, true)}}
 ```
+{% endraw %}
 
 [default](https://jinja.palletsprojects.com/en/3.1.x/templates/?highlight=default%20function#jinja-filters.default)
 
@@ -155,6 +175,7 @@ is a valid value.
 
 Keep double quotation in string, not escaped.
 
+{% raw %}
 ```python
 from jinja2 import Template, select_autoescape
 
@@ -169,6 +190,7 @@ template = Template(t)
 result = template.render(cnt='"3"')
 print(result)
 ```
+{% endraw %}
 
 If we set `false` to `true` for `autoescape`, we will get
 
@@ -176,6 +198,7 @@ If we set `false` to `true` for `autoescape`, we will get
 b: &#34;3&#34;
 ```
 
+{% raw %}
 ```python
 from jinja2 import Template
 from jinja2.utils import select_autoescape
@@ -189,12 +212,15 @@ template = Template(t, autoescape=select_autoescape(default_for_string=False))
 result = template.render(cnt='"3"')
 print(result)
 ```
+{% endraw %}
 
 ### Create variables
 
+{% raw %}
 ```yaml
 {% set a = 3 %}
 ```
+{% endraw %}
 
 ## Reference
 
