@@ -64,8 +64,11 @@ response = apps_v1_api.create_namespaced_deployment(body=yaml_content, namespace
 
 这里的`yaml_content` 是创建具体的 deployment 的内容。
 
-> $$image$$ 请替换成真实的镜像名字
+{% raw %}
+> {{image}} 请替换成真实的镜像名字
+{% endraw %}
 
+{% raw %}
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -93,7 +96,7 @@ spec:
         app: my-awesome-deployment
     spec:
       containers:
-        - image: $$image$$
+        - image: {{image}}
           imagePullPolicy: Always
           name: my-awesome-deployment
           ports:
@@ -109,6 +112,7 @@ spec:
       securityContext: {}
       terminationGracePeriodSeconds: 30
 ```
+{% endraw %}
 
 Deployment 的其它接口
 
@@ -160,23 +164,25 @@ core_v1_api.delete_namespaced_service(name, namespace)
 
 `yaml_content` 内容如下：
 
+{% raw %}
 ```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: $$service_name$$
+  name: {{service_name}}
 spec:
   ports:
-    - port: $$service_port$$
-      targetPort: $$target_port$$
+    - port: {{service_port}}
+      targetPort: {{target_port}}
       protocol: TCP
   selector:
-    app: $$target_name$$
+    app: {{target_name}}
   sessionAffinity: None
-  type: $$service_type$$
+  type: {{service_type}}
 ```
+{% endraw %}
 
-注意填充上上述对应 `$$$$` 中的内容。其中要注意的是 `selector` 是和
+注意填充上上述对应 `{{}}` 中的内容。其中要注意的是 `selector` 是和
 deployment 中对应配置是对上的。`spec.template.metadata` 中的 `labels`。
 
 ### Ingress
@@ -225,33 +231,35 @@ batch_v1_api.delete_namespaced_job(name, namespace)
 
 `yaml_content` 内容如下：
 
+{% raw %}
 ```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
   labels:
-    app: $$ name $$
-  name: $$ name $$
+    app: {{ name }}
+  name: {{ name }}
 spec:
   ttlSecondsAfterFinished: 3600
   template:
     metadata:
       labels:
-        app: $$ name $$
+        app: {{ name }}
     spec:
       containers:
-      - name: $$ name $$
-        image: $$ image $$
+      - name: {{ name }}
+        image: {{ image }}
         resources:
           requests:
             cpu: 1
             memory: 2Gi
-        command: $$ command|safe $$
+        command: {{ command|safe }}
       restartPolicy: Never
   backoffLimit: 0
 ```
 
-请自行填充 `$$ $$` 中的内容。
+请自行填充 `{{ }}` 中的内容。
+{% endraw %}
 
 ## Logs and Events
 
