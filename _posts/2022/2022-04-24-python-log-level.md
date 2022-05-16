@@ -1,6 +1,6 @@
 ---
 layout: post
-title: logger.debug cause performance issue
+title: logger.debug causes performance issues
 categories: [blog, python]
 tags: [python]
 ---
