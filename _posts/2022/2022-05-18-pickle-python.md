@@ -47,7 +47,7 @@ if a != c:
 
 ## struct
 
-在研究 `pickle` 的行为之前，先研究下 `[struct](https://docs.python.org/3/library/struct.html)`
+在研究 `pickle` 的行为之前，先研究下 [struct](https://docs.python.org/3/library/struct.html)
 这个库。
 
 ### Byte order
@@ -230,7 +230,7 @@ self.stack # related operations
 
 ## save_global & load_global
 
-当从 `dispatch` 中找不到对应的类型后，会调用 `save_global` 或者 `save_redce`。目前保存的类型为：
+当从 `dispatch` 中找不到对应的类型后，会调用 `save_global` 或者 `save_reduce`。目前保存的类型为：
 
 - `type`
 - `type(None)`
