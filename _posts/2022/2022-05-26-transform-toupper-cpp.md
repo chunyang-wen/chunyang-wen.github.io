@@ -6,7 +6,7 @@ tags: [cpp]
 ---
 
 `ctype` 中定义了一些比较实用的函数，例如 `toupper`, `tolower`, `isalpha` 等等。在 C++
-中如何实用这些函数呢？实用 `cctype`，然后就可以在 `std` 的命名空间中使用这些函数。
+中如何实用这些函数呢？使用 `cctype`，然后就可以在 `std` 的命名空间中使用这些函数。
 
 + toc
 {:toc}
@@ -107,6 +107,45 @@ namspace std {
 ```
 
 在 `<locale>` 中定义的 `toupper` 会另外一个参数 `locale`。的确是二者使用冲突。
+
+ambiguous 错误：
+
+```cpp
+namespace A {
+    struct X {};
+    struct Y {};
+    void f( int );
+    void g( X );
+}
+
+namespace B {
+    void f( int i ) {
+        f( i );   // which f()?
+    }
+    void g( A::X x ) {
+        g( x );   // which g()?
+    }
+    void h( A::Y y ) {
+        h( y );   // which h()?
+    }
+}
+
+int main(int argc, char* argv[]) {
+}
+```
+
+```cpp
+a.cpp:13:9: error: call to 'g' is ambiguous
+        g( x );   // which g()?
+        ^
+a.cpp:5:10: note: candidate function
+    void g( X );
+         ^
+a.cpp:12:10: note: candidate function
+    void g( A::X x ) {
+         ^
+1 error generated.
+```
 
 ### Argument Dependent Loop or Koenig lookup
 
