@@ -23,9 +23,11 @@ operator `raw` which can be used to render its original content.
 ```python
 from jinja2 import Template
 template_str = """
-{% raw %}{%{% endraw %} raw {% raw %}%}{% endraw %}
+{% raw %} {% {% endraw %} raw {% raw %} %} {% endraw %}
+{% raw %}
 {{hi}}
-{% raw %}{%{% endraw %} endraw {% raw %}%}{% endraw %}
+{% endraw %}
+{% raw %} {% {% endraw %} endraw {% raw %} %} {% endraw %}
 """
 
 partial_template_str = Template(template_str).render()
@@ -41,7 +43,9 @@ It is wrong sometimes we remove the leading spaces.
 from jinja2 import Template
 template_str = """
 {% raw %}{%{% endraw %} raw {% raw %}%}{% endraw %}
+{% raw %}
 {{hi}}
+{% endraw %}
 {% raw %}{%{% endraw %} endraw {% raw %}%}{% endraw %}
 """
 
@@ -59,7 +63,9 @@ to remove them. [Referecne](https://jinja.palletsprojects.com/en/3.1.x/templates
 from jinja2 import Template
 template_str = """
 {% raw %}{%{% endraw %} raw {% raw %}-%}{% endraw %}
+{% raw %}
 {{hi}}
+{% endraw %}
 {% raw %}{%{% endraw %} endraw {% raw %}%}{% endraw %}
 """
 
@@ -79,7 +85,9 @@ implement a customized operator
 from jinja2 import Template
 template_str = """
 {% raw %}{%{% endraw %} raw {% raw %}-%}{% endraw %}
+{% raw %}
 {{hi}}
+{% endraw %}
 {% raw %}{%{% endraw %} endraw {% raw %}-%}{% endraw %}
 
 {% raw %}
