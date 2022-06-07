@@ -82,11 +82,15 @@ template_str = """
 {{hi}}
 {% raw %}{%{% endraw %} endraw {% raw %}-%}{% endraw %}
 
+{% raw %}
 {{'{%'}} raw {{'%}'}}
+{% endraw %}
 {% raw %}
 {{hello}}
 {% endraw %}
+{% raw %}
 {{'{%'}} endraw {{'%}'}}
+{% endraw %}
 
 """
 
