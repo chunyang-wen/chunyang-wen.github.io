@@ -182,8 +182,10 @@ spec:
 ```
 {% endraw %}
 
+{% raw %}
 注意填充上上述对应 `{{}}` 中的内容。其中要注意的是 `selector` 是和
 deployment 中对应配置是对上的。`spec.template.metadata` 中的 `labels`。
+{% endraw %}
 
 ### Ingress
 

@@ -18,8 +18,6 @@ exception or insert null values into the corresponding placeholders.
 In the blog, we will use a trick to mimic the partially rendering behavior. Jinja has an
 operator `raw` which can be used to render its original content.
 
-{% raw %}
-
 ```python
 from jinja2 import Template
 template_str = """
