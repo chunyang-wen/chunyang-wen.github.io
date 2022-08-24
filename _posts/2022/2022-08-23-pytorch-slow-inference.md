@@ -5,7 +5,7 @@ categories: [blog, python]
 tags: [python]
 ---
 
-Our online systems support pytorch inference. It is very slow recently.
+Our online systems support PyTorch inference. It is very slow recently.
 Previously there were not so many jobs running, so the CPU usage was low,
 but the inference procedure finished quickly.
 
@@ -16,7 +16,7 @@ but the inference procedure finished quickly.
 ## Background
 
 There are two kinds of physical nodes in our cluster. They have different CPUs
-and difference kinds of Os and container runtime.
+and different kinds of OS and container runtime.
 
 + Ubuntu 20.04.2 v.s. 20.04.3
 + Docker version: 20.10.8 v.s. 20.10.12
@@ -32,7 +32,7 @@ be the difference in the two nodes' configuration. Upgrading the system and dock
 runtime is not possible currently.
 
 + Detail review of the release information about docker runtime
-+ Searches about the os version and its related issues with docker
++ Searches about the OS version and its related issues with docker
 
 After several searches, we found
 [Processes are running slow in docker container on ubuntu 18.04](https://github.com/docker/for-linux/issues/738)
@@ -48,7 +48,7 @@ may be impacted according to the cpu usage of the corresponding node.
 
 After adding the limit, code ran even slower. Oops!
 
-### Run other code
+### Performance when running other code
 
 We wrote a PI calculation code to test the performance. The speeds are similar. Oops!
 
@@ -78,7 +78,7 @@ code again.
 
 The speed becomes normal.
 
-### Test
+### Performance test code about threads
 
 ```python
 import time
