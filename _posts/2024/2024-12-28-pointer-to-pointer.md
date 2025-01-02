@@ -9,6 +9,11 @@ For List related problem, we usually will not use the recursive way to solve it.
 search tree, we might use it. In this blog, I just want to demonstrate that we can use recursive
 function to solve it by leveraging the pointer to pointer.
 
+Problem: 234. Palindrome Linked List
+
+Given the head of a singly linked list, return true if it is a 
+palindrome or false otherwise.
+
 + toc
 {:toc}
 
