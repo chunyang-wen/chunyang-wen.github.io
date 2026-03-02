@@ -3,6 +3,7 @@ layout: post
 title: Pointer to pointer
 categories: [blog, leetcode]
 tags: [leetcode]
+image: /images/posts/2024/pointer-to-pointer/cover.png
 ---
 
 For List related problem, we usually will not use the recursive way to solve it. For binary
