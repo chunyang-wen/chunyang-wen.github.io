@@ -1,0 +1,10 @@
+/* Show full post cover images instead of cropping them */
+.preview-img {
+  background: transparent !important;
+}
+
+.preview-img img {
+  -o-object-fit: contain;
+  object-fit: contain;
+  object-position: center;
+}
