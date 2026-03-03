@@ -6,6 +6,7 @@ tags: [reading]
 description: coding horror
 redirect_from:
  - /reading-books/notes-about-codinghorror
+image: /images/posts/2014/notes-about-codinghorror/cover.png
 ---
 
 

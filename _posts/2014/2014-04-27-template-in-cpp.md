@@ -5,6 +5,7 @@ categories: [blog, cpp]
 tags: [cpp]
 redirect_from:
  - /programming/template-in-cpp
+image: /images/posts/2014/template-in-cpp/cover.png
 ---
 
 

@@ -3,6 +3,7 @@ layout: post
 title: iostream用法
 categories: [blog, cpp]
 tags: [cpp]
+image: /images/posts/2014/iostream-summary/cover.png
 ---
 
 

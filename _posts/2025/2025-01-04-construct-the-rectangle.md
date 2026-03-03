@@ -3,6 +3,7 @@ layout: post
 title: Construct the Rectangle
 categories: [blog, leetcode]
 tags: [leetcode]
+image: /images/posts/2025/construct-the-rectangle/cover.png
 ---
 
 This problem is a typical use case of double pointer in an array. Like in a sorted array, find

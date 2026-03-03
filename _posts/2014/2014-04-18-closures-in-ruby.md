@@ -5,6 +5,7 @@ categories: [blog, ruby]
 tags: [ruby]
 redirect_from:
  - /translating/closures-in-ruby
+image: /images/posts/2014/closures-in-ruby/cover.png
 ---
 
 

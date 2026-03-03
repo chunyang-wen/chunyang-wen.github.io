@@ -5,6 +5,7 @@ categories: [blog, cpp]
 tags: [cpp]
 redirect_from:
  - /programming/operator-new-delete
+image: /images/posts/2014/operator-new-delete/cover.png
 ---
 
 

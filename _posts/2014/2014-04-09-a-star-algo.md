@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [algorithm]
 redirect_from:
  - /algorithms/a-star-algo
+image: /images/posts/2014/a-star-algo/cover.png
 ---
 
 

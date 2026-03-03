@@ -5,6 +5,7 @@ categories: [blog, translating]
 tags: [cpp]
 redirect_from:
  - /translating/implicit-conversions
+image: /images/posts/2014/implicit-conversions/cover.png
 ---
 
 

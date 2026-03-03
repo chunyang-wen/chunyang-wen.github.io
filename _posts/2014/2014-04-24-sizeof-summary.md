@@ -5,6 +5,7 @@ categories: [blog, cpp]
 tags: [cpp]
 redirect_from:
  - /programming/sizeof-summary
+image: /images/posts/2014/sizeof-summary/cover.png
 ---
 
 

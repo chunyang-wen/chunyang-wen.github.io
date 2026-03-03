@@ -5,6 +5,7 @@ categories: [blog, movies]
 tags: [reading]
 redirect_from:
  - /movies/thoughts-of-code-rush
+image: /images/posts/2014/thoughts-of-code-rush/cover.png
 ---
 
 

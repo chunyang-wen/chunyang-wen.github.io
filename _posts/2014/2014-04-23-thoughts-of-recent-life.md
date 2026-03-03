@@ -3,6 +3,7 @@ layout: post
 title: Remove comments in java or C++
 categories: [blog, ruby]
 tags: [ruby]
+image: /images/posts/2014/thoughts-of-recent-life/cover.png
 ---
 
 

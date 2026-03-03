@@ -3,6 +3,7 @@ layout: post
 title: vim configuration
 categories: [tools, ]
 tags: [vim, ]
+image: /images/posts/2015/vim-configurations/cover.png
 ---
 
 

@@ -5,6 +5,7 @@ categories: [blog, translating]
 tags: [operating system]
 redirect_from:
  - /translating/multitask-management-in-os
+image: /images/posts/2014/multitask-management-in-os/cover.png
 ---
 
 

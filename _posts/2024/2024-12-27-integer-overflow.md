@@ -3,6 +3,7 @@ layout: post
 title: Integer overflow
 categories: [blog, leetcode]
 tags: [leetcode]
+image: /images/posts/2024/integer-overflow/cover.png
 ---
 
 In the world of data types, each type has its own range. Overflow can happen when you do math

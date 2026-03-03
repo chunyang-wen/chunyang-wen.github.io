@@ -6,6 +6,7 @@ tags: [dummy]
 include_math: true
 redirect_from:
  - /last-of-March
+image: /images/posts/2014/last-of-March/cover.png
 ---
 
 
