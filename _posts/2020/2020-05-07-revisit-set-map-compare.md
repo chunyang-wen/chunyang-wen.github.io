@@ -3,6 +3,7 @@ layout: post
 title: Revisit compare in map and set
 categories: [blog, stl]
 tags: [cpp]
+image: /images/posts/2020/revisit-set-map-compare/cover.png
 ---
 
 `map` and `set` are two common associative containers. By default, common data types

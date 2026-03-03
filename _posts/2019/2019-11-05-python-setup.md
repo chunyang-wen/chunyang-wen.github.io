@@ -3,6 +3,7 @@ layout: post
 title: setup.py in Python
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2019/python-setup/cover.png
 ---
 
 When we create a python package, we will distribute it. There are a couple of ways to

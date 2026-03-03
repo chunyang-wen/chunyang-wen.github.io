@@ -3,6 +3,7 @@ layout: post
 title: How tornado starts?
 categories: [blog, python]
 tags: [blog, python]
+image: /images/posts/2022/how-tornado-starts/cover.png
 ---
 
 项目中的服务使用 `tornado` 来搭建，但是对于 `tornado` 如何启动还没有仔细研究过。

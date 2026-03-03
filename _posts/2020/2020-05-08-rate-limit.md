@@ -3,6 +3,7 @@ layout: post
 title: How to Design a Scalable Rate Limiting Algorithm
 categories: [blog, system]
 tags: [system]
+image: /images/posts/2020/rate-limit/cover.png
 ---
 
 任何一个服务在有限资源前提下都会存在处理能力的上限。本文主要描述限流的一些主要算法。

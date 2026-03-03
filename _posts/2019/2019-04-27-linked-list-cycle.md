@@ -6,6 +6,7 @@ tags: [leetcode]
 redirect_from:
  - /algorithm/linked-list-cycle
 hidden: true
+image: /images/posts/2019/linked-list-cycle/cover.png
 ---
 
 + [题目](#problem)

@@ -3,6 +3,7 @@ layout: post
 title: Python itertools
 tags: [blog, python]
 categories: [python]
+image: /images/posts/2022/itertools-python/cover.png
 ---
 
 最近在工作中使用 python 开发时经常需要将多个 iterator 进行一些操作。以前的惯用手法要么是主动

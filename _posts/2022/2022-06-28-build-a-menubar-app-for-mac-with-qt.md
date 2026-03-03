@@ -3,6 +3,7 @@ layout: post
 title: Build a menubar macos App using PyQt5 and PyInstaller
 categories: [blog, python]
 tags: [python, pyqt]
+image: /images/posts/2022/build-a-menubar-app-for-mac-with-qt/cover.png
 ---
 
 [PyQt](https://riverbankcomputing.com/software/pyqt/) is a python package that

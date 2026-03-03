@@ -5,6 +5,7 @@ categories: [blog, git]
 tags: [reading]
 redirect_from:
  - /gh-pages/domain-for-gh-pages
+image: /images/posts/2019/domain-for-gh-pages/cover.png
 ---
 
 由于特殊原因，导致自己的 VPS 无法访问。

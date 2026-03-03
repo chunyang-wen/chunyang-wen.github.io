@@ -5,6 +5,7 @@ categories: [blog, stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-algorithm-collection
+image: /images/posts/2019/cpp-algorithm-collection/cover.png
 ---
 
 + [简介](#intro)

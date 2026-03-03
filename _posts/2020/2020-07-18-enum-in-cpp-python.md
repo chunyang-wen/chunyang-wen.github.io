@@ -3,6 +3,7 @@ layout: post
 title: Enum in Cpp and Python
 categories: [blog, common]
 tags: [cpp, python]
+image: /images/posts/2020/enum-in-cpp-python/cover.png
 ---
 
 `Enum` is very commonly used both in cpp and python. In this blog, we will introduce enumeration

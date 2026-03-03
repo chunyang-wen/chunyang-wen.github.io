@@ -4,6 +4,7 @@ title: Bracket match
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
+image: /images/posts/2020/bracket-match/cover.png
 ---
 
 + toc

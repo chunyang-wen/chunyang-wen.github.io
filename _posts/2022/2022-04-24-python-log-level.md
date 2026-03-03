@@ -3,6 +3,7 @@ layout: post
 title: logger.debug causes performance issues
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2022/python-log-level/cover.png
 ---
 
 A logger is preferred in a formal project, because we can set different levels

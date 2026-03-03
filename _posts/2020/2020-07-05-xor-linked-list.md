@@ -4,6 +4,7 @@ title: Xor linked list
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/xor-linked-list/cover.png
 ---
 
 + toc

@@ -6,6 +6,7 @@ tags: [leetcode]
 redirect_from:
  - /translating/implicit-conversions
 hidden: true
+image: /images/posts/2019/subset-permutation/cover.png
 ---
 
 + [题目](#problem)

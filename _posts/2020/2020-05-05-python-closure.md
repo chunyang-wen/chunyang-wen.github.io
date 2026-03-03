@@ -3,6 +3,7 @@ layout: post
 title: Python closure
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2020/python-closure/cover.png
 ---
 
 Python closure usually makes code simpified and are used in functional programming style. It starts

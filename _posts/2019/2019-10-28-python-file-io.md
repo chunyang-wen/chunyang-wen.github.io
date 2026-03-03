@@ -3,6 +3,7 @@ layout: post
 title: Python File related IO
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2019/python-file-io/cover.png
 ---
 
 * TOC

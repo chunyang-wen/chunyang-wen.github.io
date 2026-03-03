@@ -4,6 +4,7 @@ title: Combinations of words
 categories: [blog, algorithm]
 tags: [dailycodingproblem, microsoft]
 hidden: true
+image: /images/posts/2020/combinations-of-words/cover.png
 ---
 
 + toc

@@ -3,6 +3,7 @@ layout: post
 title: C++ Iterator
 categories: [blog, stl]
 tags: [cpp]
+image: /images/posts/2019/cpp-iterator/cover.png
 ---
 
 + [Introduction](#intro)

@@ -5,6 +5,7 @@ categories: [blog, stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-queue-stack-deque
+image: /images/posts/2019/cpp-queue-stack-deque/cover.png
 ---
 
 + [简介](#intro)

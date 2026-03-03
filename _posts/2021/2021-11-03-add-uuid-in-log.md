@@ -3,6 +3,7 @@ layout: post
 title: Add Unique ID for Http Request
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2021/add-uuid-in-log/cover.png
 ---
 
 后端服务的每一次请求会进入各种逻辑，发生各种问题。在大并发情况下，不同请求之间的

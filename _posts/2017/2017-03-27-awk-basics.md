@@ -5,6 +5,7 @@ categories: [blog, shell]
 tags: [shell]
 redirect_from:
  - /linux/awk/awk-basics
+image: /images/posts/2017/awk-basics/cover.png
 ---
 
 

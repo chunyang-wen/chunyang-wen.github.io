@@ -3,6 +3,7 @@ layout: post
 title: C++ bind and function
 categories: [blog, cpp]
 tags: [cpp]
+image: /images/posts/2019/cpp-function/cover.png
 ---
 
 + [简介](#intro)

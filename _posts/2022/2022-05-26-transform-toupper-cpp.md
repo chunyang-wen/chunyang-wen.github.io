@@ -3,6 +3,7 @@ layout: post
 title: std::transform not working with std::toupper
 categories: [blog, cpp]
 tags: [cpp]
+image: /images/posts/2022/transform-toupper-cpp/cover.png
 ---
 
 `ctype` 中定义了一些比较实用的函数，例如 `toupper`, `tolower`, `isalpha` 等等。在 C++

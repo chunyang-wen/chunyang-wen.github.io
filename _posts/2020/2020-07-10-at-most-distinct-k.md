@@ -4,6 +4,7 @@ title: At most distinct K
 categories: [blog, algorithm]
 tags: [dailycodingproblem, amazon]
 hidden: true
+image: /images/posts/2020/at-most-distinct-k/cover.png
 ---
 
 + toc

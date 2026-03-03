@@ -3,6 +3,7 @@ layout: post
 title: Estimator a tutorial
 categories: [blog, tensorflow]
 tags: [tensorflow]
+image: /images/posts/2020/estimator-tutorial/cover.png
 ---
 
 介绍 Estiamtor 相关知识。

@@ -3,6 +3,7 @@ layout: post
 title: Who passes the additional argument to my `fn` ?
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2021/python-additional-arguments/cover.png
 ---
 
 Recently in an implementation of a functionality, following error keeps showing and drives me crazy.

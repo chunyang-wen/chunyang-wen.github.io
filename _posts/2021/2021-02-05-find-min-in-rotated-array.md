@@ -4,6 +4,7 @@ title: Find the minimum in a rotated array
 categories: [blog, algorithm]
 tags: [leetcode]
 hidden: true
+image: /images/posts/2021/find-min-in-rotated-array/cover.png
 ---
 
 一个递增有序数组，在中间某个位置被旋转。在旋转的数组中找到最小值。

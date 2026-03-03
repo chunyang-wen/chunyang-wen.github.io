@@ -3,6 +3,7 @@ layout: post
 title: Estimator OOM after export model frequently
 categories: [blog, tensorflow]
 tags: [tensorflow]
+image: /images/posts/2020/oom-estimator-export/cover.png
 ---
 
 最近用户反馈一个 Estimator 的问题，OOM (out of memory)。由于完全使用的是 Estimator 的逻辑，出错问题

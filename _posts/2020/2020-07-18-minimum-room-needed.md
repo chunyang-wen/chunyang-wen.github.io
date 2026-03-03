@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [dailycodingproblem, snapchat]
 include_math: true
 hidden: true
+image: /images/posts/2020/minimum-room-needed/cover.png
 ---
 
 + toc

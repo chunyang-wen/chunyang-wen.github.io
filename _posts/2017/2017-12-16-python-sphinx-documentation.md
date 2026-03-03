@@ -5,6 +5,7 @@ categories: [blog, python]
 tags: [python]
 redirect_from:
  - /python-sphinx-documentation
+image: /images/posts/2017/python-sphinx-documentation/cover.png
 ---
 
 - [注释](#comment)

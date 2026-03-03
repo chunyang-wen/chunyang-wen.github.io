@@ -4,6 +4,7 @@ title: Minimum steps to reach
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/minimum-steps-to-reach/cover.png
 ---
 
 + toc

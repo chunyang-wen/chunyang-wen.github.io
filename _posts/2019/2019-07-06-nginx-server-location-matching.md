@@ -5,6 +5,7 @@ categories: [blog, nginx]
 tags: [reading]
 redirect_from:
  - /nginx/nginx-server-location-matching
+image: /images/posts/2019/nginx-server-location-matching/cover.png
 ---
 
 + [Introduction](#i)

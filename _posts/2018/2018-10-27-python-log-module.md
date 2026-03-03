@@ -5,6 +5,7 @@ categories: [blog, python]
 tags: [python]
 redirect_from:
  - /python/logging/python-log-module
+image: /images/posts/2018/python-log-module/cover.png
 ---
 
 + [简介](#intro)

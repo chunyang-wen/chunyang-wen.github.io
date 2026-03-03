@@ -4,6 +4,7 @@ title: An autocomplete system
 categories: [blog, algorithm]
 tags: [dailycodingproblem, twitter]
 hidden: true
+image: /images/posts/2020/auto-complete-system/cover.png
 ---
 
 + toc

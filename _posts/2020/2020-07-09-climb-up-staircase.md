@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [dailycodingproblem, amazon]
 include_math: true
 hidden: true
+image: /images/posts/2020/climb-up-staircase/cover.png
 ---
 
 + toc

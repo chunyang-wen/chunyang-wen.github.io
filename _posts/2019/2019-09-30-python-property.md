@@ -3,6 +3,7 @@ layout: post
 title: Python descriptor
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2019/python-property/cover.png
 ---
 
 * TOC

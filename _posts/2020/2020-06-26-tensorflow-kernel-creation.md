@@ -3,6 +3,7 @@ layout: post
 title: How does tensorflow create a kernel?
 categories: [blog, tensorflow]
 tags: [tensorflow]
+image: /images/posts/2020/tensorflow-kernel-creation/cover.png
 ---
 
 This is one of the series of describing how tensorflow works. I will do my best to understand

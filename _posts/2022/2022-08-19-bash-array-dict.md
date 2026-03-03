@@ -3,6 +3,7 @@ layout: post
 title: Arrays and dict in bash
 categories: [blog, shell]
 tags: [shell]
+image: /images/posts/2022/bash-array-dict/cover.png
 ---
 
 Most languages will have builtin data structures such as array(list) or

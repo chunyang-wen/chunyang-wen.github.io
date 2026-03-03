@@ -3,6 +3,7 @@ layout: post
 title: Estimator core in evaluator
 categories: [blog, tensorflow]
 tags: [tensorflow]
+image: /images/posts/2020/estimator-core-again/cover.png
 ---
 
 记录另外一次 Estimator 的 core 排查。

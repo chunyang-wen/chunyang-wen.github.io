@@ -3,6 +3,7 @@ layout: post
 title: Linux split
 categories: [blog, tools]
 tags: [tools]
+image: /images/posts/2022/linux-split/cover.png
 ---
 
 Linux 中有很多易用的命令行工具。`split` 就是其中之一。介绍实际中使用的几个比较常用的分割文件的方法。

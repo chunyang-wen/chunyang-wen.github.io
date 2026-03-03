@@ -5,6 +5,7 @@ categories: [blog, stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-vector
+image: /images/posts/2019/cpp-vector/cover.png
 ---
 
 + [简介](#intro)

@@ -3,6 +3,7 @@ layout: post
 title: abc module in Python
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2019/abc-module-in-python/cover.png
 ---
 
 * TOC

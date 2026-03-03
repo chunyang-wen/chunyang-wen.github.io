@@ -5,6 +5,7 @@ category: [blog, translating]
 tags: [python]
 redirect_from:
   - /python/a-guide-to-python-magic-methods
+image: /images/posts/2017/a-guide-to-python-magic-methods/cover.png
 ---
 
 翻译自：[A guide to Python's Magic Methods][1]

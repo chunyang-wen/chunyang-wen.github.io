@@ -3,6 +3,7 @@ layout: post
 title: Python contextlib
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2020/python-contextmanager/cover.png
 ---
 
 There are some resources we need to release when we finish our job. It is easy for us to forget

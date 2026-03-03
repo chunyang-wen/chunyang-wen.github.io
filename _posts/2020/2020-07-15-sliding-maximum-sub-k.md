@@ -4,6 +4,7 @@ title: Sliding maximum of range k subarray
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/sliding-maximum-sub-k/cover.png
 ---
 
 + toc

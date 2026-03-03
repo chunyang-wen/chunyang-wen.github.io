@@ -3,6 +3,7 @@ layout: post
 title: Merge tensorflow models
 categories: [blog, tensorflow]
 tags: [tensorflow]
+image: /images/posts/2020/merge-tensorflow-models/cover.png
 ---
 
 Sometimes you want to transfer certain weights from multiple models into a single model

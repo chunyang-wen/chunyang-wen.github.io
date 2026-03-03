@@ -4,6 +4,7 @@ title: Job scheduler
 categories: [blog, algorithm]
 tags: [dailycodingproblem, apple]
 hidden: true
+image: /images/posts/2020/job-scheduler/cover.png
 ---
 
 + toc

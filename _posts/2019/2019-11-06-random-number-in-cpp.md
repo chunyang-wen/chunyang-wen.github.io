@@ -3,6 +3,7 @@ layout: post
 title: Generate random numbers in C++
 categories: [blog, cpp]
 tags: [cpp]
+image: /images/posts/2019/random-number-in-cpp/cover.png
 ---
 
 Some times we need a random number for sort or as the input

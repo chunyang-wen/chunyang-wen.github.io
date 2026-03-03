@@ -5,6 +5,7 @@ categories: [blog, git]
 tags: [git]
 redirect_from:
  - /tools/git-basics
+image: /images/posts/2015/git-basics/cover.png
 ---
 
 

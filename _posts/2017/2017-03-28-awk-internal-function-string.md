@@ -3,6 +3,7 @@ layout:     post
 title:      awk内置函数和字符串
 categories: [blog, shell]
 tags: [shell]
+image: /images/posts/2017/awk-internal-function-string/cover.png
 ---
 
 

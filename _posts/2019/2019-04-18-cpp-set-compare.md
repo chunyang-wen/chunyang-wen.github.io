@@ -5,6 +5,7 @@ categories: [blog, stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-set-compare
+image: /images/posts/2019/cpp-set-compare/cover.png
 ---
 
 + [简介](#intro)

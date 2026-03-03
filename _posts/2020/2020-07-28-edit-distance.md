@@ -4,6 +4,7 @@ title: Edit distance
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/edit-distance/cover.png
 ---
 
 + toc

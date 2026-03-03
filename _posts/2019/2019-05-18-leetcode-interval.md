@@ -6,6 +6,7 @@ tags: [leetcode]
 redirect_from:
  - /algorithm/leetcode-interval
 hidden: true
+image: /images/posts/2019/leetcode-interval/cover.png
 ---
 
 + [题目](#problem)

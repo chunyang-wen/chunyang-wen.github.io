@@ -5,6 +5,7 @@ categories: [blog, stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-list-slist
+image: /images/posts/2019/cpp-list-slist/cover.png
 ---
 
 + [简介](#intro)

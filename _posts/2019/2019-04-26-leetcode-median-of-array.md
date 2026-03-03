@@ -4,6 +4,7 @@ title: Median of two sorted arrays
 categories: [blog, algorithm]
 tags: [leetcode]
 hidden: true
+image: /images/posts/2019/leetcode-median-of-array/cover.png
 ---
 
 + [题目](#problem)

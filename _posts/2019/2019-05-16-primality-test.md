@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [algorithm]
 redirect_from:
  - /algorithm/primality-test
+image: /images/posts/2019/primality-test/cover.png
 ---
 
 + [Introduction](#intro)

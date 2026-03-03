@@ -4,6 +4,7 @@ title: Lower bound and upper bound of set/map
 categories: [blog, stl]
 tags: [cpp]
 hidden: true
+image: /images/posts/2020/multiset-multimap/cover.png
 ---
 
 STL's map/set/multimap/multiset is an ordered container which compares to `unordered_map` and

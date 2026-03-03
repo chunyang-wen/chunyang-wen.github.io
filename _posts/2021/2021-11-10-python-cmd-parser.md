@@ -3,6 +3,7 @@ layout: post
 title: Python command line comparison
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2021/python-cmd-parser/cover.png
 ---
 
 编写 Python 的命令行程序时，一个很重要的问题是：如何声明参数，然后解析，最终被程序调用。能否灵活的

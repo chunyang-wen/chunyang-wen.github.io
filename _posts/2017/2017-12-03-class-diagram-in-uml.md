@@ -5,6 +5,7 @@ category: [blog, tools]
 tags: [tools]
 redirect_from:
  - /tools/class-diagram-in-uml
+image: /images/posts/2017/class-diagram-in-uml/cover.png
 ---
 
 UML (Unified Modeling Language) 是一个通用的建模工具，其很多图形的绘制对程序员来说是比较重要地

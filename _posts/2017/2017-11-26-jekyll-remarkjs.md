@@ -5,6 +5,7 @@ categories: [blog, tools]
 tags: [tools]
 redirect_from:
  - /jekyll-remarkjs
+image: /images/posts/2017/jekyll-remarkjs/cover.png
 ---
 
 [RemarkJS](https://github.com/gnab/remark) 是个非常出色的工具。它能很轻易的 `Markdown` 语法的内容

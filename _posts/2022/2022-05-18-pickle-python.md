@@ -3,6 +3,7 @@ layout: post
 title: python pickle
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2022/pickle-python/cover.png
 ---
 
 `torch.save` 和 `torch.load` 默认使用的 `pickle` 模块进行序列化和反序列化。在调用

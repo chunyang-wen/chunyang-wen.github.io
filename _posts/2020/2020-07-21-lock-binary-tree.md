@@ -4,6 +4,7 @@ title: Lock or unlock a binary tree
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/lock-binary-tree/cover.png
 ---
 
 + toc

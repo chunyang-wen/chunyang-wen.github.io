@@ -3,6 +3,7 @@ layout: post
 title: How to fill a container?
 categories: [blog, stl]
 tags: [cpp]
+image: /images/posts/2020/fill-container/cover.png
 ---
 
 Most of the time we initialize an empty instance of STL containers and keep

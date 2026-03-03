@@ -3,6 +3,7 @@ layout: post
 title: operator module in Python
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2019/operator-python/cover.png
 ---
 
 * TOC

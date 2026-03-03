@@ -5,6 +5,7 @@ categories: [blog, tools]
 tags: [tools]
 redirect_from:
  - /tools/remove-watermarks
+image: /images/posts/2017/remove-watermarks/cover.png
 ---
 
 

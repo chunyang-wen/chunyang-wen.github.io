@@ -6,6 +6,7 @@ tags: [tools]
 description: spider
 redirect_from:
  - /tools/tiny-spiders
+image: /images/posts/2017/tiny-spiders/cover.png
 ---
 
 

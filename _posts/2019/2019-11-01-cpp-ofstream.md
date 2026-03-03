@@ -3,6 +3,7 @@ layout: post
 title: std::ofstream in cpp
 categories: [blog, cpp]
 tags: [cpp]
+image: /images/posts/2019/cpp-ofstream/cover.png
 ---
 
 * TOC

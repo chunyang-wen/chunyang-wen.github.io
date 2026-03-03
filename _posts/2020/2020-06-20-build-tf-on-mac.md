@@ -3,6 +3,7 @@ layout: post
 title: Build tensorflow on Mac
 categories: [blog, tensorflow]
 tags: [tensorflow]
+image: /images/posts/2020/build-tf-on-mac/cover.png
 ---
 
 Building tensorflow from source on mac is really not an easy thing at first.

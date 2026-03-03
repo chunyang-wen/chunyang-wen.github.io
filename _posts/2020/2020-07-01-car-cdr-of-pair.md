@@ -4,6 +4,7 @@ title: Cdr and car of a pair
 categories: [blog, algorithm]
 tags: [dailycodingproblem, janestreet]
 hidden: true
+image: /images/posts/2020/car-cdr-of-pair/cover.png
 ---
 
 I have subscribed to a [website](https://dailycodingproblem.com). Every day an email will be

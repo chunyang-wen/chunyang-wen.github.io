@@ -6,6 +6,7 @@ tags: [leetcode]
 redirect_from:
  - /algorithm/binary-tree-traversal
 hidden: true
+image: /images/posts/2019/binary-tree-traversal/cover.png
 ---
 
 + [介绍](#intro)

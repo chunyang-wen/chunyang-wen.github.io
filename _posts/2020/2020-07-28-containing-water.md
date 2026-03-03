@@ -4,6 +4,7 @@ title: Containing water
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
+image: /images/posts/2020/containing-water/cover.png
 ---
 
 + toc

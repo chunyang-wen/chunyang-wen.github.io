@@ -4,6 +4,7 @@ title: Fixed size queue
 categories: [blog, algorithm]
 tags: [dailycodingproblem, twitter]
 hidden: true
+image: /images/posts/2020/bound-queue/cover.png
 ---
 
 + toc

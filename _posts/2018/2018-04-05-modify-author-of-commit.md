@@ -5,6 +5,7 @@ categories: [blog, git]
 tags: [git]
 redirect_from:
  - /git/modify-author-of-commit
+image: /images/posts/2018/modify-author-of-commit/cover.png
 ---
 
 + [综述](#intro)

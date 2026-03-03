@@ -3,6 +3,7 @@ layout: post
 title: Python tempfile module
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2022/python-tempfile/cover.png
 ---
 
 在开发的过程中，我们时常需要创建一些临时目录或者临时文件来保存一些状态。在 `python` 中一般

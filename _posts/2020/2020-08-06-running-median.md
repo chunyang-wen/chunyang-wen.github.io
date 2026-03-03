@@ -4,6 +4,7 @@ title:
 categories: [blog, algorithm]
 tags: [dailycodingproblem, microsoft]
 hidden: true
+image: /images/posts/2020/running-median/cover.png
 ---
 
 + toc

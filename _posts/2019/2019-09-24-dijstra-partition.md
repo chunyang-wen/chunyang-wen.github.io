@@ -3,6 +3,7 @@ layout: post
 title: Dijkstra's 3-way quick sort
 categories: [blog, algorithm]
 tags: [algorithm]
+image: /images/posts/2019/dijstra-partition/cover.png
 ---
 
 Quick-sort is one of the greatest inventions. Most of the time, its time complexity is O(nlogn).

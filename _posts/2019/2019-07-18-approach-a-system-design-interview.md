@@ -5,6 +5,7 @@ categories: [blog, design]
 tags: [reading]
 redirect_from:
  - /interview/approach-a-system-design-interview
+image: /images/posts/2019/approach-a-system-design-interview/cover.png
 ---
 
 翻译自：[Approach a System Design Interview](https://medium.com/system-designing-interviews/approach-a-system-design-interview-f3594e243730)

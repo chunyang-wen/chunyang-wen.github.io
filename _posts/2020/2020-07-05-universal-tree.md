@@ -4,6 +4,7 @@ title: Universal tree
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/universal-tree/cover.png
 ---
 
 + toc

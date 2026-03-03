@@ -5,6 +5,7 @@ categories: [blog, python]
 tags: [python]
 redirect_from:
  - /python/retrier-in-python
+image: /images/posts/2018/retrier-in-python/cover.png
 ---
 
 - [简介](#introduction)

@@ -4,6 +4,7 @@ title: Pick a number randomly from an unlimited stream
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
+image: /images/posts/2020/pick-a-number-randomly/cover.png
 ---
 
 + toc

@@ -4,6 +4,7 @@ title: Decode ways
 categories: [blog, algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
+image: /images/posts/2020/decoding-ways/cover.png
 ---
 
 + toc

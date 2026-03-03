@@ -3,6 +3,7 @@ layout: post
 title: Move subdirectory of a git repository and keep commit message
 categories: [blog, tools]
 tags: [git]
+image: /images/posts/2020/move-subdir-in-git/cover.png
 ---
 
 How to extract a subdirectory of a git repository and keep its commit message? If we directly

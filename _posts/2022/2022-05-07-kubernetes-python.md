@@ -3,6 +3,7 @@ layout: post
 title: Kubernetes python package
 categories: [blog, python]
 tags: [blog, python]
+image: /images/posts/2022/kubernetes-python/cover.png
 ---
 
 在项目中使用比较多的 [kubernetes](http://kubernetes.io)。主要使用相应的 python

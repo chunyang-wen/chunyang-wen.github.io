@@ -3,6 +3,7 @@ layout: post
 title: Date and string format in python
 categories: [blog, python]
 tags: [python]
+image: /images/posts/2022/date-string-format/cover.png
 ---
 
 在 Python 中生成字符串有 3 种方式，现在比较建议的是使用 `f-str` 的方式，官方说性能更加好。本文主要

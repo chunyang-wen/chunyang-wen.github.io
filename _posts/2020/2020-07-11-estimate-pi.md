@@ -5,6 +5,7 @@ categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 include_math: True
 hidden: true
+image: /images/posts/2020/estimate-pi/cover.png
 ---
 
 + toc

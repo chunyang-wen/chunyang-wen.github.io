@@ -4,6 +4,7 @@ title: Longest file path size
 categories: [blog, algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
+image: /images/posts/2020/longest-file-path-size/cover.png
 ---
 
 + toc
