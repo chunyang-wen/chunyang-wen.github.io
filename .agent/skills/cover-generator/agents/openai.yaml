@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cover Generator"
+  short_description: "Generate two-panel tech blog cover images"
+  default_prompt: "Generate a two-panel tech blog cover from post content in a dark navy/cyan neon style, with matching left-right visuals, and save output under /images/posts"
