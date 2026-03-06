@@ -44,7 +44,7 @@ Generate a blog cover as two coordinated images: left for visual storytelling, r
 
 ## Assembly And Output
 
-1. Save intermediate images:
+1. Save intermediate images to temporary directory, not inside the projects:
 - `/images/posts/<slug>-left.png`
 - `/images/posts/<slug>-right.png`
 2. Combine side-by-side into a single cover:
