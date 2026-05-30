@@ -179,13 +179,85 @@ graph TD
 * [Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism (Shoeybi et al., 2019)](https://arxiv.org/abs/1909.08053)
 * [GPipe: Easy Scaling with Micro-Batch Pipeline Parallelism (Huang et al., 2018)](https://arxiv.org/abs/1811.06965)
 
+### Framework Implementations
+
+Different frameworks have emerged to handle these parallelism strategies across training and inference workloads:
+
+* **PyTorch (Training):** Historically handled Data Parallelism via `DistributedDataParallel` (DDP). For massive models, PyTorch introduced FSDP (Fully Sharded Data Parallelism) which shards weights, gradients, and optimizer states across DP workers, heavily reducing memory overhead.
+
+```python
+import torch
+from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
+
+model = MyTransformer()
+# Wrap the model in FSDP for massive Data/Tensor scaling
+fsdp_model = FSDP(model)
+```
+
+* **JAX (Training/Inference):** Shines in its ability to easily express parallelism through `pjit` (Partitions JIT). By simply specifying how data and model axes map to hardware meshes, JAX compiler (XLA) automatically partitions the computation.
+
+```python
+import jax
+import numpy as np
+from jax.sharding import Mesh
+
+# Define a 2D hardware mesh (e.g., 2 Data Parallel, 4 Tensor Parallel)
+mesh = Mesh(np.array(jax.devices()).reshape(2, 4), ('data', 'model'))
+
+@jax.jit
+def train_step(state, batch):
+    return update(state, batch)
+```
+
+* **vLLM (Inference):** The industry standard for serving. It natively supports Tensor Parallelism (TP) for multi-GPU inference within a single node, and Pipeline Parallelism (PP) for multi-node inference. It is heavily optimized for PagedAttention.
+
+```python
+from vllm import LLM
+
+# Run LLaMA on 4 GPUs using Tensor Parallelism
+llm = LLM(model="meta-llama/Meta-Llama-3-8B", tensor_parallel_size=4)
+output = llm.generate("The meaning of life is")
+```
+
+* **SGLang (Inference):** Another high-performance serving framework optimized for complex prompt workflows. It supports TP and introduces RadixAttention to reuse KV caches across multiple requests that share common prefixes (like few-shot prompts).
+
+```python
+import sglang as sgl
+
+@sgl.function
+def few_shot_qa(s, question):
+    # sglang caches this prefix automatically using RadixAttention
+    s += "Q: What is 1+1?\nA: 2\n" 
+    s += "Q: What is 2+2?\nA: 4\n"
+    s += f"Q: {question}\nA:" + sgl.gen("answer")
+```
+
+* **DeepSpeed (Training):** A library built on top of PyTorch by Microsoft, famous for its Zero Redundancy Optimizer (ZeRO), which essentially acts as advanced Data Parallelism with partitioned model states.
+
+```python
+import deepspeed
+
+# deepspeed config defines ZeRO stage (e.g., Stage 3 for parameter partitioning)
+ds_config = {"zero_optimization": {"stage": 3}}
+model_engine, optimizer, _, _ = deepspeed.initialize(
+    args=args, model=model, model_parameters=params, config=ds_config
+)
+```
+
 ---
 
-## 4. How Temperature Impacts LLM Output
+## 4. Generation Parameters: Context Length, Temperature, and Sampling
 
-When an LLM generates text, its final layer produces "logits" (raw, unnormalized scores) for every word in its vocabulary. These logits are converted into probabilities using a Softmax function.
+When an LLM generates text, its final layer produces "logits" (raw, unnormalized scores) for every word in its vocabulary. These logits are converted into probabilities using a Softmax function. However, generation is controlled by several key parameters, including Context Length, Temperature, and Sampling strategies (Top-K/Top-P).
 
-**Temperature ($T$)** is a hyperparameter that scales these logits before the Softmax is applied.
+### Context Length
+* **Definition:** The maximum number of tokens an LLM can process in a single request (input prompt + generated output).
+* **Importance:** Attention memory requirements scale quadratically (or linearly with newer optimizations) with context length. A larger context length allows the model to "read" entire books, codebases, or long conversational histories.
+* **Mechanisms:** Modern models extend context length using tricks like Rotary Positional Embeddings (RoPE) scaling or sparse attention.
+
+### Temperature ($T$)
+
+**Temperature** is a hyperparameter that scales these logits before the Softmax is applied.
 
 $$ p_i = \frac{\exp(z_i / T)}{\sum_j \exp(z_j / T)} $$
 
@@ -201,6 +273,14 @@ graph LR
     TempDiv -- "T = 1.0 (Med)" --> SoftmaxMed[Normal Softmax: 70%, 25%, 5%] --> Balanced[Balanced]
     TempDiv -- "T = 2.0 (High)" --> SoftmaxHigh[Flat Softmax: 45%, 35%, 20%] --> Creative[Creative / Random]
 ```
+
+### Sampling Parameters (Top-K and Top-P)
+
+Frameworks like **vLLM** and Hugging Face expose sampling parameters that work alongside temperature to truncate the long tail of low-probability words, preventing the model from generating complete gibberish when highly "creative".
+
+* **Top-K Sampling:** Sorts the vocabulary by probability and only considers the top $K$ most likely tokens. All other tokens are discarded. (e.g., `top_k = 50` means only the 50 best words are considered).
+* **Top-P (Nucleus) Sampling:** Sorts the vocabulary by probability and keeps adding words to the candidate pool until the cumulative probability exceeds $P$. (e.g., `top_p = 0.9` means it considers the smallest set of words whose combined probability is 90%).
+* **Pros:** Ensures that even at high temperatures, the model never picks statistically absurd tokens.
 
 ### Code Example
 
