@@ -228,7 +228,7 @@ FlashInfer is not just an algorithm, but a highly optimized kernel library tailo
 
 ---
 
-## 4. Parallelism Tricks: DP, TP, PP, EP
+## 4. Parallelism Tricks: DP, TP, PP, EP, CP
 
 Training models with billions of parameters requires splitting the workload across many GPUs. Here are the primary parallelism strategies:
 
@@ -254,6 +254,12 @@ Used specifically in Mixture of Experts (MoE) architectures (like Mixtral or GPT
 * **Pros:** Allows massive scaling of parameter count without proportionally increasing inference/training compute cost.
 * **Cons:** Can suffer from load balancing issues (all tokens routed to one expert, leaving others idle). Heavy cross-node communication overhead during all-to-all expert routing.
 
+### Context Parallelism (CP)
+As context windows grow to millions of tokens (e.g., Gemini 1.5 Pro, Llama 3 1M), even a single sequence's KV cache cannot fit on one GPU. Context Parallelism partitions the sequence dimension (the actual input tokens) across multiple GPUs.
+* **Pros:** Enables processing extremely long context windows by distributing the attention computation across GPUs.
+* **Cons:** Requires complex ring-attention or similar communication patterns so GPUs can exchange KV blocks during the attention pass, adding network latency.
+* **Use Case:** Processing 1M+ token contexts (entire books, hour-long videos, massive code repositories) efficiently.
+
 ```mermaid
 graph TD
     subgraph DP ["Data Parallelism"]
@@ -271,6 +277,12 @@ graph TD
     subgraph PP ["Pipeline Parallelism"]
         P_Data[Data Batch] --> P_GPU1[GPU 0: Layers 1-N]
         P_GPU1 --> P_GPU2[GPU 1: Layers N+1-2N]
+    end
+
+    subgraph CP ["Context Parallelism"]
+        C_Data[Long Sequence] --> C_Chunk1[Tokens 1-M (GPU 0)]
+        C_Data --> C_Chunk2[Tokens M+1-2M (GPU 1)]
+        C_Chunk1 <-->|Ring Attention| C_Chunk2
     end
 ```
 
