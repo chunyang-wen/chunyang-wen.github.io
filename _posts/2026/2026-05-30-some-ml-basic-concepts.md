@@ -79,7 +79,106 @@ def scaled_dot_product_attention(q, k, v, mask=None):
 
 ---
 
-## 2. Advanced Attention Methods: FlashAttention, PagedAttention, and FlashInfer
+## 2. Multi-Head Attention Variations: MHA, MQA, GQA, and MLA
+
+To improve the original attention mechanism's efficiency, especially regarding the memory footprint of the KV cache during inference, several architectural variations have been introduced.
+
+### Multi-Head Attention (MHA)
+The standard approach from the original Transformer. Every Query (Q) head has its own dedicated Key (K) and Value (V) head.
+* **Pros:** Maximum expressiveness and model capacity.
+* **Cons:** Massive KV cache memory requirement during inference, severely limiting context length and batch size.
+
+### Multi-Query Attention (MQA)
+Introduced to drastically reduce KV cache size. Multiple Q heads share a **single** K and V head.
+* **Pros:** KV cache memory is reduced by a factor of the number of heads (e.g., 32x smaller). Inference is heavily memory-bandwidth optimized.
+* **Cons:** Noticeable degradation in model quality and expressiveness compared to MHA.
+* **Reference:** [Fast Transformer Decoding: One Write-Head is All You Need (Shazeer, 2019)](https://arxiv.org/abs/1911.02150)
+
+### Grouped-Query Attention (GQA)
+A compromise between MHA and MQA. Q heads are divided into "groups," and each group shares one K and one V head. Used in models like LLaMA 2 and Mistral.
+* **Pros:** Achieves almost the same quality as MHA while retaining most of the memory and speed benefits of MQA.
+* **Reference:** [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints (Ainslie et al., 2023)](https://arxiv.org/abs/2305.13245)
+
+### Multi-head Latent Attention (MLA)
+Pioneered by DeepSeek-V2. Instead of caching large K and V tensors directly, MLA compresses the KV state into a single low-dimensional latent vector. During attention, it dynamically restores the queries and keys, applying Rotary Positional Embeddings (RoPE) efficiently via decoupled vectors.
+* **Pros:** Massively compresses KV cache (even smaller than MQA) while performing on par with full MHA.
+* **Cons:** More complex to implement and optimize at the kernel level.
+* **Reference:** [DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model](https://arxiv.org/abs/2405.04434)
+
+```mermaid
+graph TD
+    subgraph MHA ["Multi-Head Attention (MHA)"]
+        MHA_Q1[Q1] --> MHA_Attn1((Attn))
+        MHA_K1[K1] --> MHA_Attn1
+        MHA_V1[V1] --> MHA_Attn1
+
+        MHA_Q2[Q2] --> MHA_Attn2((Attn))
+        MHA_K2[K2] --> MHA_Attn2
+        MHA_V2[V2] --> MHA_Attn2
+    end
+
+    subgraph GQA ["Grouped-Query Attention (GQA)"]
+        GQA_Q1[Q1] --> GQA_Attn1((Attn))
+        GQA_Q2[Q2] --> GQA_Attn2((Attn))
+
+        GQA_K1[K Group 1] --> GQA_Attn1
+        GQA_V1[V Group 1] --> GQA_Attn1
+        GQA_K1 --> GQA_Attn2
+        GQA_V1 --> GQA_Attn2
+    end
+
+    subgraph MQA ["Multi-Query Attention (MQA)"]
+        MQA_Q1[Q1] --> MQA_Attn3((Attn))
+        MQA_Q2[Q2] --> MQA_Attn4((Attn))
+        MQA_Q3[Q3] --> MQA_Attn5((Attn))
+
+        MQA_K[K Shared] --> MQA_Attn3
+        MQA_V[V Shared] --> MQA_Attn3
+        MQA_K --> MQA_Attn4
+        MQA_V --> MQA_Attn4
+        MQA_K --> MQA_Attn5
+        MQA_V --> MQA_Attn5
+    end
+```
+
+### Code Example (GQA Implementation)
+
+```python
+import torch
+import torch.nn.functional as F
+
+def grouped_query_attention(q, k, v, num_heads, num_kv_heads):
+    """
+    q shape: [batch, seq_len, num_heads, head_dim]
+    k, v shape: [batch, seq_len, num_kv_heads, head_dim]
+    """
+    batch, seq_len, _, head_dim = q.shape
+
+    # Repeat K and V heads to match the number of Q heads
+    # For MHA: num_queries_per_kv = 1
+    # For MQA: num_queries_per_kv = num_heads
+    # For GQA: 1 < num_queries_per_kv < num_heads
+    num_queries_per_kv = num_heads // num_kv_heads
+
+    k = torch.repeat_interleave(k, num_queries_per_kv, dim=2)
+    v = torch.repeat_interleave(v, num_queries_per_kv, dim=2)
+
+    # Transpose for attention computation: [batch, num_heads, seq_len, head_dim]
+    q = q.transpose(1, 2)
+    k = k.transpose(1, 2)
+    v = v.transpose(1, 2)
+
+    # Standard scaled dot-product attention
+    scores = torch.matmul(q, k.transpose(-2, -1)) / (head_dim ** 0.5)
+    attn_weights = F.softmax(scores, dim=-1)
+    out = torch.matmul(attn_weights, v)
+
+    return out.transpose(1, 2)
+```
+
+---
+
+## 3. Advanced Attention Methods: FlashAttention, PagedAttention, and FlashInfer
 
 As LLMs scaled, standard attention became a bottleneck due to its quadratic time and memory complexity with respect to sequence length. Several techniques have emerged to optimize this.
 
@@ -129,7 +228,7 @@ FlashInfer is not just an algorithm, but a highly optimized kernel library tailo
 
 ---
 
-## 3. Parallelism Tricks: DP, TP, PP, EP
+## 4. Parallelism Tricks: DP, TP, PP, EP
 
 Training models with billions of parameters requires splitting the workload across many GPUs. Here are the primary parallelism strategies:
 
@@ -227,7 +326,7 @@ import sglang as sgl
 @sgl.function
 def few_shot_qa(s, question):
     # sglang caches this prefix automatically using RadixAttention
-    s += "Q: What is 1+1?\nA: 2\n" 
+    s += "Q: What is 1+1?\nA: 2\n"
     s += "Q: What is 2+2?\nA: 4\n"
     s += f"Q: {question}\nA:" + sgl.gen("answer")
 ```
@@ -246,7 +345,7 @@ model_engine, optimizer, _, _ = deepspeed.initialize(
 
 ---
 
-## 4. Generation Parameters: Context Length, Temperature, and Sampling
+## 5. Generation Parameters: Context Length, Temperature, and Sampling
 
 When an LLM generates text, its final layer produces "logits" (raw, unnormalized scores) for every word in its vocabulary. These logits are converted into probabilities using a Softmax function. However, generation is controlled by several key parameters, including Context Length, Temperature, and Sampling strategies (Top-K/Top-P).
 
@@ -302,7 +401,7 @@ print(f"T=5.0 (High) : {temperature_softmax(logits, 5.0)}") # [0.383 0.313 0.261
 
 ---
 
-## 5. Transformer Architectures: Encoder-Only vs. Decoder-Only vs. Encoder-Decoder
+## 6. Transformer Architectures: Encoder-Only vs. Decoder-Only vs. Encoder-Decoder
 
 The original Transformer was an Encoder-Decoder model, but variations have evolved for specific use cases.
 
@@ -349,7 +448,7 @@ graph TD
 
 ---
 
-## 6. Advanced Inference Optimizations
+## 7. Advanced Inference Optimizations
 
 When deploying LLMs to production, generating tokens one-by-one for multiple users simultaneously introduces unique bottlenecks. Several advanced techniques have emerged to maximize throughput and minimize latency.
 
@@ -360,17 +459,17 @@ LLM generation happens in two distinct phases:
 
 ### Chunked Prefill
 If a user submits an enormous prompt (e.g., 100k tokens), the prefill phase will take a long time, freezing the GPU and stalling the decode phase for all other active users in the batch.
-* **Solution:** **Chunked Prefill** splits the massive prompt into smaller chunks (e.g., 4k tokens each) and interleaves them with the decoding steps of other requests. 
+* **Solution:** **Chunked Prefill** splits the massive prompt into smaller chunks (e.g., 4k tokens each) and interleaves them with the decoding steps of other requests.
 * **Pros:** Prevents long prompts from causing latency spikes for concurrent users.
 
 ### Continuous Batching (In-Flight Batching)
 In traditional batching, the GPU waits for all requests in a batch to finish generating before starting the next batch. Because sequences vary in length, shorter requests sit idle, wasting compute.
-* **Continuous Batching** operates at the iteration level. The moment one request finishes, it is evicted from the batch, and a new request is immediately swapped in. 
+* **Continuous Batching** operates at the iteration level. The moment one request finishes, it is evicted from the batch, and a new request is immediately swapped in.
 * **Pros:** Drastically increases GPU utilization and overall system throughput. Pioneered by Orca and widely used in vLLM.
 
 ### Speculative Decoding (Speculative Execution)
-Since the **decode phase** is heavily memory-bandwidth bound, the GPU spends more time moving weights from HBM to SRAM than doing actual math. 
-* **Mechanism:** A smaller, much faster "draft model" (e.g., a 1B parameter model) quickly guesses the next $K$ tokens. The large, slow "target model" (e.g., a 70B model) then evaluates all $K$ tokens in a single parallel forward pass. 
+Since the **decode phase** is heavily memory-bandwidth bound, the GPU spends more time moving weights from HBM to SRAM than doing actual math.
+* **Mechanism:** A smaller, much faster "draft model" (e.g., a 1B parameter model) quickly guesses the next $K$ tokens. The large, slow "target model" (e.g., a 70B model) then evaluates all $K$ tokens in a single parallel forward pass.
 * **Outcome:** If the target model agrees with the draft model's guesses, we get $K$ tokens in the time it usually takes to generate 1. If it disagrees at token $N$, it accepts the first $N-1$ tokens and corrects the $N$-th token.
 * **Pros:** Significantly reduces latency (time-to-first-token and time-between-tokens) without changing the final output distribution.
 * **Cons:** Requires having a highly accurate, identically-tokenized draft model available.
