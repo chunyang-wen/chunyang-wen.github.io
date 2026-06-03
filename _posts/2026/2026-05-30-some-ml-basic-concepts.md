@@ -263,26 +263,26 @@ As context windows grow to millions of tokens (e.g., Gemini 1.5 Pro, Llama 3 1M)
 ```mermaid
 graph TD
     subgraph DP ["Data Parallelism"]
-        D_Data1[Data Split 1] --> D_Model1[Model Replica]
-        D_Data2[Data Split 2] --> D_Model2[Model Replica]
+        D_Data1["Data Split 1"] --> D_Model1["Model Replica"]
+        D_Data2["Data Split 2"] --> D_Model2["Model Replica"]
     end
 
     subgraph TP ["Tensor Parallelism"]
-        T_Data[Data Batch] --> T_Layer_Half1[Layer Half 1 - GPU0]
-        T_Data --> T_Layer_Half2[Layer Half 2 - GPU1]
-        T_Layer_Half1 --> T_Combine[Combine Results]
+        T_Data["Data Batch"] --> T_Layer_Half1["Layer Half 1 - GPU0"]
+        T_Data --> T_Layer_Half2["Layer Half 2 - GPU1"]
+        T_Layer_Half1 --> T_Combine["Combine Results"]
         T_Layer_Half2 --> T_Combine
     end
 
     subgraph PP ["Pipeline Parallelism"]
-        P_Data[Data Batch] --> P_GPU1[GPU 0: Layers 1-N]
-        P_GPU1 --> P_GPU2[GPU 1: Layers N+1-2N]
+        P_Data["Data Batch"] --> P_GPU1["GPU 0: Layers 1-N"]
+        P_GPU1 --> P_GPU2["GPU 1: Layers N+1-2N"]
     end
 
     subgraph CP ["Context Parallelism"]
-        C_Data[Long Sequence] --> C_Chunk1[Tokens 1-M (GPU 0)]
-        C_Data --> C_Chunk2[Tokens M+1-2M (GPU 1)]
-        C_Chunk1 <-->|Ring Attention| C_Chunk2
+        C_Data["Long Sequence"] --> C_Chunk1["Tokens 1-M (GPU 0)"]
+        C_Data --> C_Chunk2["Tokens M+1-2M (GPU 1)"]
+        C_Chunk1 <--> C_Chunk2
     end
 ```
 
@@ -468,6 +468,8 @@ When deploying LLMs to production, generating tokens one-by-one for multiple use
 LLM generation happens in two distinct phases:
 1. **Prefill Phase:** The model processes the entire input prompt at once to compute the initial KV cache and generate the very first token. This is highly parallelizable and compute-bound (heavy matrix multiplications).
 2. **Decode Phase:** The model generates subsequent tokens one at a time, reading the KV cache and appending to it. This is highly sequential and memory-bandwidth bound.
+
+You can refer to [LLM Inference at scale with TGI](https://huggingface.co/blog/martinigoyanes/llm-inference-at-scale-with-tgi)
 
 ### Chunked Prefill
 If a user submits an enormous prompt (e.g., 100k tokens), the prefill phase will take a long time, freezing the GPU and stalling the decode phase for all other active users in the batch.
