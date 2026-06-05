@@ -1,0 +1,126 @@
+<div class="options-simulator" style="border: 1px solid #444; padding: 20px; border-radius: 8px; background: #1e1e1e; color: #eee; margin: 2rem 0;">
+  <h3 style="margin-top: 0; color: #fff;">Interactive Options Simulation</h3>
+  <p style="font-size: 0.9em; color: #aaa;">Adjust the sliders to see how the option price and Greeks react to changes in the market.</p>
+  
+  <div style="margin-bottom: 20px;">
+    <label style="margin-right: 15px; font-weight: bold; cursor: pointer;">
+      <input type="radio" name="optType" value="call" checked> Call Option
+    </label>
+    <label style="font-weight: bold; cursor: pointer;">
+      <input type="radio" name="optType" value="put"> Put Option
+    </label>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
+    <label style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Stock Price (S): $<span id="valS">100</span></span>
+      <input type="range" id="inputS" min="50" max="150" value="100" step="1" style="width: 50%;">
+    </label>
+    <label style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Strike Price (K): $<span id="valK">100</span></span>
+      <input type="range" id="inputK" min="50" max="150" value="100" step="1" style="width: 50%;">
+    </label>
+    <label style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Days to Expiry: <span id="valT">30</span> days</span>
+      <input type="range" id="inputT" min="1" max="365" value="30" step="1" style="width: 50%;">
+    </label>
+    <label style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Volatility (σ): <span id="valV">20</span>%</span>
+      <input type="range" id="inputV" min="1" max="100" value="20" step="1" style="width: 50%;">
+    </label>
+    <label style="display: flex; justify-content: space-between; align-items: center;">
+      <span>Risk-free Rate (r): <span id="valR">5</span>%</span>
+      <input type="range" id="inputR" min="0" max="20" value="5" step="0.5" style="width: 50%;">
+    </label>
+  </div>
+  <div style="background: #2a2a2a; padding: 20px; border-radius: 6px; border: 1px solid #555;">
+    <h4 style="margin-top: 0; color: #fff;">Results</h4>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: monospace; font-size: 1.1em;">
+      <div><strong>Price:</strong> $<span id="outPrice" style="color: #4CAF50;">0.00</span></div>
+      <div><strong>Delta (Δ):</strong> <span id="outDelta">0.00</span></div>
+      <div><strong>Gamma (Γ):</strong> <span id="outGamma">0.00</span></div>
+      <div><strong>Theta (Θ):</strong> <span id="outTheta">0.00</span></div>
+      <div><strong>Vega (ν):</strong> <span id="outVega">0.00</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Standard Normal CDF
+function cdf(x) {
+    return (1.0 + erf(x / Math.sqrt(2.0))) / 2.0;
+}
+// Standard Normal PDF
+function pdf(x) {
+    return Math.exp(-0.5 * x * x) / Math.sqrt(2 * Math.PI);
+}
+// Error function approximation
+function erf(x) {
+    var a1 =  0.254829592;
+    var a2 = -0.284496736;
+    var a3 =  1.421413741;
+    var a4 = -1.453152027;
+    var a5 =  1.061405429;
+    var p  =  0.3275911;
+
+    var sign = 1;
+    if (x < 0) sign = -1;
+    x = Math.abs(x);
+
+    var t = 1.0 / (1.0 + p * x);
+    var y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
+
+    return sign * y;
+}
+
+function calculateBS() {
+    let type = document.querySelector('input[name="optType"]:checked').value;
+    let S = parseFloat(document.getElementById('inputS').value);
+    let K = parseFloat(document.getElementById('inputK').value);
+    let T = parseFloat(document.getElementById('inputT').value) / 365.0; // convert days to years
+    let v = parseFloat(document.getElementById('inputV').value) / 100.0;
+    let r = parseFloat(document.getElementById('inputR').value) / 100.0;
+
+    document.getElementById('valS').innerText = S;
+    document.getElementById('valK').innerText = K;
+    document.getElementById('valT').innerText = document.getElementById('inputT').value;
+    document.getElementById('valV').innerText = document.getElementById('inputV').value;
+    document.getElementById('valR').innerText = document.getElementById('inputR').value;
+
+    let d1 = (Math.log(S / K) + (r + 0.5 * v * v) * T) / (v * Math.sqrt(T));
+    let d2 = d1 - v * Math.sqrt(T);
+
+    let price, delta, theta;
+    // Gamma and Vega are the same for Calls and Puts
+    let gamma = pdf(d1) / (S * v * Math.sqrt(T));
+    let vega = S * Math.sqrt(T) * pdf(d1);
+
+    if (type === 'call') {
+        price = S * cdf(d1) - K * Math.exp(-r * T) * cdf(d2);
+        delta = cdf(d1);
+        theta = -(S * v * pdf(d1)) / (2 * Math.sqrt(T)) - r * K * Math.exp(-r * T) * cdf(d2);
+    } else {
+        price = K * Math.exp(-r * T) * cdf(-d2) - S * cdf(-d1);
+        delta = cdf(d1) - 1;
+        theta = -(S * v * pdf(d1)) / (2 * Math.sqrt(T)) + r * K * Math.exp(-r * T) * cdf(-d2);
+    }
+
+    document.getElementById('outPrice').innerText = price.toFixed(2);
+    document.getElementById('outDelta').innerText = delta.toFixed(4);
+    document.getElementById('outGamma').innerText = gamma.toFixed(4);
+    // Theta is usually shown per day
+    document.getElementById('outTheta').innerText = (theta / 365).toFixed(4);
+    // Vega is usually shown per 1% change in volatility
+    document.getElementById('outVega').innerText = (vega / 100).toFixed(4);
+}
+
+document.querySelectorAll('.options-simulator input').forEach(input => {
+    input.addEventListener('input', calculateBS);
+});
+document.querySelectorAll('input[name="optType"]').forEach(radio => {
+    radio.addEventListener('change', calculateBS);
+});
+
+// Initial calculation
+calculateBS();
+</script>
