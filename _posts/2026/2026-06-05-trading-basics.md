@@ -12,7 +12,7 @@ In trading, there are two primary schools of thought:
 1. **Fundamental Analysis:** Looking at a company's financial health to determine *what* to buy.
 2. **Technical Analysis:** Analyzing price trends and charts to determine *when* to buy or sell.
 
-But before we dive into analysis, we need to understand how the market actually works.
+But before we dive into analysis, we need to understand how the market actually works, what "the market" means, and how a trade moves from idea to execution.
 
 + toc
 {:toc}
@@ -29,6 +29,32 @@ Beginners often rush to learn chart patterns before understanding how orders exe
     *   *Market Order:* Executes immediately at the best available current price. (Guarantees execution, but not price).
     *   *Limit Order:* Executes only at a specific price or better. (Guarantees price, but might not execute if the price never reaches your limit).
     *   *Stop Order:* Becomes a market order once the stock hits a specified price. Commonly used to limit losses.
+    *   *Stop-Limit Order:* Becomes a limit order once triggered. This gives more price control, but the order might not fill.
+
+### The Lifecycle of a Trade
+
+A trade is not just a buy button. Before entering, you should define:
+
+*   **Entry:** The price or signal that justifies opening the position.
+*   **Exit:** The condition that tells you the trade idea is complete or invalid.
+*   **Stop-Loss:** A defensive exit that limits downside if the market moves against you.
+*   **Take-Profit:** A planned exit that locks in gains when the trade reaches your target.
+*   **Trailing Stop:** A stop that moves with the price, helping protect gains while leaving room for a trend to continue.
+
+### Trading Time Horizons
+
+Different time horizons create different risks and costs:
+
+*   **Investing:** Holding for years, usually based on business fundamentals, valuation, and long-term compounding.
+*   **Swing Trading:** Holding for days or weeks to capture medium-term price moves.
+*   **Day Trading:** Opening and closing positions within the same trading day. Execution quality and costs matter a lot.
+*   **Scalping:** Very short-term trading that attempts to capture tiny moves. Spreads, slippage, and discipline dominate the outcome.
+
+### Market, Index, Stock, and Fund
+
+When people say "the market," they often mean a broad index such as the **S&P 500**, **NASDAQ Composite**, or **Dow Jones Industrial Average**. An index tracks a basket of stocks; it is not the same as one individual company.
+
+You also do not have to start by picking single stocks. **ETFs (Exchange-Traded Funds)** and index funds let you buy diversified exposure to a basket of companies, sectors, bonds, commodities, or broad markets. For many beginners, understanding diversified funds is just as important as learning individual stock analysis.
 
 ## Fundamental Analysis: Decoding Stocks & Financial Reports
 
@@ -45,6 +71,7 @@ Here are some fundamental metrics you need to know, along with their original fu
 *   **P/E Ratio (Price-to-Earnings Ratio):** The ratio of a company's share price to its earnings per share. 
 *   **EPS (Earnings Per Share):** The company's net profit divided by the number of outstanding shares.
 *   **Market Capitalization:** The total market value of a company's outstanding shares of stock.
+*   **Enterprise Value (EV):** A broader valuation measure that includes market cap, debt, and cash. It helps compare companies with different capital structures.
 *   **P/B Ratio (Price-to-Book Ratio):** Compares a firm's market value to its book value.
 *   **ROE (Return on Equity):** Net income divided by shareholders' equity.
 *   **Revenue Growth & Profit Margin:** How fast is the company growing its sales, and what percentage of that sales turns into pure profit?
@@ -70,6 +97,7 @@ info = ticker.info
 print(f"P/E Ratio: {info.get('trailingPE')}")
 print(f"EPS: {info.get('trailingEps')}")
 print(f"Market Cap: {info.get('marketCap')}")
+print(f"Enterprise Value: {info.get('enterpriseValue')}")
 print(f"Revenue Growth: {info.get('revenueGrowth')}")
 print(f"Profit Margin: {info.get('profitMargins')}")
 print(f"Debt-to-Equity: {info.get('debtToEquity')}")
@@ -143,11 +171,13 @@ Options are complex derivatives that give you the right, but not the obligation,
 ### Options Primitives
 
 Before trading options, you must understand these core concepts:
+*   **Contract Size:** One standard US equity option contract usually controls **100 shares** of the underlying stock.
 *   **Premium:** The price you pay to buy the option contract.
 *   **Strike Price:** The agreed-upon price at which you can buy/sell the underlying stock.
 *   **Expiration:** The date the contract becomes void.
 *   **Moneyness (ITM / ATM / OTM):**
     *   *In-the-Money (ITM):* The option has intrinsic value (e.g., a Call strike is below the current stock price).
+    *   *At-the-Money (ATM):* The strike price is close to the current stock price.
     *   *Out-of-the-Money (OTM):* The option has no intrinsic value, only time value.
 *   **Intrinsic vs. Extrinsic Value:** An option's premium is the sum of its Intrinsic Value (real value if exercised right now) and Extrinsic Value (time and volatility value).
 *   **Implied vs. Historical Volatility:** Historical is how much the stock *actually* moved in the past. Implied Volatility (IV) is how much the market *expects* it to move in the future. High IV makes options expensive.
@@ -204,7 +234,7 @@ No trading strategy works without risk management. FINRA and the SEC emphasize t
 *   **Risk/Reward Ratio:** Are you risking $100 to make $20? That's a bad ratio. Professional traders aim for at least 1:2 or 1:3 risk/reward.
 *   **Maximum Loss Per Trade:** Never risk your entire portfolio on a single trade. A common rule is risking no more than 1-2% of your capital per trade.
 *   **Expectancy:** Your win rate combined with your risk/reward. You can have a 40% win rate and still be wildly profitable if your winners are 3x the size of your losers.
-*   **Diversification & Asset Allocation:** Don't put all your eggs in one basket. Spreading capital across different sectors or asset classes limits systemic risk.
+*   **Diversification & Asset Allocation:** Don't put all your eggs in one basket. Spreading capital across different companies, sectors, or asset classes can reduce company-specific risk. It cannot eliminate broad market risk.
 *   **Leverage and Margin Risk:** Trading on margin means borrowing money from your broker. It magnifies gains but also magnifies losses. You can lose more than your initial deposit.
 
 ## Trading Costs and Taxes
@@ -213,7 +243,7 @@ Finally, a hidden killer of beginner accounts is the cost of doing business.
 
 *   **Commissions & Fees:** While many brokers offer "zero commission" stock trading, options contracts usually still carry fees per contract.
 *   **Spread Cost:** As mentioned in Market Mechanics, crossing the bid-ask spread constantly will drain your account.
-*   **Taxes:** If you hold an asset for less than a year in the US, profits are taxed as **Short-Term Capital Gains**, which are much higher than Long-Term rates. 
+*   **Taxes:** If you hold an asset for less than a year in the US, profits are usually taxed as **Short-Term Capital Gains**, which are often higher than Long-Term Capital Gains rates. Exact treatment depends on your income, account type, asset, and jurisdiction.
 *   **The Trap:** Frequent day trading can lose money even when your market thesis is directionally right, simply due to the accumulation of spreads, fees, and short-term taxes (death by a thousand cuts).
 
 ## Conclusion
