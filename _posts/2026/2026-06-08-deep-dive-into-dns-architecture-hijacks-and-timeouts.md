@@ -6,6 +6,7 @@ categories: [Infrastructure]
 tags: [dns, troubleshooting, cloud, security]
 description: "A practical deep dive into DNS resolution, local resolver behavior, DDNS hijacks, DNS amplification, and cloud DNS timeout troubleshooting."
 image: /images/posts/2026/deep-dive-into-dns-architecture-hijacks-and-timeouts/cover.png
+mermaid: true
 ---
 
 ## 1. Introduction
@@ -39,6 +40,28 @@ A typical lookup is not a single request. It is a sequence with caching at sever
 4.  **Authoritative lookup:** Only on cache miss does the recursive resolver walk from root to TLD to authoritative servers.
 
 This matters when debugging because changing a record at the authoritative server does not mean every client immediately sees it. The effective delay is controlled by TTLs and by caches that may be inside the application, host, node, cluster, network, or upstream resolver.
+
+### Resolution Path Diagram
+
+The complete path usually looks like this:
+
+```mermaid
+flowchart LR
+    app["Application"] --> appcache["Application DNS cache"]
+    appcache --> stub["OS stub resolver"]
+    stub --> local["Local cache or node cache"]
+    local --> recursive["Recursive resolver"]
+    recursive --> cache{"Cached answer?"}
+    cache -- "yes" --> answer["Return A / AAAA / CNAME answer"]
+    cache -- "no" --> root["Root servers"]
+    root --> tld["TLD servers"]
+    tld --> auth["Authoritative name servers"]
+    auth --> recursive
+    answer --> app
+
+    stub -. "search domains and ndots can create extra candidate names" .-> expanded["Expanded lookup attempts"]
+    expanded -. "more A and AAAA queries" .-> local
+```
 
 ### Records, TTLs, and Negative Caching
 
@@ -138,6 +161,64 @@ You are running microservices in a highly scaled cloud environment (like Kuberne
 2.  **Hitting Limits:** Cloud providers impose hard limits to protect their infrastructure. For example, AWS documents a 1024 packets-per-second quota per network interface for traffic to link-local services, including Route 53 Resolver addresses such as the VPC `.2` resolver and `169.254.169.253` ([AWS docs](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-availability-scaling.html)). If a node hosts chatty pods, you can hit this limit silently, causing packet drops.
 3.  **The `conntrack` Race Condition:** This is a notorious Linux kernel issue. When an application queries a hostname, `glibc` often sends the A (IPv4) and AAAA (IPv6) queries *simultaneously* over UDP from the same socket. The Linux `netfilter` connection tracking (`conntrack`) module can experience a race condition when processing these concurrent UDP packets, leading to dropped packets and 5-second DNS timeouts.
 4.  **Search Domain Amplification:** Kubernetes often injects multiple search domains into `/etc/resolv.conf`. With a high `ndots` value, a simple external name can expand into several attempted queries before the final absolute lookup, multiplying DNS traffic and latency.
+
+### Why `ndots` Matters
+
+`ndots` is one of the most important resolver options in container environments because it controls when a name is treated as already-qualified.
+
+The rule is:
+
+*   If a query name has at least `ndots` dots, the resolver tries it as an absolute name first.
+*   If it has fewer than `ndots` dots, the resolver tries the name with each configured search domain first, then tries the absolute name.
+*   A trailing dot, such as `api.example.com.`, marks the name as absolute and bypasses search-domain expansion.
+
+On a normal Linux host, `ndots` is often `1`. In Kubernetes, pod `/etc/resolv.conf` commonly looks like this:
+
+```text
+search default.svc.cluster.local svc.cluster.local cluster.local us-east-1.compute.internal
+options ndots:5
+```
+
+With `ndots:5`, even a name that looks fully qualified to a human may not be tried as absolute first. For example, `api.example.com` has two dots, which is fewer than five. The resolver can attempt:
+
+```text
+api.example.com.default.svc.cluster.local
+api.example.com.svc.cluster.local
+api.example.com.cluster.local
+api.example.com.us-east-1.compute.internal
+api.example.com
+```
+
+That is already five candidate names. If the application asks for both A and AAAA records, this can become ten DNS queries for one logical lookup before retries are counted. Under load, those extra `NXDOMAIN` responses and timeouts can be enough to push CoreDNS, NodeLocal DNSCache, or the cloud resolver into packet drops.
+
+Here is the difference visually:
+
+```mermaid
+flowchart TB
+    name["Query: api.example.com"] --> dots{"Dots in name >= ndots?"}
+
+    dots -- "yes" --> absoluteFirst["Try api.example.com first"]
+    absoluteFirst --> searchFallback["Use search domains only if needed"]
+
+    dots -- "no" --> s1["Try api.example.com.default.svc.cluster.local"]
+    s1 --> s2["Try api.example.com.svc.cluster.local"]
+    s2 --> s3["Try api.example.com.cluster.local"]
+    s3 --> s4["Try api.example.com.us-east-1.compute.internal"]
+    s4 --> final["Finally try api.example.com"]
+
+    final --> traffic["More DNS traffic, more latency, more NXDOMAIN caching"]
+    absoluteFirst --> traffic2["Fewer unnecessary queries for external names"]
+```
+
+The tradeoff is that Kubernetes sets a high `ndots` value to make short service names ergonomic. A pod can resolve `redis` or `redis.default` through the cluster search path without hardcoding the full service DNS name. That convenience is useful for internal service discovery, but it is expensive for workloads that frequently call external domains.
+
+Practical guidance:
+
+*   For external dependencies, use fully qualified names with a trailing dot when the application accepts them, for example `api.example.com.`.
+*   For pods that mostly call external services, consider setting pod-level `dnsConfig.options` with `ndots: "1"` after testing internal service discovery behavior.
+*   Use full Kubernetes service names, such as `redis.default.svc.cluster.local`, when you want clarity and fewer search attempts.
+*   Do not assume `dig api.example.com` reproduces application behavior exactly. Use `dig +search api.example.com`, `getent hosts api.example.com`, packet captures, or application logs when investigating search-list expansion.
+*   Watch CoreDNS metrics for `NXDOMAIN`, latency, and cache hit rate. A high volume of negative responses is often a sign that search-domain expansion is doing unnecessary work.
 
 ### Solutions & Best Practices
 Understanding the OS-level DNS mechanics helps solve these cloud-scale issues:
