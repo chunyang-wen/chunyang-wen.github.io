@@ -90,6 +90,29 @@ Linux relies on standard POSIX libraries and system daemons:
 *   **`/etc/resolv.conf`:** Historically, this file contained the IPs of upstream recursive resolvers. 
 *   **The Modern Middleman (`systemd-resolved`):** On modern Linux distributions (like Ubuntu), `/etc/resolv.conf` is usually a symlink (often pointing to `/run/systemd/resolve/stub-resolv.conf`). The OS runs a local caching stub resolver (listening on `127.0.0.53`). Applications query this local service, which then proxies the request to the upstream servers. This setup allows for advanced features like Split DNS and local caching.
 
+The modern Linux path often looks like this:
+
+```mermaid
+flowchart LR
+    app["Application"] --> libc["glibc getaddrinfo"]
+    libc --> nss["/etc/nsswitch.conf"]
+    nss --> hosts{"files first?"}
+    hosts -- "match" --> etchosts["/etc/hosts answer"]
+    hosts -- "no match" --> dns["dns lookup"]
+    dns --> resolv["/etc/resolv.conf"]
+    resolv --> stub["127.0.0.53 systemd-resolved"]
+    stub --> cache{"local cache?"}
+    cache -- "hit" --> app
+    cache -- "miss" --> upstream["upstream recursive resolvers"]
+    upstream --> auth["authoritative DNS path"]
+    auth --> upstream
+    upstream --> stub
+    stub --> app
+
+    resolv -. "on older or minimal hosts" .-> direct["direct nameserver from resolv.conf"]
+    direct -.-> upstream
+```
+
 #### The macOS Way (Local Development)
 
 macOS does **not** use `nsswitch.conf` or `systemd-resolved`. Apple uses its own System Configuration framework:
@@ -97,6 +120,33 @@ macOS does **not** use `nsswitch.conf` or `systemd-resolved`. Apple uses its own
 *   **`/etc/resolv.conf` is a Lie:** Looking at `/etc/resolv.conf` on a Mac is often misleading. It is kept for legacy POSIX compatibility, but it doesn't always reflect the full, active routing table (especially when using VPNs).
 *   **`scutil --dns`:** This is the correct command to view your actual, active DNS routing table on a Mac.
 *   **Split DNS trick (`/etc/resolver/`):** Mac developers often use the `/etc/resolver/` directory to route specific top-level domains (like `.docker` or `.test`) to local daemons (like `dnsmasq`) without altering global network settings.
+
+The key difference is that macOS chooses a resolver by domain scope, not just by one global `resolv.conf` file:
+
+```mermaid
+flowchart LR
+    app["Application"] --> sysconf["System Configuration DNS state"]
+    sysconf --> mdns["mDNSResponder"]
+    mdns --> route{"Which domain?"}
+
+    route -- ".local" --> bonjour["Multicast DNS / Bonjour"]
+    route -- "company.internal" --> vpn["VPN split-DNS resolver"]
+    route -- "test or docker" --> resolverdir["/etc/resolver/*"]
+    route -- "default" --> network["Wi-Fi or Ethernet DNS resolver"]
+
+    resolverdir --> dnsmasq["local dnsmasq or dev resolver"]
+    vpn --> recursive["corporate recursive resolver"]
+    network --> public["ISP or public recursive resolver"]
+    bonjour --> lan["local network peers"]
+
+    dnsmasq --> app
+    recursive --> app
+    public --> app
+    lan --> app
+
+    legacy["/etc/resolv.conf"] -. "legacy compatibility only" .-> sysconf
+    inspect["scutil --dns"] -. "inspect actual routing" .-> sysconf
+```
 
 ### Useful Debugging Commands
 
@@ -161,6 +211,32 @@ You are running microservices in a highly scaled cloud environment (like Kuberne
 2.  **Hitting Limits:** Cloud providers impose hard limits to protect their infrastructure. For example, AWS documents a 1024 packets-per-second quota per network interface for traffic to link-local services, including Route 53 Resolver addresses such as the VPC `.2` resolver and `169.254.169.253` ([AWS docs](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-availability-scaling.html)). If a node hosts chatty pods, you can hit this limit silently, causing packet drops.
 3.  **The `conntrack` Race Condition:** This is a notorious Linux kernel issue. When an application queries a hostname, `glibc` often sends the A (IPv4) and AAAA (IPv6) queries *simultaneously* over UDP from the same socket. The Linux `netfilter` connection tracking (`conntrack`) module can experience a race condition when processing these concurrent UDP packets, leading to dropped packets and 5-second DNS timeouts.
 4.  **Search Domain Amplification:** Kubernetes often injects multiple search domains into `/etc/resolv.conf`. With a high `ndots` value, a simple external name can expand into several attempted queries before the final absolute lookup, multiplying DNS traffic and latency.
+
+The cloud path has more moving parts than a single VM:
+
+```mermaid
+flowchart LR
+    pod["Application pod"] --> libc["runtime resolver / glibc"]
+    libc --> podresolv["pod /etc/resolv.conf"]
+    podresolv --> nodelocal["NodeLocal DNSCache"]
+    nodelocal --> nodecache{"node cache hit?"}
+    nodecache -- "yes" --> pod
+    nodecache -- "no" --> coredns["CoreDNS service"]
+    coredns --> corecache{"CoreDNS cache hit?"}
+    corecache -- "yes" --> nodelocal
+    corecache -- "no" --> cloud["cloud resolver VIP"]
+    cloud --> authoritative["public or private authoritative DNS"]
+    authoritative --> cloud
+    cloud --> coredns
+    coredns --> nodelocal
+    nodelocal --> pod
+
+    podresolv -. "ndots + search domains" .-> extra["extra candidate names"]
+    extra -. "more A and AAAA queries" .-> nodelocal
+    libc -. "parallel A and AAAA over UDP" .-> conntrack["node conntrack"]
+    conntrack -. "race or drops" .-> timeout["5-second timeout"]
+    cloud -. "link-local PPS quota" .-> drops["silent packet drops"]
+```
 
 ### Why `ndots` Matters
 
