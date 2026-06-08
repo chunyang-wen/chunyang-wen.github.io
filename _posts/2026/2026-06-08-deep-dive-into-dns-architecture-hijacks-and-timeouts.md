@@ -46,21 +46,21 @@ This matters when debugging because changing a record at the authoritative serve
 The complete path usually looks like this:
 
 ```mermaid
-flowchart LR
-    app["Application"] --> appcache["Application DNS cache"]
+flowchart TB
+    app["Application"] --> appcache["App DNS cache"]
     appcache --> stub["OS stub resolver"]
-    stub --> local["Local cache or node cache"]
+    stub --> local["Local / node cache"]
     local --> recursive["Recursive resolver"]
-    recursive --> cache{"Cached answer?"}
-    cache -- "yes" --> answer["Return A / AAAA / CNAME answer"]
-    cache -- "no" --> root["Root servers"]
-    root --> tld["TLD servers"]
-    tld --> auth["Authoritative name servers"]
+    recursive --> cache{"Cache hit?"}
+    cache -- "yes" --> answer["Return answer"]
+    cache -- "no" --> root["Root"]
+    root --> tld["TLD"]
+    tld --> auth["Authoritative"]
     auth --> recursive
     answer --> app
 
-    stub -. "search domains and ndots can create extra candidate names" .-> expanded["Expanded lookup attempts"]
-    expanded -. "more A and AAAA queries" .-> local
+    stub -. "search + ndots" .-> expanded["Extra candidates"]
+    expanded -. "more A / AAAA" .-> local
 ```
 
 ### Records, TTLs, and Negative Caching
@@ -93,23 +93,23 @@ Linux relies on standard POSIX libraries and system daemons:
 The modern Linux path often looks like this:
 
 ```mermaid
-flowchart LR
+flowchart TB
     app["Application"] --> libc["glibc getaddrinfo"]
     libc --> nss["/etc/nsswitch.conf"]
     nss --> hosts{"files first?"}
-    hosts -- "match" --> etchosts["/etc/hosts answer"]
+    hosts -- "match" --> etchosts["/etc/hosts"]
     hosts -- "no match" --> dns["dns lookup"]
     dns --> resolv["/etc/resolv.conf"]
-    resolv --> stub["127.0.0.53 systemd-resolved"]
-    stub --> cache{"local cache?"}
+    resolv --> stub["systemd-resolved\n127.0.0.53"]
+    stub --> cache{"Cache hit?"}
     cache -- "hit" --> app
-    cache -- "miss" --> upstream["upstream recursive resolvers"]
-    upstream --> auth["authoritative DNS path"]
+    cache -- "miss" --> upstream["Upstream resolver"]
+    upstream --> auth["Authoritative path"]
     auth --> upstream
     upstream --> stub
     stub --> app
 
-    resolv -. "on older or minimal hosts" .-> direct["direct nameserver from resolv.conf"]
+    resolv -. "older/minimal hosts" .-> direct["Direct nameserver"]
     direct -.-> upstream
 ```
 
@@ -124,28 +124,28 @@ macOS does **not** use `nsswitch.conf` or `systemd-resolved`. Apple uses its own
 The key difference is that macOS chooses a resolver by domain scope, not just by one global `resolv.conf` file:
 
 ```mermaid
-flowchart LR
+flowchart TB
     app["Application"] --> sysconf["System Configuration DNS state"]
     sysconf --> mdns["mDNSResponder"]
     mdns --> route{"Which domain?"}
 
     route -- ".local" --> bonjour["Multicast DNS / Bonjour"]
-    route -- "company.internal" --> vpn["VPN split-DNS resolver"]
+    route -- "internal" --> vpn["VPN split DNS"]
     route -- "test or docker" --> resolverdir["/etc/resolver/*"]
-    route -- "default" --> network["Wi-Fi or Ethernet DNS resolver"]
+    route -- "default" --> network["Network DNS"]
 
-    resolverdir --> dnsmasq["local dnsmasq or dev resolver"]
-    vpn --> recursive["corporate recursive resolver"]
-    network --> public["ISP or public recursive resolver"]
-    bonjour --> lan["local network peers"]
+    resolverdir --> dnsmasq["Local dev resolver"]
+    vpn --> recursive["Corporate resolver"]
+    network --> public["ISP / public resolver"]
+    bonjour --> lan["LAN peers"]
 
     dnsmasq --> app
     recursive --> app
     public --> app
     lan --> app
 
-    legacy["/etc/resolv.conf"] -. "legacy compatibility only" .-> sysconf
-    inspect["scutil --dns"] -. "inspect actual routing" .-> sysconf
+    legacy["/etc/resolv.conf"] -. "legacy only" .-> sysconf
+    inspect["scutil --dns"] -. "inspect routing" .-> sysconf
 ```
 
 ### Useful Debugging Commands
@@ -215,27 +215,27 @@ You are running microservices in a highly scaled cloud environment (like Kuberne
 The cloud path has more moving parts than a single VM:
 
 ```mermaid
-flowchart LR
+flowchart TB
     pod["Application pod"] --> libc["runtime resolver / glibc"]
     libc --> podresolv["pod /etc/resolv.conf"]
     podresolv --> nodelocal["NodeLocal DNSCache"]
-    nodelocal --> nodecache{"node cache hit?"}
+    nodelocal --> nodecache{"Node cache hit?"}
     nodecache -- "yes" --> pod
-    nodecache -- "no" --> coredns["CoreDNS service"]
-    coredns --> corecache{"CoreDNS cache hit?"}
+    nodecache -- "no" --> coredns["CoreDNS"]
+    coredns --> corecache{"CoreDNS hit?"}
     corecache -- "yes" --> nodelocal
-    corecache -- "no" --> cloud["cloud resolver VIP"]
-    cloud --> authoritative["public or private authoritative DNS"]
+    corecache -- "no" --> cloud["Cloud resolver"]
+    cloud --> authoritative["Authoritative DNS"]
     authoritative --> cloud
     cloud --> coredns
     coredns --> nodelocal
     nodelocal --> pod
 
-    podresolv -. "ndots + search domains" .-> extra["extra candidate names"]
-    extra -. "more A and AAAA queries" .-> nodelocal
-    libc -. "parallel A and AAAA over UDP" .-> conntrack["node conntrack"]
-    conntrack -. "race or drops" .-> timeout["5-second timeout"]
-    cloud -. "link-local PPS quota" .-> drops["silent packet drops"]
+    podresolv -. "ndots + search" .-> extra["Extra candidates"]
+    extra -. "more A / AAAA" .-> nodelocal
+    libc -. "parallel UDP" .-> conntrack["conntrack"]
+    conntrack -. "race/drop" .-> timeout["5s timeout"]
+    cloud -. "PPS quota" .-> drops["packet drops"]
 ```
 
 ### Why `ndots` Matters
@@ -274,16 +274,16 @@ flowchart TB
     name["Query: api.example.com"] --> dots{"Dots in name >= ndots?"}
 
     dots -- "yes" --> absoluteFirst["Try api.example.com first"]
-    absoluteFirst --> searchFallback["Use search domains only if needed"]
+    absoluteFirst --> searchFallback["Search fallback only if needed"]
 
-    dots -- "no" --> s1["Try api.example.com.default.svc.cluster.local"]
-    s1 --> s2["Try api.example.com.svc.cluster.local"]
-    s2 --> s3["Try api.example.com.cluster.local"]
-    s3 --> s4["Try api.example.com.us-east-1.compute.internal"]
-    s4 --> final["Finally try api.example.com"]
+    dots -- "no" --> s1["Try with namespace search"]
+    s1 --> s2["Try with svc search"]
+    s2 --> s3["Try with cluster search"]
+    s3 --> s4["Try with node/domain search"]
+    s4 --> final["Finally try absolute name"]
 
-    final --> traffic["More DNS traffic, more latency, more NXDOMAIN caching"]
-    absoluteFirst --> traffic2["Fewer unnecessary queries for external names"]
+    final --> traffic["More queries and latency"]
+    absoluteFirst --> traffic2["Fewer external lookups"]
 ```
 
 The tradeoff is that Kubernetes sets a high `ndots` value to make short service names ergonomic. A pod can resolve `redis` or `redis.default` through the cluster search path without hardcoding the full service DNS name. That convenience is useful for internal service discovery, but it is expensive for workloads that frequently call external domains.
