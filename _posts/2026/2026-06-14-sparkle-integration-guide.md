@@ -3,6 +3,7 @@ layout: post
 title: "Integrating Sparkle 2 for Auto-Updates in macOS Apps"
 categories: [macOS, Xcode]
 tags: [sparkle, swift, auto-update, macos]
+image: /images/posts/2026/sparkle-integration-guide/cover.png
 ---
 
 Adding auto-update functionality to a macOS application distributed outside the Mac App Store is essential. [Sparkle](https://sparkle-project.org/) has long been the gold standard for this. In this post, we'll walk through a robust workflow for integrating Sparkle 2 into a modern Xcode project, from generating keys to automating the release process using GitHub Releases.
