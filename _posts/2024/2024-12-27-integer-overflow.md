@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Integer overflow
-categories: [blog, leetcode]
+categories: [leetcode]
 tags: [leetcode]
 image: /images/posts/2024/integer-overflow/cover.png
 ---

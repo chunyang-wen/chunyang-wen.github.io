@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux split
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 image: /images/posts/2022/linux-split/cover.png
 ---

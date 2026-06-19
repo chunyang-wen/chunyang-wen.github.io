@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C++ STL list and slit
-categories: [blog, stl]
+categories: [stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-list-slist

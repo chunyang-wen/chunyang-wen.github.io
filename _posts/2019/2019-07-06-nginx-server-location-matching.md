@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Nginx server and location selection
-categories: [blog, nginx]
+categories: [nginx]
 tags: [reading]
 redirect_from:
  - /nginx/nginx-server-location-matching

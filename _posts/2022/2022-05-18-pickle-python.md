@@ -1,7 +1,7 @@
 ---
 layout: post
 title: python pickle
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2022/pickle-python/cover.png
 ---

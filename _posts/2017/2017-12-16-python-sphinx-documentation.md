@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何使用 sphinx 来生成代码文档
-categories: [blog, python]
+categories: [python]
 tags: [python]
 redirect_from:
  - /python-sphinx-documentation

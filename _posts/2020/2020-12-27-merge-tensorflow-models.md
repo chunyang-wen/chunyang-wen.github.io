@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Merge tensorflow models
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/merge-tensorflow-models/cover.png
 ---

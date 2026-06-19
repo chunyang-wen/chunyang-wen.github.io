@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bracket match
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
 image: /images/posts/2020/bracket-match/cover.png

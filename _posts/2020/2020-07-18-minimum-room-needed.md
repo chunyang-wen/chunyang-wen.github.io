@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Minimum number of rooms required
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, snapchat]
 include_math: true
 hidden: true

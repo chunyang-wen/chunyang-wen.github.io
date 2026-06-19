@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Binary tree traversal
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 redirect_from:
  - /algorithm/binary-tree-traversal

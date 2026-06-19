@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python command line comparison
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2021/python-cmd-parser/cover.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Compare in set and map
-categories: [blog, stl]
+categories: [stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-set-compare

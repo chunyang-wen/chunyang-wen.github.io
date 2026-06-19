@@ -3,6 +3,8 @@ layout: post
 title: Python itertools
 tags: [blog, python]
 categories: [python]
+redirect_from:
+ - /python/itertools-python.html
 image: /images/posts/2022/itertools-python/cover.png
 ---
 

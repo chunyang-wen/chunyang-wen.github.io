@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Descriptor and decorator in Python
-categories: [blog, python]
+categories: [python]
 tags: [python]
 redirect_from:
  - /python/python-descriptor-decorator

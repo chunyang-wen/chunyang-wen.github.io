@@ -1,7 +1,7 @@
 ---
 layout: post
 title: why indentLint not working with mac vim (8.0)?
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 image: /images/posts/2018/vim-indent-line/cover.png
 ---

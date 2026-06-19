@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Kubernetes python package
-categories: [blog, python]
+categories: [python]
 tags: [blog, python]
 image: /images/posts/2022/kubernetes-python/cover.png
 ---

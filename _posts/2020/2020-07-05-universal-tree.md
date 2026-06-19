@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Universal tree
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/universal-tree/cover.png

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Xor linked list
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/xor-linked-list/cover.png

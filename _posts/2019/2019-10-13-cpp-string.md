@@ -1,7 +1,7 @@
 ---
 layout: post
 title: String in cpp
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 image: /images/posts/2019/cpp-string/cover.png
 ---

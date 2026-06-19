@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ugly number I and II
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 hidden: true
 image: /images/posts/2020/ugly-number/cover.png

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Who passes the additional argument to my `fn` ?
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2021/python-additional-arguments/cover.png
 ---

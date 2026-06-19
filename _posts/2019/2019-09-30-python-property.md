@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python descriptor
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2019/python-property/cover.png
 ---

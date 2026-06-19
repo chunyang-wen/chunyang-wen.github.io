@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Build tensorflow on Mac
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/build-tf-on-mac/cover.png
 ---

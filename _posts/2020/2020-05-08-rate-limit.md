@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to Design a Scalable Rate Limiting Algorithm
-categories: [blog, system]
+categories: [system]
 tags: [system]
 image: /images/posts/2020/rate-limit/cover.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      awk 基本概念
-categories: [blog, shell]
+categories: [shell]
 tags: [shell]
 redirect_from:
  - /linux/awk/awk-basics

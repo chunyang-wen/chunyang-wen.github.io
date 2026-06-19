@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Run-length encoding
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, amazon]
 hidden: true
 image: /images/posts/2020/run-length-encode/cover.png

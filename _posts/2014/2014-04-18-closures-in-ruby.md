@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Closures in Ruby
-categories: [blog, ruby]
+categories: [ruby]
 tags: [ruby]
 redirect_from:
  - /translating/closures-in-ruby

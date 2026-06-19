@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python logging module
-categories: [blog, python]
+categories: [python]
 tags: [python]
 redirect_from:
  - /python/logging/python-log-module

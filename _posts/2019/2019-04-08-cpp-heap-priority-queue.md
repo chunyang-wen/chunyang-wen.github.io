@@ -5,6 +5,7 @@ categories: [cpp, stl]
 tags: [cpp]
 redirect_from:
  - /cpp/cpp-heap-priority-queue
+ - /cpp/stl/cpp-heap-priority-queue.html
 image: /images/posts/2019/cpp-heap-priority-queue/cover.png
 ---
 

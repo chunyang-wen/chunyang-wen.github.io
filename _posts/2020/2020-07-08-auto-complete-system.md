@@ -1,7 +1,7 @@
 ---
 layout: post
 title: An autocomplete system
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, twitter]
 hidden: true
 image: /images/posts/2020/auto-complete-system/cover.png

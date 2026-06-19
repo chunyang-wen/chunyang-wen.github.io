@@ -1,7 +1,7 @@
 ---
 layout: post
 title: K node from end
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/k-node-from-end/cover.png

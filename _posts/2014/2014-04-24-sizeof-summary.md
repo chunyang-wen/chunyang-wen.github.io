@@ -1,7 +1,7 @@
 ---
 layout: post
 title: sizeof的总结
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 redirect_from:
  - /programming/sizeof-summary

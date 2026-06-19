@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python closure
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2020/python-closure/cover.png
 ---

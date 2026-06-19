@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Approach a System Design Interview
-categories: [blog, design]
+categories: [design]
 tags: [reading]
 redirect_from:
  - /interview/approach-a-system-design-interview

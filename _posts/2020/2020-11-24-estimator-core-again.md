@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estimator core in evaluator
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/estimator-core-again/cover.png
 ---

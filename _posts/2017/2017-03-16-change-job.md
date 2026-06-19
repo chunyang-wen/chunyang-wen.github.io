@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 关于频繁换工作的思考
-categories: [blog, thinking]
+categories: [thinking]
 tags: [thinking]
 description: thoughts
 image: /images/posts/2017/change-job/cover.png

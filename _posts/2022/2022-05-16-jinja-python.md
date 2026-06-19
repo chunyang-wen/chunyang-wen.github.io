@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python Jinja2
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2022/jinja-python/cover.png
 ---

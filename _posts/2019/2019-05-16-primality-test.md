@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Prime related
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [algorithm]
 redirect_from:
  - /algorithm/primality-test

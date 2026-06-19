@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Partially render in Jinja
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2022/jinja-partial-template/cover.png
 ---

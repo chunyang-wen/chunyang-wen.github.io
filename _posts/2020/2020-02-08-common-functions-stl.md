@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Common functions implemented using STL
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 image: /images/posts/2020/common-functions-stl/cover.png
 ---

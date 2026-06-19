@@ -1,7 +1,7 @@
 ---
 layout: post
 title: operator module in Python
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2019/operator-python/cover.png
 ---

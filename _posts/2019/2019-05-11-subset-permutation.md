@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Subsets and Permutations
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 redirect_from:
  - /translating/implicit-conversions

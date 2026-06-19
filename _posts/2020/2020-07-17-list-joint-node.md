@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Intersecting node of two lists
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/list-joint-node/cover.png

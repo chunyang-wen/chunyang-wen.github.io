@@ -1,7 +1,7 @@
 ---
 layout: post
 title: git basics
-categories: [blog, git]
+categories: [git]
 tags: [git]
 redirect_from:
  - /tools/git-basics

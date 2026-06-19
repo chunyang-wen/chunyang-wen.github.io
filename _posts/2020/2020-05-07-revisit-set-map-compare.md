@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Revisit compare in map and set
-categories: [blog, stl]
+categories: [stl]
 tags: [cpp]
 image: /images/posts/2020/revisit-set-map-compare/cover.png
 ---

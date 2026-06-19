@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Integrating Sparkle 2 for Auto-Updates in macOS Apps"
-categories: [macOS, Xcode]
+categories: [macos, xcode]
+redirect_from:
+ - /macos/xcode/sparkle-integration-guide.html
 tags: [sparkle, swift, auto-update, macos]
 image: /images/posts/2026/sparkle-integration-guide/cover.png
 ---

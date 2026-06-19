@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estimate PI
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 include_math: True
 hidden: true

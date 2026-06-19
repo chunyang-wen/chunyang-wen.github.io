@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linux shell 条件判断
-categories: [blog, shell]
+categories: [shell]
 tags: [shell]
 image: /images/posts/2017/shell-test-condition/cover.png
 ---

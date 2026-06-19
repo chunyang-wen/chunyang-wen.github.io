@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Add Unique ID for Http Request
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2021/add-uuid-in-log/cover.png
 ---

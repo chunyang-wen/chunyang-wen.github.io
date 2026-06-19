@@ -2,7 +2,7 @@
 layout: post
 title: Design pattern
 tags: [reading]
-categories: [blog, design]
+categories: [design]
 redirect_from:
  - /books/design-pattern
 image: /images/posts/2019/design-pattern/cover.png

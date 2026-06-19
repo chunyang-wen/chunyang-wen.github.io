@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Climb up staircase
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, amazon]
 include_math: true
 hidden: true

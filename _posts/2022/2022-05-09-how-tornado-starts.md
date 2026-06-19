@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How tornado starts?
-categories: [blog, python]
+categories: [python]
 tags: [blog, python]
 image: /images/posts/2022/how-tornado-starts/cover.png
 ---

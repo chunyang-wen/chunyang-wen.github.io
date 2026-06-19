@@ -1,7 +1,9 @@
 ---
 layout: post
 title: vim configuration
-categories: [tools, ]
+categories: [tools]
+redirect_from:
+ - /tools/vim-configurations.html
 tags: [vim, ]
 image: /images/posts/2015/vim-configurations/cover.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Trading Basics: Stocks, Options, and Technical Analysis"
-categories: [blog, finance]
+categories: [finance]
 tags: [trading, basics, options]
 image: /images/posts/2026/trading-basics/cover.png
 ---

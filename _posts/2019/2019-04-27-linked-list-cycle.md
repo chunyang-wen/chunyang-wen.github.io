@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Linked list cycle
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 redirect_from:
  - /algorithm/linked-list-cycle

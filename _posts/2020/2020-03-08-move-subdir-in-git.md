@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Move subdirectory of a git repository and keep commit message
-categories: [blog, tools]
+categories: [tools]
 tags: [git]
 image: /images/posts/2020/move-subdir-in-git/cover.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How does tensorflow create a kernel?
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/tensorflow-kernel-creation/cover.png
 ---

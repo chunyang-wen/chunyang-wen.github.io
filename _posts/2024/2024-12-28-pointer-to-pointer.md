@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pointer to pointer
-categories: [blog, leetcode]
+categories: [leetcode]
 tags: [leetcode]
 image: /images/posts/2024/pointer-to-pointer/cover.png
 ---

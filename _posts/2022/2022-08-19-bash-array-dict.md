@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Arrays and dict in bash
-categories: [blog, shell]
+categories: [shell]
 tags: [shell]
 image: /images/posts/2022/bash-array-dict/cover.png
 ---

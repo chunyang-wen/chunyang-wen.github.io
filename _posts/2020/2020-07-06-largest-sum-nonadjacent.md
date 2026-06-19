@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Maximum non-adjacent sum
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, airbnb]
 hidden: true
 image: /images/posts/2020/largest-sum-nonadjacent/cover.png

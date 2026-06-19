@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Minimum steps to reach
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/minimum-steps-to-reach/cover.png

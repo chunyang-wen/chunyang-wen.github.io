@@ -17,3 +17,7 @@ Recent history uses short, imperative commit subjects such as `Update cover` and
 
 ## Content & Publishing Notes
 Posts default to the `post` layout and permalink structure defined in `_config.yml`. Keep category and tag names consistent with existing taxonomy to avoid fragmented archives. Store large media under `images/posts/...` and reference them with root-relative paths such as `/images/posts/2025/example/cover.png`.
+
+## Test
+
+You can use `make serve` to build and serve the page.

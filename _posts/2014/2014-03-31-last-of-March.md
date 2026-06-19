@@ -1,7 +1,7 @@
 ---
 layout: post
 title: To the last day of March
-categories: [blog, test]
+categories: [test]
 tags: [dummy]
 include_math: true
 redirect_from:

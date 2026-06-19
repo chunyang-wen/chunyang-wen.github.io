@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Implementation of A star algorithm
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [algorithm]
 redirect_from:
  - /algorithms/a-star-algo

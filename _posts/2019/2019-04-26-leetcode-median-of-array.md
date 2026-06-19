@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Median of two sorted arrays
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 hidden: true
 image: /images/posts/2019/leetcode-median-of-array/cover.png

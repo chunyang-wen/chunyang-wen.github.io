@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Integrating RemarkJS with Jekyll
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 redirect_from:
  - /jekyll-remarkjs

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estimator OOM after export model frequently
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/oom-estimator-export/cover.png
 ---

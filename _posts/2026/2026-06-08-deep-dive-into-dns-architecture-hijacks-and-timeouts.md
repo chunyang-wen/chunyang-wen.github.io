@@ -2,7 +2,9 @@
 layout: post
 title: "Deep Dive into DNS: Architecture, Hijacks, and Timeouts"
 date: 2026-06-08 00:00:00 +0800
-categories: [Infrastructure]
+categories: [infrastructure]
+redirect_from:
+ - /infrastructure/deep-dive-into-dns-architecture-hijacks-and-timeouts.html
 tags: [dns, troubleshooting, cloud, security]
 description: "A practical deep dive into DNS resolution, local resolver behavior, DDNS hijacks, DNS amplification, and cloud DNS timeout troubleshooting."
 image: /images/posts/2026/deep-dive-into-dns-architecture-hijacks-and-timeouts/cover.png

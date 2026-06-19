@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to fill a container?
-categories: [blog, stl]
+categories: [stl]
 tags: [cpp]
 image: /images/posts/2020/fill-container/cover.png
 ---

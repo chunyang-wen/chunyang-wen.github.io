@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PyTorch slow inference
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2022/pytorch-slow-inference/cover.png
 ---

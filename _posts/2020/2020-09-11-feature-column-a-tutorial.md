@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Feature column a tutorial
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/feature-column-a-tutorial/cover.png
 ---

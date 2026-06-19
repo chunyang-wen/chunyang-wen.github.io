@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Implicit conversions
-categories: [blog, translating]
+categories: [translating]
 tags: [cpp]
 redirect_from:
  - /translating/implicit-conversions

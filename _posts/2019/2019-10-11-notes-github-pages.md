@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Notes about making Github pages beautiful
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 image: /images/posts/2019/notes-github-pages/cover.png
 ---

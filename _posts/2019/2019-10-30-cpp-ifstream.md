@@ -1,7 +1,7 @@
 ---
 layout: post
 title: std::ifstream in cpp
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 image: /images/posts/2019/cpp-ifstream/cover.png
 ---

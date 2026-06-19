@@ -1,7 +1,7 @@
 ---
 layout: post
 title: setup.py in Python
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2019/python-setup/cover.png
 ---

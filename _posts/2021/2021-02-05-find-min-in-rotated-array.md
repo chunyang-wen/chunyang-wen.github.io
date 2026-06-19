@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Find the minimum in a rotated array
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 hidden: true
 image: /images/posts/2021/find-min-in-rotated-array/cover.png

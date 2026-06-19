@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Estimator a tutorial
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/estimator-tutorial/cover.png
 ---

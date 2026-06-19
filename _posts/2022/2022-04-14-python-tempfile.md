@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python tempfile module
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2022/python-tempfile/cover.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Date and string format in python
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2022/date-string-format/cover.png
 ---

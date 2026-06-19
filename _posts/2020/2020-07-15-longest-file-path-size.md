@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Longest file path size
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/longest-file-path-size/cover.png

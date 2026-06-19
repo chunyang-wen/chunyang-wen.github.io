@@ -1,7 +1,7 @@
 ---
 layout: post
 title: awk + wget 实现的简单爬虫
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 description: spider
 redirect_from:

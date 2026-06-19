@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Regular expression match
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
 image: /images/posts/2020/regular-match/cover.png

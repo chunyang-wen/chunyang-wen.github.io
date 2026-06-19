@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to exit nested loops
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 hidden: true
 image: /images/posts/2020/exit-nested-loop/cover.png

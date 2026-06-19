@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C++中模板的学习
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 redirect_from:
  - /programming/template-in-cpp

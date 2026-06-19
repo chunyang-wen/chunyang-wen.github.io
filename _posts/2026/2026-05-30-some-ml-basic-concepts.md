@@ -2,7 +2,10 @@
 layout: post
 title: "Some ML Basic Concepts: Attention, Parallelism, and Architecture"
 date: 2026-05-30 18:36:58 +0800
-categories: [Machine Learning]
+categories: [machine-learning]
+redirect_from:
+ - /machine%20learning/some-ml-basic-concepts.html
+ - /machine learning/some-ml-basic-concepts.html
 tags: [ml, llm, attention, parallelism, transformer]
 image: /images/posts/2026/some-ml-basic-concepts/cover.png
 math: true

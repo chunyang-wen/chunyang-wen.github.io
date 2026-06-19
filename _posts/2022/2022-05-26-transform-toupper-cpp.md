@@ -1,7 +1,7 @@
 ---
 layout: post
 title: std::transform not working with std::toupper
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 image: /images/posts/2022/transform-toupper-cpp/cover.png
 ---

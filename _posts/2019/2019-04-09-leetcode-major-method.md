@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Majority Element I && II
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [leetcode]
 hidden: true
 image: /images/posts/2019/leetcode-major-method/cover.png

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Minimum cost to color houses
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, facebook]
 hidden: true
 image: /images/posts/2020/minimum-cost-coloring-house/cover.png

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Enum in Cpp and Python
-categories: [blog, common]
+categories: [common]
 tags: [cpp, python]
 image: /images/posts/2020/enum-in-cpp-python/cover.png
 ---

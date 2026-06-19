@@ -1,7 +1,7 @@
 ---
 layout: post
 title: C++ pair and type traits, construct, uninitialzed copy and fill
-categories: [blog, stl]
+categories: [stl]
 tags: [cpp]
 image: /images/posts/2019/cpp-stl-misc/cover.png
 ---

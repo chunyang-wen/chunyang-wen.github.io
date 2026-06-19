@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Dijkstra's 3-way quick sort
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [algorithm]
 image: /images/posts/2019/dijstra-partition/cover.png
 ---

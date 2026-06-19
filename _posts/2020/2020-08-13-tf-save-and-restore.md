@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tensorflow save and restore A tutorial
-categories: [blog, tensorflow]
+categories: [tensorflow]
 tags: [tensorflow]
 image: /images/posts/2020/tf-save-and-restore/cover.png
 ---

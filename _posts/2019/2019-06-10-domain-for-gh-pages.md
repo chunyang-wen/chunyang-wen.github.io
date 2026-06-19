@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Add custom domain for github pages
-categories: [blog, git]
+categories: [git]
 tags: [reading]
 redirect_from:
  - /gh-pages/domain-for-gh-pages

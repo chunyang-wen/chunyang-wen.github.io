@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SuperTAB and YouCompleteMe compatibility
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 image: /images/posts/2019/supertab-ycm/cover.png
 ---

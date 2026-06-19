@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python contextlib
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2020/python-contextmanager/cover.png
 ---

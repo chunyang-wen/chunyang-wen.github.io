@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lower bound and upper bound of set/map
-categories: [blog, stl]
+categories: [stl]
 tags: [cpp]
 hidden: true
 image: /images/posts/2020/multiset-multimap/cover.png

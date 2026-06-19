@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Construct the Rectangle
-categories: [blog, leetcode]
+categories: [leetcode]
 tags: [leetcode]
 image: /images/posts/2025/construct-the-rectangle/cover.png
 ---

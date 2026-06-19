@@ -1,7 +1,7 @@
 ---
 layout: post
 title: functools in Python
-categories: [blog, python]
+categories: [python]
 tags: [python]
 image: /images/posts/2019/functools-in-python/cover.png
 ---

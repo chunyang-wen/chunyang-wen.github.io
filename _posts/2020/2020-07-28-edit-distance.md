@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Edit distance
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, google]
 hidden: true
 image: /images/posts/2020/edit-distance/cover.png

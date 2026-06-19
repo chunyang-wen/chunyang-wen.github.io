@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Job scheduler
-categories: [blog, algorithm]
+categories: [algorithm]
 tags: [dailycodingproblem, apple]
 hidden: true
 image: /images/posts/2020/job-scheduler/cover.png

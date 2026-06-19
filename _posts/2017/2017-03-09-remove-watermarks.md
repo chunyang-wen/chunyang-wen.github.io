@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 去除下载文档中的水印
-categories: [blog, tools]
+categories: [tools]
 tags: [tools]
 redirect_from:
  - /tools/remove-watermarks

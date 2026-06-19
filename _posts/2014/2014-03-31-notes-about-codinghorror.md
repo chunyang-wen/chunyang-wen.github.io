@@ -1,7 +1,7 @@
 ---
 layout: post
 title: <<高效能程序员的修炼>>读后感
-categories: [blog, books]
+categories: [books]
 tags: [reading]
 description: coding horror
 redirect_from:

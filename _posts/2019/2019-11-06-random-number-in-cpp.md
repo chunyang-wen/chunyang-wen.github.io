@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Generate random numbers in C++
-categories: [blog, cpp]
+categories: [cpp]
 tags: [cpp]
 image: /images/posts/2019/random-number-in-cpp/cover.png
 ---
