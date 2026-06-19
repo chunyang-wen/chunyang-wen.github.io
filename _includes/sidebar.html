@@ -1,17 +1,14 @@
 <!-- The Side Bar -->
 
+{% assign blog_home_url = '/blog/' | relative_url %}
+
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
   <header class="profile-wrapper">
-    <a href="{{ '/' | relative_url }}" id="avatar" class="rounded-circle">
-      {%- if site.avatar != empty and site.avatar -%}
-        {%- capture avatar_url -%}
-          {% include media-url.html src=site.avatar %}
-        {%- endcapture -%}
-        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
-      {%- endif -%}
+    <a href="{{ blog_home_url }}" id="avatar" class="rounded-circle">
+      <img src="{{ '/assets/img/favicons/dark/favicon-dark-192.png' | relative_url }}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
     </a>
 
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="site-title d-block" href="{{ blog_home_url }}">{{ site.title }}</a>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
   </header>
   <!-- .profile-wrapper -->
@@ -19,8 +16,8 @@
   <nav class="flex-column flex-grow-1 w-100 ps-0">
     <ul class="nav">
       <!-- home -->
-      <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
-        <a href="{{ '/' | relative_url }}" class="nav-link">
+      <li class="nav-item{% if page.url == '/blog/' %}{{ " active" }}{% endif %}">
+        <a href="{{ blog_home_url }}" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
           <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
         </a>

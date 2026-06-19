@@ -1,0 +1,236 @@
+---
+title: About Chunyang Wen
+description: About Chunyang Wen.
+permalink: /about/
+---
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Chunyang Wen</title>
+    <meta name="description" content="About Chunyang Wen.">
+    <meta name="theme-color" content="#1b1b1f">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/dark/favicon-dark-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/favicons/dark/favicon-dark-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;600;700;800&family=Newsreader:opsz,wght@6..72,600;6..72,800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #1b1b1f;
+        --panel: #232328;
+        --panel-high: #292a30;
+        --ink: #e6e6e8;
+        --muted: #a0a0a8;
+        --line: rgba(255, 255, 255, .09);
+        --line-strong: rgba(255, 255, 255, .16);
+        --accent: #4bc7b5;
+        --shadow: 0 18px 52px rgba(0, 0, 0, .32);
+        font-family: "Azeret Mono", "SFMono-Regular", Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-width: 320px;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 8%, rgba(240, 161, 74, .12), transparent 28rem),
+          radial-gradient(circle at 88% 0, rgba(75, 199, 181, .12), transparent 30rem),
+          linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px),
+          linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+          var(--bg);
+        background-size: auto, auto, 44px 44px, 44px 44px, auto;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        width: min(1040px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .site-header,
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .site-header {
+        padding: 26px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 800;
+      }
+
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: #0f0f12;
+        color: var(--ink);
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, .28);
+      }
+
+      .nav,
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .nav a,
+      .footer-links a {
+        padding: 9px 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, .04);
+        color: var(--muted);
+        font-size: .78rem;
+        font-weight: 800;
+      }
+
+      .nav a:hover,
+      .footer-links a:hover {
+        border-color: var(--line-strong);
+        color: var(--ink);
+        background: var(--panel-high);
+      }
+
+      main {
+        padding: 70px 0 90px;
+      }
+
+      .about-card {
+        max-width: 760px;
+        padding: 34px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(35, 35, 40, .82);
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Newsreader", Georgia, serif;
+        font-size: clamp(3rem, 8vw, 5.8rem);
+        line-height: .9;
+        letter-spacing: -.035em;
+      }
+
+      p {
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: .98rem;
+        line-height: 1.7;
+      }
+
+      .about-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .about-links a {
+        padding: 10px 13px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        font-size: .8rem;
+        font-weight: 800;
+      }
+
+      .about-links a:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .footer {
+        padding: 28px 0 38px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: .78rem;
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(100% - 24px, 1040px);
+        }
+
+        .site-header,
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        main {
+          padding-top: 42px;
+        }
+
+        .about-card {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header" aria-label="Site header">
+        <a class="brand" href="/" aria-label="Chunyang Wen home">
+          <span class="brand-mark">CW</span>
+          <span>Chunyang Wen</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="https://github.com/chunyang-wen" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/chunyang-wen-01172475" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://x.com/ChunyangWen" target="_blank" rel="noreferrer">X</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="about-card" aria-labelledby="about-title">
+          <h1 id="about-title">About</h1>
+          <p>
+            I am Chunyang Wen. I build small macOS utilities, local-first web tools,
+            and write technical notes about programming, systems, and software craft.
+          </p>
+          <p>
+            This domain is the index for my current products and my long-running blog archive.
+          </p>
+          <div class="about-links">
+            <a href="/">Home</a>
+            <a href="/blog/">Blog</a>
+            <a href="https://github.com/chunyang-wen" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/chunyang-wen-01172475" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://x.com/ChunyangWen" target="_blank" rel="noreferrer">X</a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Built with Jekyll and served from GitHub Pages.</span>
+        <div class="footer-links">
+          <a href="/feed.xml">RSS</a>
+          <a href="https://github.com/chunyang-wen/chunyang-wen.github.io" target="_blank" rel="noreferrer">Source</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

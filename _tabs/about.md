@@ -3,6 +3,7 @@
 icon: fas fa-info-circle
 order: 4
 comments: true
+permalink: /blog/about/
 ---
 
 Love life. Love the nature.

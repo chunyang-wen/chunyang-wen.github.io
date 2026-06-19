@@ -1,5 +1,7 @@
 <!-- The Top Bar -->
 
+{% assign blog_home_url = '/blog/' | relative_url %}
+
 <header id="topbar-wrapper" class="flex-shrink-0" aria-label="Top Bar">
   <div
     id="topbar"
@@ -16,7 +18,7 @@
         {% for item in paths %}
           {% if forloop.first %}
             <span>
-              <a href="{{ '/' | relative_url }}">
+              <a href="{{ blog_home_url }}">
                 {{- site.data.locales[include.lang].tabs.home | capitalize -}}
               </a>
             </span>
