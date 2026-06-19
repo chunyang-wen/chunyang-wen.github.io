@@ -190,7 +190,7 @@ defaults:
       type: tabs # see `site.collections`
     values:
       layout: page
-      permalink: /:title/
+      permalink: /blog/:title/
 
 sass:
   style: compressed
@@ -221,5 +221,5 @@ jekyll-archives:
     category: category
     tag: tag
   permalinks:
-    tag: /tags/:name/
-    category: /categories/:name/
+    tag: /blog/tags/:name/
+    category: /blog/categories/:name/

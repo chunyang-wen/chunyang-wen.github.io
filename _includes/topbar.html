@@ -31,11 +31,18 @@
             {% endif %}
 
           {% elsif page.layout == 'category' or page.layout == 'tag' %}
-            <span>
-              <a href="{{ item | append: '/' | relative_url }}">
-                {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
-              </a>
-            </span>
+            {% unless item == 'blog' %}
+              <span>
+                {% if item == 'categories' or item == 'tags' or item == 'archives' %}
+                  {% assign crumb_url = '/blog/' | append: item | append: '/' %}
+                {% else %}
+                  {% assign crumb_url = item | append: '/' %}
+                {% endif %}
+                <a href="{{ crumb_url | relative_url }}">
+                  {{- site.data.locales[include.lang].tabs[item] | default: page.title -}}
+                </a>
+              </span>
+            {% endunless %}
           {% endif %}
         {% endfor %}
       {% endif %}
