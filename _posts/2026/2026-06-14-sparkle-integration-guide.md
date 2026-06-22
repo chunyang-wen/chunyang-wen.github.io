@@ -107,6 +107,11 @@ To streamline the release process, you can create a `Makefile` in the project ro
   ```makefile
   VERSION := $(shell xcodebuild -project $(PROJECT) -scheme $(SCHEME) -showBuildSettings 2>/dev/null | grep -w MARKETING_VERSION | awk '{print $$3}')
   ```
+- **Incrementing Build Number**: Sparkle decides whether an update is newer by comparing the appcast's `sparkle:version` value with the installed app's `CFBundleVersion` (Xcode's build number), not just the user-facing `CFBundleShortVersionString` / `MARKETING_VERSION`. Keep `CURRENT_PROJECT_VERSION` increasing for every published update, even when `MARKETING_VERSION` changes:
+  ```makefile
+  BUILD_NUMBER := $(shell xcodebuild -project $(PROJECT) -scheme $(SCHEME) -showBuildSettings 2>/dev/null | grep -w CURRENT_PROJECT_VERSION | awk '{print $$3}')
+  ```
+  When `generate_appcast` scans the built app, it writes this build number into `sparkle:version` and the marketing version into `sparkle:shortVersionString`. If the build number stays the same (or goes backward), Sparkle may report that the installed app is already up to date.
 - **Packaging**: Package the generated `.zip` inside the `build/` folder to prevent cluttering the project root.
 - **Appcast Generation**:
   1. Copy the versioned `.zip` into the appcast directory.
@@ -124,6 +129,7 @@ Ensure your `Makefile` places the `appcast.xml` in the correct public static dir
 *   **SPM Project Corruption**: Automating the SPM package addition via sed/awk often breaks things. Always instruct developers to do it via the Xcode GUI.
 *   **Filtered Info.plist Keys**: Relying exclusively on `INFOPLIST_KEY_SUFeedURL` in `project.pbxproj` is risky when `GENERATE_INFOPLIST_FILE = YES`. Always provide the feed URL in code via `SPUUpdaterDelegate`.
 *   **xcodebuild SPM Bug**: Using `CONFIGURATION_BUILD_DIR` in `xcodebuild` breaks Swift Package resources. Always use `-derivedDataPath`.
+*   **Unchanged Build Number**: Updating only `MARKETING_VERSION` can still leave Sparkle thinking there is no update. Make sure `CURRENT_PROJECT_VERSION` / `CFBundleVersion` increases for each release, because that becomes the appcast's `sparkle:version`.
 *   **Stale Enclosures**: Failing to delete old `.zip` files locally before running `generate_appcast` with `--download-url-prefix` causes old enclosures to be prefixed with the newest version tag.
 *   **404 on Appcast URL**: Placing the `appcast.xml` in the root of a GitHub Pages repository that uses a bundler. It must go in the `public/` directory!
 
