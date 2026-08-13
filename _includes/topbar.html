@@ -54,7 +54,9 @@
     </button>
 
     <div id="topbar-title">
-      {% if page.layout == 'home' %}
+      {% if page.url == '/blog/' %}
+        Blog
+      {% elsif page.layout == 'home' %}
         {{- site.data.locales[include.lang].title | default: site.title -}}
       {% elsif page.collection == 'tabs' or page.layout == 'page' %}
         {%- capture tab_key -%}{{ page.url | split: '/' }}{%- endcapture -%}

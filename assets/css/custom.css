@@ -1,4 +1,217 @@
-/* Show full post cover images instead of cropping them */
+/*
+ * CoolMind's shared editorial foundation.
+ * Covers are intentionally allowed to carry their own visual style; the site
+ * around them stays quiet, warm, and consistent.
+ */
+html,
+html[data-mode="light"] {
+  color-scheme: light;
+  --main-bg: #f7f5f0;
+  --mask-bg: #c7c4bb;
+  --main-border-color: #dedbd2;
+  --text-color: #302f2b;
+  --text-muted-color: #74716a;
+  --text-muted-highlight-color: #4d4b45;
+  --heading-color: #191916;
+  --label-color: #4d4b45;
+  --blockquote-border-color: #aaa69d;
+  --blockquote-text-color: #5d5a54;
+  --link-color: #34332f;
+  --link-underline-color: #d1cec6;
+  --button-bg: #fffefb;
+  --btn-border-color: #dedbd2;
+  --btn-backtotop-color: #55524c;
+  --btn-backtotop-border-color: #d6d2c9;
+  --sidebar-bg: #efede7;
+  --sidebar-border-color: #dedbd2;
+  --sidebar-muted-color: #63605a;
+  --sidebar-active-color: #2f2e2a;
+  --sidebar-hover-bg: #e4e1da;
+  --sidebar-btn-bg: #f8f7f3;
+  --sidebar-btn-color: #63605a;
+  --avatar-border-color: #fffefb;
+  --topbar-bg: rgb(247 245 240 / 88%);
+  --topbar-text-color: #302f2b;
+  --search-border-color: #d8d5cc;
+  --search-icon-color: #8b8880;
+  --input-focus-border-color: #8e8b83;
+  --post-list-text-color: #67645d;
+  --btn-patinator-text-color: #55524c;
+  --btn-paginator-hover-color: #e4e1da;
+  --toc-highlight: #34332f;
+  --toc-popup-border-color: #d2cfc6;
+  --card-bg: #fffefb;
+  --card-hover-bg: #efede7;
+  --card-shadow: rgb(45 43 39 / 5%) 0 2px 8px,
+    rgb(45 43 39 / 8%) 0 0 0 1px;
+  --tag-border: #d2cfc6;
+  --tag-shadow: transparent;
+  --tag-hover: #e4e1da;
+  --search-tag-bg: #efede7;
+  --categories-border: rgb(45 43 39 / 12%);
+  --categories-hover-bg: #e8e5de;
+  --timeline-color: rgb(45 43 39 / 10%);
+  --timeline-node-bg: #88847c;
+  --timeline-year-dot-color: #f7f5f0;
+  --language-border-color: #e0ddd5;
+  --highlight-bg-color: #efede8;
+  --inline-code-bg: rgb(52 51 47 / 8%);
+  --code-color: #3b3a36;
+  --code-header-text-color: #77736b;
+  --code-header-muted-color: #d2cfc6;
+  --code-header-icon-color: #99958c;
+}
+
+body {
+  background: var(--main-bg);
+  font-family: "Source Sans Pro", "Microsoft Yahei", sans-serif;
+}
+
+#sidebar .site-title,
+article > header h1,
+.content > h1,
+.content > h2,
+.content > h3,
+#page-category > h1,
+#page-tag > h1,
+#archives .year {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+#sidebar .site-title {
+  color: #282722;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+#sidebar .site-subtitle {
+  color: #77736b;
+  line-height: 1.55;
+}
+
+#sidebar ul li.nav-item a.nav-link {
+  border-radius: .25rem;
+  letter-spacing: .045em;
+}
+
+#topbar-wrapper {
+  border-bottom-color: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+article > header {
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid var(--main-border-color);
+}
+
+article > header h1 {
+  max-width: 52rem;
+  margin-bottom: 1rem;
+  color: #191916;
+  font-size: clamp(2.35rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -.04em;
+  line-height: 1.02;
+}
+
+article > header .post-desc {
+  max-width: 48rem;
+  color: #68655e;
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+article > header .post-meta {
+  color: #77736b !important;
+  letter-spacing: .015em;
+}
+
+article > .content {
+  color: #302f2b;
+  font-size: 1.04rem;
+  line-height: 1.78;
+}
+
+article > .content > h2 {
+  margin-top: 2.8rem;
+  color: #191916;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+
+article > .content > h3 {
+  margin-top: 2.2rem;
+  color: #24231f;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.content a:not(.img-link),
+.post-meta a,
+#toc-wrapper a {
+  text-decoration-color: #bbb8b0;
+  text-underline-offset: .16em;
+}
+
+.content blockquote {
+  padding: .85rem 1.1rem;
+  background: rgb(235 232 225 / 70%);
+  border-left-width: 3px;
+}
+
+.content code.highlighter-rouge {
+  padding: .12em .34em;
+  border-radius: .2rem;
+}
+
+.highlight,
+div[class^="language-"],
+.code-header,
+.preview-img,
+.preview-img img,
+.post-preview {
+  border-radius: .25rem;
+}
+
+#toc-wrapper > *,
+.access > section {
+  border-left-color: #d2cfc6;
+}
+
+#toc-wrapper .is-active-link {
+  font-weight: 700;
+}
+
+.post-tags .post-tag,
+.tag,
+#panel-wrapper .post-tag {
+  border-radius: .2rem;
+}
+
+.post-tail-wrapper {
+  border-color: #cbc8bf;
+}
+
+#archives ul li:nth-child(odd) {
+  background-color: transparent;
+  background-image: linear-gradient(to left, transparent, rgb(239 237 231 / 68%), transparent);
+}
+
+.categories.card,
+.categories .list-group-item {
+  background: #fffefb;
+}
+
+footer {
+  background: var(--main-bg);
+  border-top-color: #dedbd2;
+}
+
+/* Show full post cover images instead of cropping them. */
 .preview-img {
   background: transparent !important;
 }
@@ -7,4 +220,15 @@
   -o-object-fit: contain;
   object-fit: contain;
   object-position: center;
+}
+
+@media (max-width: 576px) {
+  article > header h1 {
+    font-size: clamp(2.15rem, 11vw, 3.15rem);
+  }
+
+  article > .content {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
 }

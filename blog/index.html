@@ -5,138 +5,423 @@ permalink: /blog/
 ---
 
 <style>
-  .blog-index-list {
-    display: grid;
-    gap: 1.15rem;
-  }
-
-  .blog-index-actions {
-    margin-top: 1.4rem;
-  }
-
-  .blog-index-actions a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 2.5rem;
-    padding: .55rem .85rem;
-    border: 1px solid var(--main-border-color);
-    border-radius: .65rem;
-    background: var(--card-bg);
-    font-weight: 600;
-  }
-
-  .blog-index-item {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 42%);
-    min-height: 12.5rem;
-    overflow: hidden;
-    border: 1px solid var(--main-border-color);
-    border-radius: .75rem;
-    background: var(--card-bg);
-    transition: border-color .18s ease, transform .18s ease;
-  }
-
-  .blog-index-item:hover {
-    border-color: var(--link-color);
-    transform: translateY(-2px);
-    text-decoration: none;
-  }
-
-  .blog-index-body {
-    display: flex;
-    flex-direction: column;
-    padding: 1.35rem 1.45rem;
-  }
-
-  .blog-index-item h2 {
-    margin: 0 0 .65rem;
-    color: var(--heading-color);
-    font-size: 1.45rem;
-    line-height: 1.3;
-  }
-
-  .blog-index-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    margin-bottom: .45rem;
-    color: var(--text-muted-color);
-    font-size: .82rem;
-  }
-
-  .blog-index-summary {
-    margin: 0;
-    color: var(--text-muted-color);
-    line-height: 1.55;
-  }
-
-  .blog-index-cover {
-    min-height: 100%;
+  body:has(.blog-journal) {
+    --main-bg: #f7f5f0;
+    --main-border-color: #dedbd2;
+    --text-color: #302f2b;
+    --text-muted-color: #74716a;
+    --text-muted-highlight-color: #4d4b45;
+    --heading-color: #191916;
+    --label-color: #4d4b45;
+    --link-color: #34332f;
+    --link-underline-color: #d1cec6;
+    --card-bg: #fffefb;
+    --sidebar-bg: #efede7;
+    --sidebar-border-color: #dedbd2;
+    --sidebar-muted-color: #63605a;
+    --sidebar-active-color: #2f2e2a;
+    --sidebar-hover-bg: #e4e1da;
+    --sidebar-btn-bg: #f8f7f3;
+    --sidebar-btn-color: #63605a;
+    --topbar-bg: rgb(247 245 240 / 88%);
+    --topbar-text-color: #302f2b;
+    --search-border-color: #dedbd2;
     background: var(--main-bg);
   }
 
-  .blog-index-cover img {
+  .row > main:has(.blog-journal) {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  main:has(.blog-journal) + #panel-wrapper {
+    display: none;
+  }
+
+  .blog-journal {
+    --journal-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --journal-sans: "Source Sans Pro", "Microsoft Yahei", sans-serif;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 1.5rem 0 4.5rem;
+    color: #302f2b;
+  }
+
+  .blog-journal a {
+    color: inherit;
+  }
+
+  .blog-journal a:hover {
+    text-decoration: none;
+  }
+
+  .blog-section-label,
+  .blog-card-meta,
+  .blog-feature-meta {
+    font-family: var(--journal-sans);
+    text-transform: uppercase;
+    letter-spacing: .11em;
+  }
+
+  .blog-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.42fr) minmax(19rem, .8fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    padding: 1.5rem 0 4.25rem;
+    border-bottom: 1px solid #cbc8bf;
+  }
+
+  .blog-feature-cover,
+  .blog-card-cover {
+    position: relative;
+    overflow: hidden;
+    background: #e9e6de;
+  }
+
+  .blog-feature-cover {
+    aspect-ratio: 2 / 1;
+  }
+
+  .blog-feature-cover::after,
+  .blog-card-cover::after {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgb(25 25 22 / 9%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .blog-feature-cover img,
+  .blog-card-cover img {
     width: 100%;
     height: 100%;
-    min-height: 12.5rem;
     object-fit: cover;
+    transition: transform .65s cubic-bezier(.2, .72, .2, 1);
   }
 
-  .blog-index-item.no-cover {
-    grid-template-columns: 1fr;
+  .blog-feature:hover img,
+  .blog-card:hover img {
+    transform: scale(1.025);
   }
 
-  @media (max-width: 768px) {
-    .blog-index-item {
+  .blog-feature-copy {
+    padding: .5rem 0;
+  }
+
+  .blog-feature-meta,
+  .blog-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    color: #77736b;
+    font-size: .69rem;
+    font-weight: 600;
+  }
+
+  .blog-feature-meta span + time::before,
+  .blog-card-meta span + time::before {
+    margin-right: .6rem;
+    color: #aaa69c;
+    content: "\00b7";
+  }
+
+  .blog-feature h2 {
+    margin: 1rem 0 1.05rem;
+    color: #191916;
+    font-family: var(--journal-serif);
+    font-size: clamp(2rem, 3.5vw, 3.35rem);
+    font-weight: 500;
+    letter-spacing: -.035em;
+    line-height: 1.04;
+  }
+
+  .blog-feature-summary {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    color: #68655e;
+    font-family: var(--journal-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
+  .blog-read-link {
+    display: inline-flex;
+    gap: .65rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    color: #34332f;
+    font-family: var(--journal-sans);
+    font-size: .84rem;
+    font-weight: 700;
+  }
+
+  .blog-read-link::after {
+    content: "\2192";
+    transition: transform .2s ease;
+  }
+
+  .blog-feature:hover .blog-read-link::after {
+    transform: translateX(.25rem);
+  }
+
+  .blog-latest {
+    padding-top: 3.25rem;
+  }
+
+  .blog-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-section-label {
+    margin: 0;
+    color: #55524c;
+    font-size: .75rem;
+    font-weight: 700;
+  }
+
+  .blog-section-heading a {
+    color: #68655e;
+    font-family: var(--journal-sans);
+    font-size: .84rem;
+    font-weight: 600;
+  }
+
+  .blog-section-heading a:hover {
+    color: #34332f;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 1.65rem;
+    row-gap: 3.25rem;
+  }
+
+  .blog-card {
+    display: block;
+    min-width: 0;
+  }
+
+  .blog-card-cover {
+    aspect-ratio: 2 / 1;
+    margin-bottom: 1.15rem;
+  }
+
+  .blog-card.no-cover {
+    padding-top: 1.15rem;
+    border-top: 3px solid #34332f;
+  }
+
+  .blog-card h3 {
+    margin: .75rem 0 .7rem;
+    color: #191916;
+    font-family: var(--journal-serif);
+    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    font-weight: 500;
+    letter-spacing: -.025em;
+    line-height: 1.15;
+  }
+
+  .blog-card-summary {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    color: #74716a;
+    font-family: var(--journal-sans);
+    font-size: .92rem;
+    line-height: 1.55;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  .blog-card:hover h3 {
+    color: #34332f;
+  }
+
+  .blog-archive-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4.5rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid #cbc8bf;
+    border-bottom: 1px solid #cbc8bf;
+  }
+
+  .blog-archive-cta strong {
+    display: block;
+    margin-bottom: .2rem;
+    color: #191916;
+    font-family: var(--journal-serif);
+    font-size: 1.45rem;
+    font-weight: 500;
+  }
+
+  .blog-archive-cta span {
+    color: #74716a;
+    font-family: var(--journal-sans);
+    font-size: .9rem;
+  }
+
+  .blog-archive-button {
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: .65rem;
+    align-items: center;
+    padding: .75rem 1rem;
+    border: 1px solid #34332f;
+    color: #34332f !important;
+    font-family: var(--journal-sans);
+    font-size: .85rem;
+    font-weight: 700;
+  }
+
+  .blog-archive-button::after {
+    content: "\2192";
+  }
+
+  .blog-archive-button:hover {
+    background: #34332f;
+    color: #fffefb !important;
+  }
+
+  @media (max-width: 991px) {
+    .blog-journal {
+      padding-top: 1rem;
+    }
+
+    .blog-feature {
       grid-template-columns: 1fr;
+      gap: 1.75rem;
     }
 
-    .blog-index-cover {
-      order: -1;
+    .blog-feature-copy {
+      max-width: 42rem;
     }
 
-    .blog-index-cover img {
-      min-height: 10rem;
-      max-height: 14rem;
+    .blog-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 575px) {
+    .blog-journal {
+      padding-bottom: 3rem;
+    }
+
+    .blog-feature {
+      padding: .75rem 0 2.75rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+      row-gap: 2.65rem;
+    }
+
+    .blog-archive-cta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blog-journal img,
+    .blog-read-link::after {
+      transition: none;
     }
   }
 </style>
 
-<div class="blog-index-list">
-  {% assign visible_posts = site.posts | where_exp: 'post', 'post.hidden != true' %}
-  {% for post in visible_posts limit:20 %}
-    {% assign cover = post.image.path | default: post.image %}
-    <a class="blog-index-item{% unless cover %} no-cover{% endunless %}" href="{{ post.url | relative_url }}">
-      <div class="blog-index-body">
-        <h2>{{ post.title }}</h2>
-        <div class="blog-index-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-          {% if post.categories.size > 0 %}
-            <span>{{ post.categories | join: " / " }}</span>
-          {% endif %}
-        </div>
-        {% if post.description %}
-          <p class="blog-index-summary">{{ post.description | strip_html | truncate: 180 }}</p>
-        {% elsif post.excerpt %}
-          <p class="blog-index-summary">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 180 }}</p>
-        {% endif %}
-      </div>
+{% assign visible_posts = site.posts | where_exp: 'post', 'post.hidden != true' %}
+{% assign featured = visible_posts | first %}
+{% assign featured_cover = featured.image.path | default: featured.image %}
 
-      {% if cover %}
-        {% if post.media_subpath %}
-          {% assign first_char = cover | slice: 0, 1 %}
-          {% unless cover contains '://' or first_char == '/' %}
-            {% assign cover = post.media_subpath | append: '/' | append: cover | replace: '///', '/' | replace: '//', '/' %}
+<div class="blog-journal">
+  <h1 class="visually-hidden">Blog</h1>
+
+  {% if featured %}
+    <a class="blog-feature" href="{{ featured.url | relative_url }}">
+      {% if featured_cover %}
+        {% if featured.media_subpath %}
+          {% assign first_char = featured_cover | slice: 0, 1 %}
+          {% unless featured_cover contains '://' or first_char == '/' %}
+            {% assign featured_cover = featured.media_subpath | append: '/' | append: featured_cover | replace: '///', '/' | replace: '//', '/' %}
           {% endunless %}
         {% endif %}
-        <div class="blog-index-cover">
-          <img src="{{ cover | relative_url }}" alt="">
+        <div class="blog-feature-cover">
+          <img src="{{ featured_cover | relative_url }}" alt="Cover illustration for {{ featured.title | escape }}">
         </div>
       {% endif %}
-    </a>
-  {% endfor %}
-</div>
 
-<div class="blog-index-actions">
-  <a href="/blog/archives/">Browse the full archive</a>
+      <div class="blog-feature-copy">
+        <div class="blog-feature-meta">
+          {% if featured.categories.size > 0 %}<span>{{ featured.categories | first }}</span>{% endif %}
+          <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%b %-d, %Y" }}</time>
+        </div>
+        <h2>{{ featured.title }}</h2>
+        {% if featured.description %}
+          <p class="blog-feature-summary">{{ featured.description | strip_html }}</p>
+        {% elsif featured.excerpt %}
+          <p class="blog-feature-summary">{{ featured.excerpt | strip_html | normalize_whitespace | truncate: 240 }}</p>
+        {% endif %}
+        <span class="blog-read-link">Read the article</span>
+      </div>
+    </a>
+  {% endif %}
+
+  <section class="blog-latest" aria-labelledby="latest-writing">
+    <div class="blog-section-heading">
+      <h2 class="blog-section-label" id="latest-writing">Latest writing</h2>
+      <a href="{{ '/blog/archives/' | relative_url }}">View archive &rarr;</a>
+    </div>
+
+    <div class="blog-grid">
+      {% for post in visible_posts offset:1 limit:9 %}
+        {% assign cover = post.image.path | default: post.image %}
+        <a class="blog-card{% unless cover %} no-cover{% endunless %}" href="{{ post.url | relative_url }}">
+          {% if cover %}
+            {% if post.media_subpath %}
+              {% assign first_char = cover | slice: 0, 1 %}
+              {% unless cover contains '://' or first_char == '/' %}
+                {% assign cover = post.media_subpath | append: '/' | append: cover | replace: '///', '/' | replace: '//', '/' %}
+              {% endunless %}
+            {% endif %}
+            <div class="blog-card-cover">
+              <img src="{{ cover | relative_url }}" alt="Cover illustration for {{ post.title | escape }}" loading="lazy">
+            </div>
+          {% endif %}
+
+          <div class="blog-card-meta">
+            {% if post.categories.size > 0 %}<span>{{ post.categories | first }}</span>{% endif %}
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+          </div>
+          <h3>{{ post.title }}</h3>
+          {% if post.description %}
+            <p class="blog-card-summary">{{ post.description | strip_html }}</p>
+          {% elsif post.excerpt %}
+            <p class="blog-card-summary">{{ post.excerpt | strip_html | normalize_whitespace | truncate: 150 }}</p>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="blog-archive-cta">
+    <div>
+      <strong>Looking for something specific?</strong>
+      <span>Browse every article by year, category, or topic.</span>
+    </div>
+    <a class="blog-archive-button" href="{{ '/blog/archives/' | relative_url }}">Explore the archive</a>
+  </div>
 </div>
