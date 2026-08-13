@@ -222,6 +222,11 @@ footer {
   object-position: center;
 }
 
+/* Keep post cover images still while the full image loads. */
+article > header .preview-img.shimmer::before {
+  display: none;
+}
+
 @media (max-width: 576px) {
   article > header h1 {
     font-size: clamp(2.15rem, 11vw, 3.15rem);
