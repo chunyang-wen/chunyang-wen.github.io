@@ -4,7 +4,8 @@ title: 远程协同的当下与未来
 categories: []
 tags: [iOS,  ]
 description: 「读 Remote 感受一下此刻的未来」  
----  
+image: /images/posts/remote-note/cover.png
+---
 
 
 # Remote
