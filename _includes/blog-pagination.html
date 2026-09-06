@@ -1,0 +1,68 @@
+<nav class="blog-pagination" aria-label="Article list pagination">
+  <div class="blog-pagination-direction">
+    {% if paginator.previous_page_path %}
+      <a class="blog-pagination-link" href="{{ paginator.previous_page_path | relative_url }}" rel="prev">
+        <span aria-hidden="true">&larr;</span> Previous page
+      </a>
+    {% else %}
+      <span class="blog-pagination-link is-disabled" aria-disabled="true">
+        <span aria-hidden="true">&larr;</span> Previous page
+      </span>
+    {% endif %}
+  </div>
+
+  <ol class="blog-pagination-pages" aria-label="Pages">
+    {% assign last_shown = 0 %}
+    {% assign last_near_page = paginator.total_pages | minus: 1 %}
+    {% assign last_page_start = paginator.total_pages | minus: 2 %}
+    {% assign current_start = paginator.page | minus: 1 %}
+    {% assign current_end = paginator.page | plus: 1 %}
+    {% for i in (1..paginator.total_pages) %}
+      {% assign show_page = false %}
+
+      {% if paginator.total_pages <= 7 %}
+        {% assign show_page = true %}
+      {% elsif paginator.page <= 2 %}
+        {% if i <= 3 or i == paginator.total_pages %}{% assign show_page = true %}{% endif %}
+      {% elsif paginator.page >= last_near_page %}
+        {% if i == 1 or i >= last_page_start %}{% assign show_page = true %}{% endif %}
+      {% elsif i == 1 or i == paginator.total_pages %}
+        {% assign show_page = true %}
+      {% elsif i >= current_start and i <= current_end %}
+        {% assign show_page = true %}
+      {% endif %}
+
+      {% if show_page %}
+        {% assign gap = i | minus: last_shown %}
+        {% if gap > 1 %}
+          <li><span class="is-ellipsis" aria-hidden="true">&hellip;</span></li>
+        {% endif %}
+
+        {% assign page_url = '/blog/' %}
+        {% if i > 1 %}
+          {% assign page_url = site.paginate_path | replace: ':num', i %}
+        {% endif %}
+        <li>
+          {% if i == paginator.page %}
+            <span class="is-current" aria-current="page">{{ i }}</span>
+          {% else %}
+            <a href="{{ page_url | relative_url }}">{{ i }}</a>
+          {% endif %}
+        </li>
+        {% assign last_shown = i %}
+      {% endif %}
+    {% endfor %}
+  </ol>
+
+  <div class="blog-pagination-direction">
+    {% if paginator.next_page_path %}
+      <a class="blog-pagination-link" href="{{ paginator.next_page_path | relative_url }}" rel="next">
+        Next page <span aria-hidden="true">&rarr;</span>
+      </a>
+    {% else %}
+      <span class="blog-pagination-link is-disabled" aria-disabled="true">
+        Next page <span aria-hidden="true">&rarr;</span>
+      </span>
+    {% endif %}
+  </div>
+</nav>

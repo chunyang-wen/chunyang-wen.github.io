@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Blog
-permalink: /blog/
 ---
 
 <style>
@@ -296,6 +295,75 @@ permalink: /blog/
     color: #fffefb !important;
   }
 
+  .blog-pagination {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid #cbc8bf;
+    font-family: var(--journal-sans);
+  }
+
+  .blog-pagination-direction {
+    min-width: 0;
+  }
+
+  .blog-pagination-direction:last-child {
+    text-align: right;
+  }
+
+  .blog-pagination-link {
+    display: inline-flex;
+    gap: .55rem;
+    align-items: center;
+    color: #34332f;
+    font-size: .84rem;
+    font-weight: 700;
+  }
+
+  .blog-pagination-link:hover {
+    color: #77736b;
+  }
+
+  .blog-pagination-link.is-disabled {
+    color: #aaa69c;
+  }
+
+  .blog-pagination-pages {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .blog-pagination-pages a,
+  .blog-pagination-pages span {
+    display: grid;
+    place-items: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 .45rem;
+    color: #77736b;
+    font-size: .78rem;
+    font-weight: 700;
+  }
+
+  .blog-pagination-pages a:hover,
+  .blog-pagination-pages .is-current {
+    background: #34332f;
+    color: #fffefb;
+  }
+
+  .blog-pagination-pages .is-ellipsis {
+    min-width: 1rem;
+    padding: 0;
+    color: #aaa69c;
+  }
+
   @media (max-width: 991px) {
     .blog-journal {
       padding-top: 1rem;
@@ -333,6 +401,25 @@ permalink: /blog/
       align-items: flex-start;
       flex-direction: column;
     }
+
+    .blog-pagination {
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+    }
+
+    .blog-pagination-pages {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      justify-content: center;
+    }
+
+    .blog-pagination-direction {
+      grid-row: 2;
+    }
+
+    .blog-pagination-direction:last-child {
+      grid-column: 2;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -343,8 +430,11 @@ permalink: /blog/
   }
 </style>
 
-{% assign visible_posts = site.posts | where_exp: 'post', 'post.hidden != true' %}
-{% assign featured = visible_posts | first %}
+{% assign visible_posts = paginator.posts %}
+{% assign featured = nil %}
+{% if paginator.page == 1 %}
+  {% assign featured = visible_posts | first %}
+{% endif %}
 {% assign featured_cover = featured.image.path | default: featured.image %}
 
 <div class="blog-journal">
@@ -382,12 +472,18 @@ permalink: /blog/
 
   <section class="blog-latest" aria-labelledby="latest-writing">
     <div class="blog-section-heading">
-      <h2 class="blog-section-label" id="latest-writing">Latest writing</h2>
+      <h2 class="blog-section-label" id="latest-writing">
+        {% if paginator.page == 1 %}Latest writing{% else %}More writing{% endif %}
+      </h2>
       <a href="{{ '/blog/archives/' | relative_url }}">View archive &rarr;</a>
     </div>
 
     <div class="blog-grid">
-      {% for post in visible_posts offset:1 limit:9 %}
+      {% assign list_offset = 0 %}
+      {% if paginator.page == 1 %}
+        {% assign list_offset = 1 %}
+      {% endif %}
+      {% for post in visible_posts offset:list_offset %}
         {% assign cover = post.image.path | default: post.image %}
         <a class="blog-card{% unless cover %} no-cover{% endunless %}" href="{{ post.url | relative_url }}">
           {% if cover %}
@@ -415,6 +511,10 @@ permalink: /blog/
         </a>
       {% endfor %}
     </div>
+
+    {% if paginator.total_pages > 1 %}
+      {% include blog-pagination.html %}
+    {% endif %}
   </section>
 
   <div class="blog-archive-cta">
