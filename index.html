@@ -151,6 +151,10 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
         transition: transform .16s ease, border-color .16s ease, background .16s ease;
       }
 
+      .link-card[hidden] {
+        display: none;
+      }
+
       .link-card:hover {
         transform: translateY(-2px);
         border-color: color-mix(in srgb, var(--accent) 46%, var(--line));
@@ -211,6 +215,10 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
 
       .sword {
         --accent: var(--green);
+      }
+
+      .readforfun {
+        --accent: var(--orange);
       }
 
       .blog {
@@ -296,7 +304,7 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
       <main>
         <section class="directory" aria-label="Project links">
           <div class="link-grid">
-            <a class="link-card mosa" href="/mosa.app/">
+            <a class="link-card mosa" href="/mosa.app/" hidden>
               <img src="https://www.chunyangwen.com/mosa.app/assets/icon/mosa-icon.png" alt="">
               <span>
                 <h3>Mosa</h3>
@@ -305,7 +313,7 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
               <span class="arrow">-></span>
             </a>
 
-            <a class="link-card inputguru" href="/inputguru.app/">
+            <a class="link-card inputguru" href="/inputguru.app/" hidden>
               <img src="https://www.chunyangwen.com/inputguru.app/assets/inputguru-icon-D_dIlnnY.png" alt="">
               <span>
                 <h3>InputGuru</h3>
@@ -314,7 +322,7 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
               <span class="arrow">-></span>
             </a>
 
-            <a class="link-card keytop" href="/keytop.app/">
+            <a class="link-card keytop" href="/keytop.app/" hidden>
               <img src="https://www.chunyangwen.com/keytop.app/assets/icon.png" alt="">
               <span>
                 <h3>KeyTop</h3>
@@ -323,7 +331,7 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
               <span class="arrow">-></span>
             </a>
 
-            <a class="link-card mustache" href="/mustache.app/">
+            <a class="link-card mustache" href="/mustache.app/" hidden>
               <img src="https://www.chunyangwen.com/mustache.app/assets/icon.png" alt="">
               <span>
                 <h3>Mustache</h3>
@@ -337,6 +345,15 @@ description: Software, macOS utilities, web tools, and technical writing by Chun
               <span>
                 <h3>Sword</h3>
                 <p>Local-first developer utilities in the browser.</p>
+              </span>
+              <span class="arrow">-></span>
+            </a>
+
+            <a class="link-card readforfun" href="/ReadForFun/">
+              <img src="/ReadForFun/favicon.png" alt="">
+              <span>
+                <h3>ReadForFun</h3>
+                <p>An illustrated bookshelf of stories to read for fun.</p>
               </span>
               <span class="arrow">-></span>
             </a>
