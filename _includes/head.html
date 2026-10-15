@@ -114,8 +114,7 @@
 
     <!-- Web Analytics -->
     {% for analytics in site.analytics %}
-      {% capture str %}{{ analytics }}{% endcapture %}
-      {% assign platform = str | split: '{' | first %}
+      {% assign platform = analytics[0] %}
       {% if site.analytics[platform].id and site.analytics[platform].id != empty %}
         {% include analytics/{{ platform }}.html %}
       {% endif %}
